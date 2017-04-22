@@ -108,6 +108,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AdministracionController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PeliculasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -117,6 +120,54 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\Css\bootstrap.css" />
+    <Content Include="Content\Css\popuo-box.css" />
+    <Content Include="Content\Css\style.css" />
+    <Content Include="Content\Images\beauty.jpg" />
+    <Content Include="Content\Images\dot.png" />
+    <Content Include="Content\Images\eye-brow.jpg" />
+    <Content Include="Content\Images\f1.jpg" />
+    <Content Include="Content\Images\f2.jpg" />
+    <Content Include="Content\Images\f3.jpg" />
+    <Content Include="Content\Images\f4.jpg" />
+    <Content Include="Content\Images\f5.jpg" />
+    <Content Include="Content\Images\f6.jpg" />
+    <Content Include="Content\Images\gridallbum1.jpg" />
+    <Content Include="Content\Images\gridallbum10.jpg" />
+    <Content Include="Content\Images\gridallbum11.jpg" />
+    <Content Include="Content\Images\gridallbum2.jpg" />
+    <Content Include="Content\Images\gridallbum3.jpg" />
+    <Content Include="Content\Images\gridallbum4.jpg" />
+    <Content Include="Content\Images\gridallbum5.jpg" />
+    <Content Include="Content\Images\gridallbum6.jpg" />
+    <Content Include="Content\Images\gridallbum7.jpg" />
+    <Content Include="Content\Images\gridallbum8.jpg" />
+    <Content Include="Content\Images\gridallbum9.jpg" />
+    <Content Include="Content\Images\header-bg.jpg" />
+    <Content Include="Content\Images\img-sprite.png" />
+    <Content Include="Content\Images\likes.png" />
+    <Content Include="Content\Images\link.png" />
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\m1.jpg" />
+    <Content Include="Content\Images\m2.jpg" />
+    <Content Include="Content\Images\m3.jpg" />
+    <Content Include="Content\Images\m4.jpg" />
+    <Content Include="Content\Images\mi.jpg" />
+    <Content Include="Content\Images\mi1.jpg" />
+    <Content Include="Content\Images\mi2.jpg" />
+    <Content Include="Content\Images\mi3.jpg" />
+    <Content Include="Content\Images\r1.jpg" />
+    <Content Include="Content\Images\r2.jpg" />
+    <Content Include="Content\Images\r3.jpg" />
+    <Content Include="Content\Images\r4.jpg" />
+    <Content Include="Content\Images\r5.jpg" />
+    <Content Include="Content\Images\r6.jpg" />
+    <Content Include="Content\Images\sprit-1.png" />
+    <Content Include="Content\Images\stylish.jpg" />
+    <Content Include="Content\Images\views.png" />
+    <Content Include="Content\Js\Jquery\jquery.flexisel.js" />
+    <Content Include="Content\Js\Jquery\jquery.magnific-popup.js" />
+    <Content Include="Content\Js\Jquery\jquery.min.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -129,11 +180,37 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_MasterLayout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Inicio.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Login.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Peliculas\Reservas.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Administracion\Inicio.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Administracion\Peliculas.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Administracion\Sedes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Administracion\Carteleras.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Administracion\Reportes.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
