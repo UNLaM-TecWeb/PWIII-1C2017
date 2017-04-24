@@ -21,5 +21,10 @@ namespace Cine.Controllers
             return View();
         }
 
+        public ActionResult Registracion()
+        {
+            return View();
+        }
+
     }
 }

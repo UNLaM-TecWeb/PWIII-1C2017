@@ -123,6 +123,7 @@
     <Content Include="Content\Css\bootstrap.css" />
     <Content Include="Content\Css\popuo-box.css" />
     <Content Include="Content\Css\style.css" />
+    <Content Include="Content\Css\StyleLogin.css" />
     <Content Include="Content\Images\beauty.jpg" />
     <Content Include="Content\Images\dot.png" />
     <Content Include="Content\Images\eye-brow.jpg" />
@@ -162,9 +163,11 @@
     <Content Include="Content\Images\r4.jpg" />
     <Content Include="Content\Images\r5.jpg" />
     <Content Include="Content\Images\r6.jpg" />
+    <Content Include="Content\Images\soldado.png" />
     <Content Include="Content\Images\sprit-1.png" />
     <Content Include="Content\Images\stylish.jpg" />
     <Content Include="Content\Images\views.png" />
+    <Content Include="Content\Js\ValidacionLogin.js" />
     <Content Include="Content\Js\Jquery\jquery.flexisel.js" />
     <Content Include="Content\Js\Jquery\jquery.magnific-popup.js" />
     <Content Include="Content\Js\Jquery\jquery.min.js" />
@@ -211,6 +214,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Administracion\Reportes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Registracion.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
