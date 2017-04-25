@@ -121,6 +121,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Content\Css\bootstrap.css" />
+    <Content Include="Content\Css\cine.css" />
     <Content Include="Content\Css\popuo-box.css" />
     <Content Include="Content\Css\style.css" />
     <Content Include="Content\Css\StyleLogin.css" />
