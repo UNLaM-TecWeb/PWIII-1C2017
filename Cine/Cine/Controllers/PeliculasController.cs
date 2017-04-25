@@ -16,5 +16,9 @@ namespace Cine.Controllers
             return View();
         }
 
+        public ActionResult ClienteReserva()
+        {
+            return View();
+        }
     }
 }

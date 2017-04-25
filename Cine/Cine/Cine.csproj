@@ -218,7 +218,7 @@
     <Content Include="Views\Administracion\Reportes.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Registracion.cshtml" />
+    <Content Include="Views\Peliculas\ClienteReserva.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
