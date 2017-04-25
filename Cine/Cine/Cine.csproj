@@ -168,6 +168,7 @@
     <Content Include="Content\Images\sprit-1.png" />
     <Content Include="Content\Images\stylish.jpg" />
     <Content Include="Content\Images\views.png" />
+    <Content Include="Content\Js\globales.js" />
     <Content Include="Content\Js\ValidacionLogin.js" />
     <Content Include="Content\Js\Jquery\jquery.flexisel.js" />
     <Content Include="Content\Js\Jquery\jquery.magnific-popup.js" />
