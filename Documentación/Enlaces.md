@@ -11,3 +11,6 @@ En éste archivo voy a ir dejando enlaces de utilidad:
 
 # Otros
 + [Microsoft Naming Guidelines](https://msdn.microsoft.com/en-us/library/ms229002%28v=vs.110%29.aspx) Documentación sobre las convenciones de código que usa MS.
+
+# GitHub Gists
++ [Esqueleto XHTML 1.0 STRICT](https://gist.github.com/gerAlvarez/2cffd5aac24c05261792cb42986045d6)
