@@ -17,21 +17,14 @@
               <td><strong>Sede</strong></td>
               <td><strong>Accion</strong></td>
             </tr>
- 
-            <tr>
-              <td>Devoto Shopping</td>
-              <td><a href="#" class="btn btn-warning">Modificar</a></td>
-            </tr>
- 
-            <tr>
-              <td>Alto Palermo</td>
-              <td><a href="#" class="btn btn-warning">Modificar</a></td>
-            </tr>
- 
-            <tr>
-              <td>Abasto Shopping</td>
-              <td><a href="#" class="btn btn-warning">Modificar</a></td>
-            </tr>
+             @foreach(var sede in ViewBag.Sedes)
+             {
+              <tr>
+                  <td>@sede.Nombre</td>
+                  <td><a href="@sede.IdSede" class="btn btn-warning">Modificar</a></td>
+              </tr>
+             }
+
         </table>
               <button onclick="mostrar('nuevaPelicula')" class="btn btn-primary btn-block">Nueva Sede</button> 
           </div>

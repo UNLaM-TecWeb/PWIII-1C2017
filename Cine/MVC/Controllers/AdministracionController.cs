@@ -44,6 +44,7 @@ namespace MVC.Controllers
 
         public ActionResult Sedes()
         {
+            ViewBag.Sedes = servicioSedes.TraerSedes(); // Traigo las Sedes de la Base de Datos
             return View();
         }
 
@@ -51,7 +52,7 @@ namespace MVC.Controllers
         public ActionResult Sedes(Sede s)
         {
             servicioSedes.GuardarSede(s);
-            return RedirectToAction("Administracion", "Sedes");
+            return RedirectToAction("Sedes", "Administracion");
         }
 
     }

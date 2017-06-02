@@ -19,7 +19,23 @@ namespace DAL
             sed.PrecioGeneral = se.PrecioGeneral;
             ctx.Sedes.Add(sed);
             ctx.SaveChanges();
+        }
 
+        public List<Sede> ObtenerSedes()
+        {
+            var sedes = (from s in ctx.Sedes select s).ToList();
+
+            List<Sede> listaSedes = new List<Sede>();
+
+            foreach (Sedes sede in sedes)
+            {
+                Sede se = new Sede();
+                se.IdSede = sede.IdSede;
+                se.Nombre = sede.Nombre;
+                listaSedes.Add(se);
+            }
+
+            return listaSedes;
         }
     }
 }

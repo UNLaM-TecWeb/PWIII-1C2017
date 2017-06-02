@@ -11,11 +11,18 @@ namespace Logica
     public class ManejoSedes
     {
         PersistenciaSedes pSedes = new PersistenciaSedes();
+
         public void GuardarSede(Sede s)
         {
             pSedes.Almacenar(s);
+        }
 
+        public List<Sede> TraerSedes()
+        {
+            List<Sede> listaSedes = new List<Sede>();
+            listaSedes = pSedes.ObtenerSedes();
 
+            return listaSedes;
         }
     }
 }
