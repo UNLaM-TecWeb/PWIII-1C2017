@@ -30,8 +30,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,13 +46,82 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calificaciones.cs">
+      <DependentUpon>ModelDatosCine.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Carteleras.cs">
+      <DependentUpon>ModelDatosCine.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Generos.cs">
+      <DependentUpon>ModelDatosCine.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelDatosCine.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDatosCine.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelDatosCine.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDatosCine.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelDatosCine.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDatosCine.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Peliculas.cs">
+      <DependentUpon>ModelDatosCine.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PersistenciaSedes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reservas.cs">
+      <DependentUpon>ModelDatosCine.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sedes.cs">
+      <DependentUpon>ModelDatosCine.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TiposDocumentos.cs">
+      <DependentUpon>ModelDatosCine.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios.cs">
+      <DependentUpon>ModelDatosCine.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Versiones.cs">
+      <DependentUpon>ModelDatosCine.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entidades\Entidades.csproj">
       <Project>{d9e58233-19d5-43f4-8b06-6f585a2b44ff}</Project>
       <Name>Entidades</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="ModelDatosCine.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelDatosCine.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="ModelDatosCine.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelDatosCine.edmx</DependentUpon>
+      <LastGenOutput>ModelDatosCine.Context.cs</LastGenOutput>
+    </None>
+    <None Include="ModelDatosCine.edmx.diagram">
+      <DependentUpon>ModelDatosCine.edmx</DependentUpon>
+    </None>
+    <None Include="ModelDatosCine.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelDatosCine.edmx</DependentUpon>
+      <LastGenOutput>ModelDatosCine.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

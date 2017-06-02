@@ -116,6 +116,18 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\Css\bootstrap.css" />
+    <Content Include="Content\Css\bootstrap.min.css" />
+    <Content Include="Content\Css\cine.css" />
+    <Content Include="Content\Css\Login.css" />
+    <Content Include="Content\Css\popuo-box.css" />
+    <Content Include="Content\Css\style.css" />
+    <Content Include="Content\Js\Bootstrap\bootstrap.min.js" />
+    <Content Include="Content\Js\globales.js" />
+    <Content Include="Content\Js\Jquery\jquery.flexisel.js" />
+    <Content Include="Content\Js\Jquery\jquery.magnific-popup.js" />
+    <Content Include="Content\Js\Jquery\jquery.min.js" />
+    <Content Include="Content\Js\Login.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -128,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Images\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
