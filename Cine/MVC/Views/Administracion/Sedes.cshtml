@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Sedes";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+<h3 class="text-center">Administracion - Sedes</h3>
+<div class="container">
+       
+    <!-- Listado de Sedes -->
+    <div class="row" >
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title text-center">Listado de Sedes</h3>
+          </div>
+          <div class="panel-body">
+        <table class="table table-hover text-center">
+            <tr>
+              <td><strong>Sede</strong></td>
+              <td><strong>Accion</strong></td>
+            </tr>
+ 
+            <tr>
+              <td>Devoto Shopping</td>
+              <td><a href="#" class="btn btn-warning">Modificar</a></td>
+            </tr>
+ 
+            <tr>
+              <td>Alto Palermo</td>
+              <td><a href="#" class="btn btn-warning">Modificar</a></td>
+            </tr>
+ 
+            <tr>
+              <td>Abasto Shopping</td>
+              <td><a href="#" class="btn btn-warning">Modificar</a></td>
+            </tr>
+        </table>
+              <button onclick="mostrar('nuevaPelicula')" class="btn btn-primary btn-block">Nueva Sede</button> 
+          </div>
+        </div>
+    </div>
+
+        <!-- Formulario - Nueva Sede -->
+    
+
+
+    <div id="nuevaPelicula" class="row oculto">
+        <div class="panel panel-success">
+            <div class="panel-heading">Agregar nueva Sede</div>
+            <div class="panel-body">
+                @using(Html.BeginForm())
+                {
+                    @Html.Label("Nombre")
+                    @Html.TextBox("Nombre", null, new { @class = "form-control" })
+                    <br />
+                    @Html.Label("Direccion")
+                    @Html.TextBox("Direccion", null, new { @class = "form-control" })
+                    <br />
+                    @Html.Label("PrecioGeneral", "Precio General")
+                    @Html.TextBox("PrecioGeneral", null, new { @class = "form-control" })
+                    <br />
+                    <button type="submit" class="btn btn-success btn-block" >Agregar</button>
+                }
+             </div>
+        </div>
+     </div>
+</div>

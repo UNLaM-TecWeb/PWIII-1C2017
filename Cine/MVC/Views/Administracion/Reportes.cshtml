@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Reportes";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<!--
+5.8 Reporte de Reservas (/administracion/reportes)(*)
+El reporte de reservas permitirá visualizar el listado de reservas realizadas para una película en
+un período dado (fecha inicio - fecha fin). Los datos que se deberán ver son:
+- sede.
+- versión.
+- nombre película.
+- precio.
+Se deberá validar que el período consultado no exceda los 30 días.
+
+(*) En caso de no estar logueado, debe redirigirse a ​/home/login y luego de que el usuario
+ingrese se lo debe auto-redirigir a la página que deseaba ingresar.
+-->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4"><h1>Reporte de reservas</h1></div>
+                <div class="col-sm-4"></div>
+            </div>
+        </div>
+
+        <!-- Éste bloque no es más que un pedazo de código para insertar algo de "espacio" entre el bloque de arriba y el de abajo. -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <label class="">&nbsp;</label>
+                </div>
+            </div>
+        </div>
+        <!-- Fin del "bloque espaciador" -->
+
+        <div class="container">
+            <div class="row">
+                <form action="" method="post">
+                    <div class="col-sm-1"><label>Desde:</label></div>
+                    <div class="col-sm-1"><input type="text" class="form-control" placeholder="dd" name="DesdeDia" id="DesdeDia" onload="DarFoco('DesdeDia');"></div>
+                    <div class="col-sm-1"><input type="text" class="form-control" placeholder="mm" name="DesdeMes"></div>
+                    <div class="col-sm-1"><input type="text" class="form-control" placeholder="yy" name="DesdeAnno"></div>
+                    
+                    <div class="col-sm-1"><label>Hasta:</label></div>
+                    <div class="col-sm-1"><input type="text" class="form-control" placeholder="dd" name="HastaDia"></div>
+                    <div class="col-sm-1"><input type="text" class="form-control" placeholder="mm" name="HastaMes"></div>
+                    <div class="col-sm-1"><input type="text" class="form-control" placeholder="yy" name="HastaAnno"></div>
+                    
+                    <div class="col-sm-1"><input type="submit" class="btn btn-default" value="Ver reporte"></div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Éste bloque no es más que un pedazo de código para insertar algo de "espacio" entre el bloque de arriba y el de abajo. -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <label class="">&nbsp;</label>
+                </div>
+            </div>
+        </div>
+        <!-- Fin del "bloque espaciador" -->
+
+        <div class="container">
+            <div class="row">
+                <table class="table table-hover">
+                    <tr>
+                        <th>#</th>
+                        <th>Sede</th>
+                        <th>Versi&oacute;n</th>
+                        <th>Pel&iacute;cula</th>
+                        <th>Precio</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <script src="@Url.Content("~/Content/Js/globales.js")"></script>

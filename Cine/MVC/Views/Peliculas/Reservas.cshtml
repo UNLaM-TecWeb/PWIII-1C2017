@@ -1,0 +1,110 @@
+﻿@{
+    ViewBag.Title = "Reservas";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<link href="~/Content/Css/StyleLogin.css" rel="stylesheet" />
+<script src="~/Content/Js/ValidacionLogin.js"></script>
+<script src="~/Content/Js/Reserva.js"></script>
+
+<h3 class="text-center">Reserva - Entrada</h3>
+<div class="container">
+
+
+    <div class="container">
+        <!-- Formulario - Nueva Pelicula -->
+     
+        <!-- Formulario - Asignar Pelicula a Sala -->
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h3 class="panel-title text-center">Reserva de Entrada</h3></div>
+                <div class="panel-body">
+                    <form role="form">
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title text-center">Versión de la pelicula</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <select class="form-control">
+                                        <option>Seleccionar</option>
+                                        <option>Doblada al español</option>
+                                        <option>Subtitulada</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title text-center">Sede</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <select class="form-control">
+                                        <option>Villa Devoto</option>
+                                        <option>Alto Palermo</option>
+                                        <option>Abasto Shopping</option>
+                                        <option>Unicenter</option>
+                                        <option>DOT</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title text-center">Días</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <select class="form-control">
+                                        <option>Seleccionar</option>
+                                        <option>Lunes 11 de Abril</option>
+                                        <option>Martes 18 de Abril</option>
+                                        <option>Miercoles 20 de Abril</option>
+                                        <option>Jueves 19 de Abril</option>
+                                        <option>Viernes 12 de Abril</option>
+                                        <option>Sabado 10 de Abril</option>
+                                        <option>Domingo 9 de Abril</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title text-center">Horarios</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <select class="form-control">
+                                        <option>Seleccionar</option>
+                                        <option>10:45 hs</option>
+                                        <option>11:45 hs</option>
+                                        <option>12:45 hs</option>
+                                        <option>13:45 hs</option>
+                                        <option>14:45 hs</option>
+                                        <option>15:45 hs</option>
+                                        <option>16:45 hs</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="Comprar" class="text-center">
+                             <a href="/Peliculas/ClienteReserva?id=SoldadoArgentino" class="btn btn-success">Comprar Entrada</a>
+                            
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <!-- Catalogo de Peliculas -->
+      
+    </div>
+
+   
+</div>
