@@ -55,5 +55,11 @@ namespace MVC.Controllers
             return RedirectToAction("Sedes", "Administracion");
         }
 
+        public ActionResult EditarSede(int id)
+        {
+            ViewBag.sede = servicioSedes.TraerSede(id);
+            return View();
+        }
+
     }
 }

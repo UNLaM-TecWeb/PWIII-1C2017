@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "EditarSede";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<h2>EditarSede</h2>
+@using(Html.BeginForm())
+                {
+                    @Html.Label("Nombre")
+                    @Html.TextBox("Nombre", null, new { @class = "form-control" })
+                    <br />
+                    @Html.Label("Direccion")
+                    @Html.TextBox("Direccion", null, new { @class = "form-control" })
+                    <br />
+                    @Html.Label("PrecioGeneral", "Precio General")
+                    @Html.TextBox("PrecioGeneral", null, new { @class = "form-control" })
+                    <br />
+                    <button type="submit" class="btn btn-success btn-block" >Agregar</button>
+                }

@@ -21,9 +21,10 @@
              {
               <tr>
                   <td>@sede.Nombre</td>
-                  <td><a href="@sede.IdSede" class="btn btn-warning">Modificar</a></td>
+                  <td>@Html.ActionLink("Modificar", "EditarSede", "Administracion", new { id = @sede.IdSede }, new {@class = "btn btn-warning" })</td>
               </tr>
              }
+            
 
         </table>
               <button onclick="mostrar('nuevaPelicula')" class="btn btn-primary btn-block">Nueva Sede</button> 

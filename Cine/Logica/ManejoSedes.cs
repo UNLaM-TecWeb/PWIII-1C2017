@@ -17,12 +17,19 @@ namespace Logica
             pSedes.Almacenar(s);
         }
 
-        public List<Sede> TraerSedes()
+        public List<Sede> TraerSedes() // Traigo Todas las sedes
         {
             List<Sede> listaSedes = new List<Sede>();
             listaSedes = pSedes.ObtenerSedes();
 
             return listaSedes;
+        }
+
+        public Sede TraerSede(int id) // Traigo una Sede especifica
+        {
+            Sede sede = new Sede();
+            sede = pSedes.ObtenerSede(id);
+            return sede;
         }
     }
 }
