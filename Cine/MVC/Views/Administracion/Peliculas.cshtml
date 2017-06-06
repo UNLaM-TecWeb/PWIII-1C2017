@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Entidades.Pelicula
+@{
     ViewBag.Title = "Peliculas";
     Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
@@ -110,51 +111,31 @@
             <div class="panel panel-success">
                 <div class="panel-heading"><h3 class="panel-title text-center">NUEVA PELICULA</h3></div>
                 <div class="panel-body">
-                    <form role="form">
-          <div class="form-group">
-            <label for="Nombre">Nombre</label>
-            <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Nombre de la Pelicula">
-          </div>
 
+@using(Html.BeginForm())
+{
+    @Html.Label("Nombre de la Pelicula")
+    @Html.TextBox("Nombre", null, new { @class = "form-control" })    
           <div class="form-group">
             <label for="Descripcion">Descripcion</label>
             <textarea class="form-control" rows="3" id="Descripcion" name="Descripcion"></textarea>
           </div>
-
-          <div class="form-group">
-            <label for="Calificacion">Calificacion</label>
-            <select class="form-control" id="Calificacion" name="Calificacion">
-              <option>ATP</option>
-              <option>Mayores de 13</option>
-              <option>Mayores de 13 con Reservas</option>
-              <option>Mayores de 16</option>
-              <option>Mayores de 16 con Reservas</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="Genero">Genero</label>
-            <select class="form-control" id="Genero" name="Genero">
-              <option>Terror</option>
-              <option>Thriller</option>
-              <option>Accion</option>
-              <option>Comedia</option>
-              <option>Comedia Romantica</option>
-            </select>
-          </div>
+    @Html.Label("Genero")
+    @Html.DropDownListFor(model => model.IdGenero, new SelectList(ViewBag.Generos, "IdGenero", "Nombre"), new { @class = "form-control" })
+    
+    @Html.Label("Calificacion")            
+    @Html.DropDownListFor(model => model.IdCalificacion, new SelectList(ViewBag.Calificaciones, "IdCalificacion", "Nombre"), new { @class = "form-control" })
+     
 
           <div class="form-group">
             <label for="Imagen">Imagen</label>
             <input type="text" class="form-control" id="Imagen" name="Imagen" placeholder="Imagen de la Pelicula">
           </div>
-
-          <div class="form-group">
-            <label for="Duracion">Duracion</label>
-            <input type="text" class="form-control" id="Duracion" name="Duracion" placeholder="Duracion de la Pelicula">
-          </div>
-      
-          <button type="submit" class="btn btn-success btn-block" >Agregar</button>
-        </form>
+    @Html.Label("Duracion")
+    @Html.TextBox("Duracion", null, new { @class = "form-control" }) 
+    
+    <button type="submit" class="btn btn-success btn-block" >Agregar</button>
+}
                 </div>
             </div>
         

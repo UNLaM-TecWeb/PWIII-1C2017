@@ -14,6 +14,7 @@ namespace MVC.Controllers
         // GET: /Administracion/
 
         ManejoSedes servicioSedes = new ManejoSedes();
+        ManejoPeliculas servicioPeliculas = new ManejoPeliculas();
 
         public ActionResult Index()
         {
@@ -27,6 +28,8 @@ namespace MVC.Controllers
 
         public ActionResult Peliculas()
         {
+            ViewBag.Generos = servicioPeliculas.TraerGeneros();
+            ViewBag.Calificaciones = servicioPeliculas.TraerCalificaciones();
             return View();
         }
 
