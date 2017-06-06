@@ -51,6 +51,12 @@ namespace MVC.Controllers
         [HttpPost]
         public ActionResult Sedes(Sede s)
         {
+            if (!(ModelState.IsValid))
+            {
+                return RedirectToAction("Sedes", "Administracion");
+
+            }
+            
             servicioSedes.GuardarSede(s);
             return RedirectToAction("Sedes", "Administracion");
         }

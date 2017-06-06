@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Entidades.Sede
+@{
     ViewBag.Title = "Sedes";
     Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
@@ -41,12 +42,17 @@
                 {
                     @Html.Label("Nombre")
                     @Html.TextBox("Nombre", null, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Nombre)
+                    
                     <br />
                     @Html.Label("Direccion")
                     @Html.TextBox("Direccion", null, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Direccion)
                     <br />
                     @Html.Label("PrecioGeneral", "Precio General")
                     @Html.TextBox("PrecioGeneral", null, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.PrecioGeneral)
+                  
                     <br />
                     <button type="submit" class="btn btn-success btn-block" >Agregar</button>
                 }
