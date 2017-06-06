@@ -17,6 +17,11 @@ namespace Logica
             pSedes.Almacenar(s);
         }
 
+        public void ActualizarSede(Sede s)
+        {
+            pSedes.ActualizarSede(s);
+        }
+
         public List<Sede> TraerSedes() // Traigo Todas las sedes
         {
             List<Sede> listaSedes = new List<Sede>();

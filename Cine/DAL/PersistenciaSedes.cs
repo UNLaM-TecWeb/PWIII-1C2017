@@ -16,7 +16,7 @@ namespace DAL
             Sedes sed = new Sedes();
             sed.Nombre = se.Nombre;
             sed.Direccion = se.Direccion;
-            sed.PrecioGeneral = se.PrecioGeneral;
+            sed.PrecioGeneral = Convert.ToDecimal(se.PrecioGeneral);
             ctx.Sedes.Add(sed);
             ctx.SaveChanges();
         }
@@ -42,7 +42,7 @@ namespace DAL
 
         public Sede ObtenerSede(int id) // Obtengo una sede en especifico
         {
-            var sedeBuscada = from s in ctx.Sedes where s.IdSede = id select s;
+            var sedeBuscada = from s in ctx.Sedes where s.IdSede == id select s;
 
             Sede se = new Sede();
 
@@ -54,6 +54,23 @@ namespace DAL
                 se.PrecioGeneral = sede.PrecioGeneral;
             }
             return se;
+        }
+
+        public void ActualizarSede(Sede se)
+        {
+            // Realizo la consulta para la sede especifica
+            var query = from s in ctx.Sedes where s.IdSede == se.IdSede select s;
+            
+   
+            foreach (Sedes s in query) 
+            {
+                s.Nombre = se.Nombre;
+                s.Direccion = se.Direccion;
+                s.PrecioGeneral = se.PrecioGeneral;
+            }
+
+            ctx.SaveChanges();
+
         }
     }
 }

@@ -61,5 +61,12 @@ namespace MVC.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult EditarSede(Sede s)
+        {
+            servicioSedes.ActualizarSede(s);
+            return RedirectToAction("Sedes", "Administracion");
+        }
+
     }
 }

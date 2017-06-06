@@ -7,13 +7,14 @@
 @using(Html.BeginForm())
                 {
                     @Html.Label("Nombre")
-                    @Html.TextBox("Nombre", null, new { @class = "form-control" })
+                    @Html.TextBox("Nombre", null, new { @class = "form-control", Value = ViewBag.sede.Nombre })
                     <br />
                     @Html.Label("Direccion")
-                    @Html.TextBox("Direccion", null, new { @class = "form-control" })
+                    @Html.TextBox("Direccion", null, new { @class = "form-control", Value = ViewBag.sede.Direccion })
                     <br />
                     @Html.Label("PrecioGeneral", "Precio General")
-                    @Html.TextBox("PrecioGeneral", null, new { @class = "form-control" })
+                    @Html.TextBox("PrecioGeneral", null, new { @class = "form-control", Value = ViewBag.sede.PrecioGeneral })
                     <br />
+                    @Html.TextBox("IdSede", null, new {Value = ViewBag.sede.IdSede, @class = "hidden" })
                     <button type="submit" class="btn btn-success btn-block" >Agregar</button>
                 }
