@@ -48,10 +48,6 @@
       <Project>{ea816620-bc65-4d6a-b1a6-7cdab6748461}</Project>
       <Name>DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Entidades\Entidades.csproj">
-      <Project>{d9e58233-19d5-43f4-8b06-6f585a2b44ff}</Project>
-      <Name>Entidades</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

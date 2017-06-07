@@ -1,5 +1,4 @@
-﻿using Entidades;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,14 +10,14 @@ namespace DAL
     {
         MyContext ctx = new MyContext();
 
-        public List<Genero> ObtenerGeneros()
+        public List<Generos> ObtenerGeneros()
         {
             var generos = (from g in ctx.Generos select g).ToList();
-            List<Genero> listaGeneros = new List<Genero>();
+            List<Generos> listaGeneros = new List<Generos>();
 
             foreach(Generos genero in generos)
             {
-                Genero ge = new Genero();
+                Generos ge = new Generos();
                 ge.IdGenero = genero.IdGenero;
                 ge.Nombre = genero.Nombre;
                 listaGeneros.Add(ge);
@@ -27,14 +26,14 @@ namespace DAL
             return listaGeneros;
         }
 
-        public List<Calificacion> ObtenerCalificaciones()
+        public List<Calificaciones> ObtenerCalificaciones()
         {
             var calificaciones = (from c in ctx.Calificaciones select c).ToList();
-            List<Calificacion> listaCalificaciones = new List<Calificacion>();
+            List<Calificaciones> listaCalificaciones = new List<Calificaciones>();
             
             foreach(Calificaciones calificacion in calificaciones)
             {
-                Calificacion cal = new Calificacion();
+                Calificaciones cal = new Calificaciones();
                 cal.IdCalificacion = calificacion.IdCalificacion;
                 cal.Nombre = calificacion.Nombre;
                 listaCalificaciones.Add(cal);

@@ -93,12 +93,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Entidades\Entidades.csproj">
-      <Project>{d9e58233-19d5-43f4-8b06-6f585a2b44ff}</Project>
-      <Name>Entidades</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EntityDeploy Include="ModelDatosCine.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelDatosCine.Designer.cs</LastGenOutput>

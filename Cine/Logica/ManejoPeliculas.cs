@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Entidades;
 using DAL;
 
 namespace Logica
@@ -12,13 +11,13 @@ namespace Logica
     {
         PersistenciaPeliculas pPeliculas = new PersistenciaPeliculas();
 
-        public List<Genero> TraerGeneros()
+        public List<Generos> TraerGeneros()
         {
 
             return pPeliculas.ObtenerGeneros();
         }
 
-        public List<Calificacion> TraerCalificaciones()
+        public List<Calificaciones> TraerCalificaciones()
         {
             
             return pPeliculas.ObtenerCalificaciones();

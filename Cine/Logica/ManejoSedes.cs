@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Entidades;
 using DAL;
 
 namespace Logica
@@ -12,29 +11,24 @@ namespace Logica
     {
         PersistenciaSedes pSedes = new PersistenciaSedes();
 
-        public void GuardarSede(Sede s)
+        public void GuardarSede(Sedes s)
         {
             pSedes.Almacenar(s);
         }
 
-        public void ActualizarSede(Sede s)
+        public void ActualizarSede(Sedes s)
         {
             pSedes.ActualizarSede(s);
         }
 
-        public List<Sede> TraerSedes() // Traigo Todas las sedes
+        public List<Sedes> TraerSedes() // Traigo Todas las sedes
         {
-            List<Sede> listaSedes = new List<Sede>();
-            listaSedes = pSedes.ObtenerSedes();
-
-            return listaSedes;
+            return pSedes.ObtenerSedes();
         }
 
-        public Sede TraerSede(int id) // Traigo una Sede especifica
+        public Sedes TraerSede(int id) // Traigo una Sede especifica
         {
-            Sede sede = new Sede();
-            sede = pSedes.ObtenerSede(id);
-            return sede;
+            return pSedes.ObtenerSede(id);
         }
     }
 }

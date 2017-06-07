@@ -150,9 +150,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Entidades\Entidades.csproj">
-      <Project>{d9e58233-19d5-43f4-8b06-6f585a2b44ff}</Project>
-      <Name>Entidades</Name>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{ea816620-bc65-4d6a-b1a6-7cdab6748461}</Project>
+      <Name>DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Logica\Logica.csproj">
       <Project>{8a2237ea-7d81-4eb1-aac7-bb285c7f3d6d}</Project>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Logica;
-using Entidades;
+using DAL;
 
 namespace MVC.Controllers
 {
@@ -52,7 +52,7 @@ namespace MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Sedes(Sede s)
+        public ActionResult Sedes(Sedes s)
         {
             if (!(ModelState.IsValid))
             {
@@ -61,6 +61,7 @@ namespace MVC.Controllers
             }
             
             servicioSedes.GuardarSede(s);
+
             return RedirectToAction("Sedes", "Administracion");
         }
 
@@ -71,7 +72,7 @@ namespace MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditarSede(Sede s)
+        public ActionResult EditarSede(Sedes s)
         {
             servicioSedes.ActualizarSede(s);
             return RedirectToAction("Sedes", "Administracion");
