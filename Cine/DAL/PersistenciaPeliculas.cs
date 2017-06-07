@@ -42,5 +42,16 @@ namespace DAL
             return listaCalificaciones;
         }
 
+        public void AlmacenarPelicula(Peliculas p)
+        {
+            ctx.Peliculas.Add(p);
+            ctx.SaveChanges();
+        }
+
+        public List<Peliculas> ObtenerPeliculas()
+        {
+            var peliculas = (from p in ctx.Peliculas select p).ToList();
+            return peliculas;
+        }
     }
 }

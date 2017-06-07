@@ -17,10 +17,20 @@ namespace Logica
             return pPeliculas.ObtenerGeneros();
         }
 
+        public List<Peliculas> TraerPeliculas()
+        {
+            return pPeliculas.ObtenerPeliculas();
+        }
+
         public List<Calificaciones> TraerCalificaciones()
         {
             
             return pPeliculas.ObtenerCalificaciones();
+        }
+
+        public void AgregarPelicula(Peliculas p)
+        {
+            pPeliculas.AlmacenarPelicula(p);
         }
     }
 }

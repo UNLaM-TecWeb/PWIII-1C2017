@@ -12,11 +12,7 @@ namespace DAL
 
         public void Almacenar(Sedes se) // Guardo la Sede en la DB
         {
-            Sedes sed = new Sedes();
-            sed.Nombre = se.Nombre;
-            sed.Direccion = se.Direccion;
-            sed.PrecioGeneral = Convert.ToDecimal(se.PrecioGeneral);
-            ctx.Sedes.Add(sed);
+            ctx.Sedes.Add(se);
             ctx.SaveChanges();
         }
 

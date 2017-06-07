@@ -28,16 +28,25 @@ namespace MVC.Controllers
 
         public ActionResult Peliculas()
         {
-            ViewBag.Generos = servicioPeliculas.TraerGeneros();
-            ViewBag.Calificaciones = servicioPeliculas.TraerCalificaciones();
-            return View();
+            ViewBag.Sedes = servicioSedes.TraerSedes();
+            return View(servicioPeliculas.TraerPeliculas());
         }
 
         public ActionResult NuevaPelicula()
         {
+            ViewBag.Calificaciones = servicioPeliculas.TraerCalificaciones();
+            ViewBag.Sedes = servicioSedes.TraerSedes();
+            ViewBag.Generos = servicioPeliculas.TraerGeneros();
+            return View();
+        }
 
 
-            return View("Peliculas");
+        [HttpPost]
+        public ActionResult NuevaPelicula(Peliculas p)
+        {
+            // Falla la persistencia
+            servicioPeliculas.AgregarPelicula(p);
+            return RedirectToAction("Peliculas", "Administracion");
         }
 
         public ActionResult Reportes()

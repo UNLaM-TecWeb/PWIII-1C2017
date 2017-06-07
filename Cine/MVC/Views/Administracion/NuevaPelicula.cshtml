@@ -1,0 +1,40 @@
+﻿@model DAL.Peliculas
+@{
+    ViewBag.Title = "NuevaPelicula";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+<div class="col-md-12">
+    <div class="panel panel-success">
+        <div class="panel-heading"><h3 class="panel-title text-center">NUEVA PELICULA</h3></div>
+        <div class="panel-body">
+            @using (Html.BeginForm(new { enctype = "multipart/form-data" }))
+                {
+                  @Html.Label("Nombre de la Pelicula")
+                  @Html.TextBox("Nombre", null, new { @class = "form-control" })
+    
+                  <br />
+                  @Html.Label("Descripcion")
+                  @Html.TextArea("Descripcion", new { rows=6, columns=40, @class = "form-control" })
+
+                  <br />
+                  @Html.Label("Genero")
+                  @Html.DropDownListFor(model => model.IdGenero, new SelectList(ViewBag.Generos, "IdGenero", "Nombre"), new { @class = "form-control" })
+    
+                  <br />
+                  @Html.Label("Calificacion")            
+                  @Html.DropDownListFor(model => model.IdCalificacion, new SelectList(ViewBag.Calificaciones, "IdCalificacion", "Nombre"), new { @class = "form-control" })
+     
+                  <br />
+                  @Html.Label("Imagen")
+                  @Html.TextBox("Imagen", null, new { @class = "form-control", type = "file", id ="file" }) 
+    
+                  <br />
+                  @Html.Label("Duracion")
+                  @Html.TextBox("Duracion", null, new { @class = "form-control" }) 
+    
+                  <br />
+                  <button type="submit" class="btn btn-success btn-block" >Agregar</button>
+                 }
+        </div>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-﻿@model DAL.Peliculas
+﻿@model IEnumerable<DAL.Peliculas>
 @{
     ViewBag.Title = "Peliculas";
     Layout = "~/Views/Shared/_MasterLayout.cshtml";
@@ -35,13 +35,7 @@
                         <h3 class="panel-title text-center">Sede</h3>
                       </div>
                       <div class="panel-body">
-                        <select class="form-control">
-                          <option>Villa Devoto</option>
-                          <option>Alto Palermo</option>
-                          <option>Abasto Shopping</option>
-                          <option>Unicenter</option>
-                          <option>DOT</option>
-                        </select>
+                        @Html.DropDownList("IdSede",new SelectList(@ViewBag.Sedes,"IdSede","Nombre"), new { @class = "form-control" })
                       </div>
                     </div>
                   </div>
@@ -84,62 +78,20 @@
               <td><strong>Pelicula</strong></td>
               <td><strong>Accion</strong></td>
             </tr>
- 
+    
+            @foreach(var pelicula in Model)
+            {
             <tr>
-              <td>Rapidos y Furiosos 8</td>
-              <td><a href="#" class="btn btn-warning">Modificar</a></td>
+              <td>@pelicula.Nombre</td>
+              <td>@Html.ActionLink("Modificar", "EditarPelicula", "Administracion", new { id = @pelicula.IdPelicula }, new {@class = "btn btn-warning" })</td>
             </tr>
+            }
  
-            <tr>
-              <td>La Bella y la Bestia</td>
-              <td><a href="#" class="btn btn-warning">Modificar</a></td>
-            </tr>
- 
-            <tr>
-              <td>Logan</td>
-              <td><a href="#" class="btn btn-warning">Modificar</a></td>
-            </tr>
         </table>
-              <button onclick="mostrar('nuevaPelicula')" class="btn btn-primary btn-block">Agregar Pelicula</button> 
+               @Html.ActionLink("Agregar nueva pelicula", "NuevaPelicula", "Administracion", new {@class = "btn btn-success btn-block" })
           </div>
         </div>
     </div>
 
-        <!-- Formulario - Nueva Pelicula -->
-    <div id="nuevaPelicula" class="row oculto">
-        <div class="col-md-12">
-            <div class="panel panel-success">
-                <div class="panel-heading"><h3 class="panel-title text-center">NUEVA PELICULA</h3></div>
-                <div class="panel-body">
-
-@using(Html.BeginForm())
-{
-    @Html.Label("Nombre de la Pelicula")
-    @Html.TextBox("Nombre", null, new { @class = "form-control" })    
-          <div class="form-group">
-            <label for="Descripcion">Descripcion</label>
-            <textarea class="form-control" rows="3" id="Descripcion" name="Descripcion"></textarea>
-          </div>
-    @Html.Label("Genero")
-    @Html.DropDownListFor(model => model.IdGenero, new SelectList(ViewBag.Generos, "IdGenero", "Nombre"), new { @class = "form-control" })
-    
-    @Html.Label("Calificacion")            
-    @Html.DropDownListFor(model => model.IdCalificacion, new SelectList(ViewBag.Calificaciones, "IdCalificacion", "Nombre"), new { @class = "form-control" })
-     
-
-          <div class="form-group">
-            <label for="Imagen">Imagen</label>
-            <input type="text" class="form-control" id="Imagen" name="Imagen" placeholder="Imagen de la Pelicula">
-          </div>
-    @Html.Label("Duracion")
-    @Html.TextBox("Duracion", null, new { @class = "form-control" }) 
-    
-    <button type="submit" class="btn btn-success btn-block" >Agregar</button>
-}
-                </div>
-            </div>
-        
-        </div>
-    </div>
 </div>
 
