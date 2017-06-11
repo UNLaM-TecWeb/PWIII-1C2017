@@ -74,6 +74,7 @@
       <DependentUpon>ModelDatosCine.tt</DependentUpon>
     </Compile>
     <Compile Include="PersistenciaPeliculas.cs" />
+    <Compile Include="PersistenciaReserva.cs" />
     <Compile Include="PersistenciaSedes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reservas.cs">

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model DAL.Reservas
+@{
     ViewBag.Title = "Reservas";
     Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
@@ -13,19 +14,26 @@
 
     <div class="container">
         <!-- Formulario - Nueva Pelicula -->
-     
+
         <!-- Formulario - Asignar Pelicula a Sala -->
         <div class="row">
             <div class="panel panel-default">
-                <div class="panel-heading"><h3 class="panel-title text-center">Reserva de Entrada</h3></div>
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center">Reserva de Entrada</h3>
+                </div>
                 <div class="panel-body">
-                    <form role="form">
+                    @using (Html.BeginForm())
+                    {
                         <div class="col-md-3">
                             <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title text-center">Versión de la pelicula</h3>
+                                <div class="panel-heading text-center">
+                                    @*  <h3 class="panel-title text-center">Versión de la pelicula</h3>*@
+                                    @Html.Label("Versión de la pelicula", new { @class = "panel-title text-center" })
                                 </div>
                                 <div class="panel-body">
+
+
+                                    @*@Html.DropDownListFor(model => model.IdReserva, new SelectList(ViewBag.Version, "IdReserva", "Version"), new { @class = "form-control" })*@
                                     <select class="form-control">
                                         <option>Seleccionar</option>
                                         <option>Doblada al español</option>
@@ -36,11 +44,14 @@
                         </div>
                         <div class="col-md-3">
                             <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title text-center">Sede</h3>
+                                <div class="panel-heading text-center">
+                                    @Html.Label("Sedes", new { @class = "panel-title text-center" })
                                 </div>
                                 <div class="panel-body">
+
+                                    @*@Html.DropDownListFor(model => model.IdSede, new SelectList(ViewBag.Sede, "IdSede", "Sedes"), new { @class = "form-control" })*@
                                     <select class="form-control">
+                                        <option>Seleccionar</option>
                                         <option>Villa Devoto</option>
                                         <option>Alto Palermo</option>
                                         <option>Abasto Shopping</option>
@@ -52,11 +63,16 @@
                         </div>
                         <div class="col-md-3">
                             <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title text-center">Días</h3>
+                                <div class="panel-heading text-center">
+                                    @Html.Label("Dias", new { @class = "panel-title text-center" })
+
                                 </div>
                                 <div class="panel-body">
+
+                                    @* @Html.DropDownListFor(model => model.FechaCarga, new SelectList(ViewBag.FechaCarga, "FechaCarga", "Fechas"), new { @class = "form-control" })*@
+
                                     <select class="form-control">
+
                                         <option>Seleccionar</option>
                                         <option>Lunes 11 de Abril</option>
                                         <option>Martes 18 de Abril</option>
@@ -74,10 +90,11 @@
 
                         <div class="col-md-3">
                             <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title text-center">Horarios</h3>
+                                <div class="panel-heading text-center">
+                                    @Html.Label("Horarios", new { @class = "panel-title text-center" })
                                 </div>
                                 <div class="panel-body">
+                                    @*@Html.DropDownListFor(model => model.FechaHoraInicio, new SelectList(ViewBag.FechaHoraInicio, "FechaHoraInicio", "FechasHora"), new { @class = "form-control" })*@
                                     <select class="form-control">
                                         <option>Seleccionar</option>
                                         <option>10:45 hs</option>
@@ -93,18 +110,18 @@
                         </div>
 
                         <div id="Comprar" class="text-center">
-                             <a href="/Peliculas/ClienteReserva?id=SoldadoArgentino" class="btn btn-success">Comprar Entrada</a>
-                            
+                            <a href="/Peliculas/ClienteReserva?id=SoldadoArgentino" class="btn btn-success">Comprar Entrada</a>
+
                         </div>
-                    </form>
+                    }
                 </div>
             </div>
         </div>
 
         <br />
         <!-- Catalogo de Peliculas -->
-      
+
     </div>
 
-   
+
 </div>
