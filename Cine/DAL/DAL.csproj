@@ -46,52 +46,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calificaciones.cs">
-      <DependentUpon>ModelDatosCine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Carteleras.cs">
-      <DependentUpon>ModelDatosCine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Generos.cs">
-      <DependentUpon>ModelDatosCine.tt</DependentUpon>
-    </Compile>
     <Compile Include="ModelDatosCine.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelDatosCine.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelDatosCine.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelDatosCine.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelDatosCine.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelDatosCine.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Peliculas.cs">
-      <DependentUpon>ModelDatosCine.tt</DependentUpon>
-    </Compile>
     <Compile Include="PersistenciaPeliculas.cs" />
     <Compile Include="PersistenciaReserva.cs" />
     <Compile Include="PersistenciaSedes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reservas.cs">
-      <DependentUpon>ModelDatosCine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Sedes.cs">
-      <DependentUpon>ModelDatosCine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TiposDocumentos.cs">
-      <DependentUpon>ModelDatosCine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Usuarios.cs">
-      <DependentUpon>ModelDatosCine.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Versiones.cs">
-      <DependentUpon>ModelDatosCine.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="ModelDatosCine.edmx">
@@ -105,19 +73,21 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelDatosCine.edmx</DependentUpon>
       <LastGenOutput>ModelDatosCine.Context.cs</LastGenOutput>
+      <CustomToolNamespace>Entidades</CustomToolNamespace>
     </None>
     <None Include="ModelDatosCine.edmx.diagram">
       <DependentUpon>ModelDatosCine.edmx</DependentUpon>
-    </None>
-    <None Include="ModelDatosCine.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelDatosCine.edmx</DependentUpon>
-      <LastGenOutput>ModelDatosCine.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{52b0fa9a-3c69-400d-8ef5-18a1c36937c2}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

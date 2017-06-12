@@ -7,25 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DAL
+namespace Entidades
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Sedes
+    public partial class Generos
     {
-        public Sedes()
+        public Generos()
         {
-            this.Carteleras = new HashSet<Carteleras>();
-            this.Reservas = new HashSet<Reservas>();
+            this.Peliculas = new HashSet<Peliculas>();
         }
     
-        public int IdSede { get; set; }
+        public int IdGenero { get; set; }
         public string Nombre { get; set; }
-        public string Direccion { get; set; }
-        public decimal PrecioGeneral { get; set; }
     
-        public virtual ICollection<Carteleras> Carteleras { get; set; }
-        public virtual ICollection<Reservas> Reservas { get; set; }
+        public virtual ICollection<Peliculas> Peliculas { get; set; }
     }
 }

@@ -7,21 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DAL
+namespace Entidades
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class TiposDocumentos
+    public partial class Calificaciones
     {
-        public TiposDocumentos()
+        public Calificaciones()
         {
-            this.Reservas = new HashSet<Reservas>();
+            this.Peliculas = new HashSet<Peliculas>();
         }
     
-        public int IdTipoDocumento { get; set; }
-        public string Descripcion { get; set; }
+        public int IdCalificacion { get; set; }
+        public string Nombre { get; set; }
     
-        public virtual ICollection<Reservas> Reservas { get; set; }
+        public virtual ICollection<Peliculas> Peliculas { get; set; }
     }
 }

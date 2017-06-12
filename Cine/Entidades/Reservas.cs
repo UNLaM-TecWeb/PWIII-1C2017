@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DAL
+namespace Entidades
 {
     using System;
     using System.Collections.Generic;
