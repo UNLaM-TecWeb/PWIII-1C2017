@@ -1,0 +1,33 @@
+﻿@model Entidades.Peliculas
+@{
+    ViewBag.Title = "EditarPelicula";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<h2>Editar Pelicula</h2>
+
+@using(Html.BeginForm())
+                {
+                    @Html.Label("Nombre")
+                    @Html.TextBox("Nombre", null, new { @class = "form-control", Value = Model.Nombre})
+                    <br />
+                    @Html.Label("Descripcion")
+                    @Html.TextBox("Descripcion", null, new { @class = "form-control", Value = Model.Descripcion })
+                    <br />
+                    @Html.Label("Imagen")
+                    @Html.TextBox("Imagen", null, new { @class = "form-control", Value = Model.Imagen })
+                    <br />
+                    @Html.Label("Calificacion")
+                    @Html.DropDownList("IdCalificacion",new SelectList(ViewBag.Calificaciones,"IdCalificacion","Nombre"), new { @class = "form-control", Value= Model.IdCalificacion })
+                    <br />
+                    @Html.Label("Genero")
+                    @Html.DropDownList("IdGenero", new SelectList(ViewBag.Generos, "IdGenero", "Nombre"), new { @class = "form-control", Value = Model.IdGenero})
+                    <br />
+                    @Html.Label("Duracion")
+                    @Html.TextBox("Duracion", null, new { @class = "form-control", Value = Model.Duracion })   
+    
+                    @Html.TextBox("IdPelicula", null, new {Value = Model.IdPelicula, @class = "hidden" })
+                    <br />
+    
+                    <button type="submit" class="btn btn-success btn-block" >Actualizar</button>
+                }

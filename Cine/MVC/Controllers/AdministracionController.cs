@@ -39,13 +39,26 @@ namespace MVC.Controllers
             ViewBag.Generos = servicioPeliculas.TraerGeneros();
             return View();
         }
-
-
+        
         [HttpPost]
         public ActionResult NuevaPelicula(Peliculas p)
         {
             // Falla la persistencia
             servicioPeliculas.AgregarPelicula(p);
+            return RedirectToAction("Peliculas", "Administracion");
+        }
+
+        public ActionResult EditarPelicula(int id)
+        {
+            ViewBag.Generos = servicioPeliculas.TraerGeneros();
+            ViewBag.Calificaciones = servicioPeliculas.TraerCalificaciones();
+            return View(servicioPeliculas.TraerPelicula(id));
+        }
+
+        [HttpPost]
+        public ActionResult EditarPelicula(Peliculas p)
+        {
+            servicioPeliculas.GuardarPelicula(p);
             return RedirectToAction("Peliculas", "Administracion");
         }
 
