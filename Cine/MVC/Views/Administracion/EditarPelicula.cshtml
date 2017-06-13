@@ -17,7 +17,7 @@
                     @Html.Label("Imagen")
                     <br />
                     <div class="col-md-12">
-                        <div class="col-md-2"><img src="~/Content/Upload/@Model.Imagen" width="150px" /></div><br /><br /><br /><br />
+                        <div class="col-md-2"><img src="~/Content/Upload/@Model.Imagen" /> </div><br /><br /><br /><br />
                         <div class="col-md-10">
                             <span>Selecciona una imagen para modificar la actual</span>
                             @Html.TextBox("Imagen", null, new { @class = "form-control", type = "file" , Value = Model.Imagen})

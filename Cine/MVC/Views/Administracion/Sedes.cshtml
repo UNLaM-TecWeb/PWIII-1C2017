@@ -42,16 +42,16 @@
                 {
                     @Html.Label("Nombre")
                     @Html.TextBox("Nombre", null, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.Nombre)
+                    @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
                     
                     <br />
                     @Html.Label("Direccion")
                     @Html.TextBox("Direccion", null, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.Direccion)
+                    @Html.ValidationMessageFor(model => model.Direccion, "", new { @class = "text-danger" })
                     <br />
                     @Html.Label("PrecioGeneral", "Precio General")
                     @Html.TextBox("PrecioGeneral", null, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.PrecioGeneral)
+                    @Html.ValidationMessageFor(model => model.PrecioGeneral, "", new { @class = "text-danger" })
                   
                     <br />
                     <button type="submit" class="btn btn-success btn-block" >Agregar</button>

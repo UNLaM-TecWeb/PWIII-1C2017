@@ -67,6 +67,7 @@
     <Compile Include="Reservas.cs">
       <DependentUpon>ModeloCineContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Sede.cs" />
     <Compile Include="Sedes.cs">
       <DependentUpon>ModeloCineContext.tt</DependentUpon>
     </Compile>

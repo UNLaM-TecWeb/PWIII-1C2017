@@ -71,6 +71,7 @@ namespace MVC.Controllers
         public ActionResult EditarPelicula(Peliculas p, HttpPostedFileBase Imagen)
         {
             var imgVieja = TempData["imagen"];
+
             if (p.Imagen != imgVieja && p.Imagen != null)
             {
                 var filename = DateTime.Now.Second + "-" + DateTime.Now.Hour + "-" + DateTime.Now.Minute + "-" + Path.GetFileName(Imagen.FileName);

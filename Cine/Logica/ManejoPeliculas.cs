@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DAL;
 using Entidades;
 
+
 namespace Logica
 {
     public class ManejoPeliculas
@@ -55,5 +56,6 @@ namespace Logica
 
             return;
         }
+
     }
 }
