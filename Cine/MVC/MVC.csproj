@@ -122,6 +122,9 @@
     <Content Include="Content\Css\bootstrap.min.css" />
     <Content Include="Content\Css\cine.css" />
     <Content Include="Content\Css\Login\Login.css" />
+    <Content Include="Content\Images\bg.png" />
+    <Content Include="Content\Images\bg2.png" />
+    <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Js\Bootstrap\bootstrap.min.js" />
     <Content Include="Content\Js\globales.js" />
     <Content Include="Content\Js\Jquery\jquery.flexisel.js" />
@@ -142,7 +145,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\" />
     <Folder Include="Content\Upload\" />
     <Folder Include="Models\" />
     <Folder Include="Service\" />

@@ -1,3 +1,15 @@
 .oculto {
     display: none;
 }
+
+body {
+    background-image: url("../Images/bg.png");
+}
+
+.fondoCabecera {
+    background-image: url("../Images/bg2.png");
+}
+
+.derecha {
+    text-align: right;
+}
