@@ -98,7 +98,7 @@
           <Property Name="IdCalificacion" Type="int" Nullable="false" />
           <Property Name="IdGenero" Type="int" Nullable="false" />
           <Property Name="Duracion" Type="int" Nullable="false" />
-          <Property Name="FechaCarga" Type="datetime" Nullable="false" />
+          <Property Name="FechaCarga" Type="datetime" Nullable="false" StoreGeneratedPattern="None" />
         </EntityType>
         <EntityType Name="Reservas">
           <Key>
@@ -357,7 +357,7 @@
           <Property Name="IdCalificacion" Type="Int32" Nullable="false" />
           <Property Name="IdGenero" Type="Int32" Nullable="false" />
           <Property Name="Duracion" Type="Int32" Nullable="false" />
-          <Property Name="FechaCarga" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaCarga" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="None" />
           <NavigationProperty Name="Calificaciones" Relationship="C_TPModel.FK_Peliculas_Calificaciones" FromRole="Peliculas" ToRole="Calificaciones" />
           <NavigationProperty Name="Carteleras" Relationship="C_TPModel.FK_Carteleras_Peliculas" FromRole="Peliculas" ToRole="Carteleras" />
           <NavigationProperty Name="Generos" Relationship="C_TPModel.FK_Peliculas_Generos" FromRole="Peliculas" ToRole="Generos" />

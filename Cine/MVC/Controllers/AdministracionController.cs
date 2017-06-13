@@ -35,7 +35,6 @@ namespace MVC.Controllers
             ViewBag.Calificaciones = servicioPeliculas.TraerCalificaciones();
             ViewBag.Sedes = servicioSedes.TraerSedes();
             ViewBag.Generos = servicioPeliculas.TraerGeneros();
-            ViewBag.Fecha = DateTime.Now;
             return View();
         }
         
@@ -43,7 +42,7 @@ namespace MVC.Controllers
         public ActionResult NuevaPelicula(Peliculas p)
         {
 
-
+            p.FechaCarga = DateTime.Now;
             servicioPeliculas.AgregarPelicula(p);
             return RedirectToAction("Peliculas", "Administracion");
         }
