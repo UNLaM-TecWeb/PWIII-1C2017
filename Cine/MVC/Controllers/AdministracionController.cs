@@ -56,7 +56,7 @@ namespace MVC.Controllers
         [HttpPost]
         public ActionResult EditarPelicula(Peliculas p)
         {
-            servicioPeliculas.GuardarPelicula(p);
+            servicioPeliculas.ModificarPelicula(p);
             return RedirectToAction("Peliculas", "Administracion");
         }
 

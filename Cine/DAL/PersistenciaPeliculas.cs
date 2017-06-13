@@ -62,6 +62,7 @@ namespace DAL
             Peliculas pel = new Peliculas();
             foreach (Peliculas p in query)
             {
+                pel.IdPelicula = p.IdPelicula;
                 pel.Nombre = p.Nombre;
                 pel.Descripcion = p.Descripcion;
                 pel.Imagen = p.Imagen;
