@@ -53,5 +53,17 @@ namespace DAL
            }
            return listahorarios;
        }
+
+       public List<Reservas> ObtenerReservas()
+       {
+           return (from r in ctx.Reservas select r).ToList();
+       }
+
+       public List<Reservas> ObtenerReservas(DateTime desde, DateTime hasta)
+       {
+           var Query = from r in ctx.Reservas where r.FechaCarga >= desde && r.FechaCarga <= hasta select r;
+           return Query.ToList();
+       }
+
     }
 }

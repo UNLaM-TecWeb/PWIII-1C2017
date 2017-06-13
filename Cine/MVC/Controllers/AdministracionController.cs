@@ -10,11 +10,9 @@ namespace MVC.Controllers
 {
     public class AdministracionController : Controller
     {
-        //
-        // GET: /Administracion/
-
         ManejoSedes servicioSedes = new ManejoSedes();
         ManejoPeliculas servicioPeliculas = new ManejoPeliculas();
+        ManejoReserva ServicioReservas = new ManejoReserva();
 
         public ActionResult Index()
         {
@@ -67,6 +65,16 @@ namespace MVC.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Reportes(FormCollection f)
+        {
+            DateTime Desde = new DateTime(Convert.ToInt32(f["DesdeAnno"]), Convert.ToInt32(f["DesdeMes"]), Convert.ToInt32(f["DesdeDia"]));
+            DateTime Hasta = new DateTime(Convert.ToInt32(f["HastaAnno"]), Convert.ToInt32(f["HastaMes"]), Convert.ToInt32(f["HastaDia"]));
+            ServicioReservas.TraerReservas(Desde, Hasta);
+
+            return RedirectToAction("Reportes", "Administracion");
+        }
+
         public ActionResult Sedes()
         {
             ViewBag.Sedes = servicioSedes.TraerSedes(); // Traigo las Sedes de la Base de Datos
@@ -79,7 +87,6 @@ namespace MVC.Controllers
             if (!(ModelState.IsValid))
             {
                 return RedirectToAction("Sedes", "Administracion");
-
             }
             
             servicioSedes.GuardarSede(s);

@@ -13,8 +13,6 @@ namespace Logica
        PersistenciaReserva pReserva = new PersistenciaReserva();
        PersistenciaSedes pSede = new PersistenciaSedes();
 
-
-
        public List<Versiones> TraerVersiones()
        {
            return pReserva.ObtenerVersiones();
@@ -33,6 +31,16 @@ namespace Logica
        public List<Reservas> TraerHorario()
        {
            return pReserva.ObtenerHorarios();
+       }
+
+       public List<Reservas> TraerReservas() // Traigo Todas las Reservas
+       {
+           return pReserva.ObtenerReservas();
+       }
+
+       public List<Reservas> TraerReservas(DateTime desde, DateTime hasta) // Traigo Todas las Reservas dentro de un intervalo de tiempo
+       {
+           return pReserva.ObtenerReservas(desde, hasta);
        }
     }
 }
