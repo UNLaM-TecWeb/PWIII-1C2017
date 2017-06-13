@@ -35,13 +35,15 @@ namespace MVC.Controllers
             ViewBag.Calificaciones = servicioPeliculas.TraerCalificaciones();
             ViewBag.Sedes = servicioSedes.TraerSedes();
             ViewBag.Generos = servicioPeliculas.TraerGeneros();
+            ViewBag.Fecha = DateTime.Now;
             return View();
         }
         
         [HttpPost]
         public ActionResult NuevaPelicula(Peliculas p)
         {
-            // Falla la persistencia
+
+
             servicioPeliculas.AgregarPelicula(p);
             return RedirectToAction("Peliculas", "Administracion");
         }
