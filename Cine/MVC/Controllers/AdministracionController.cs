@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Logica;
 using Entidades;
+using System.IO;
 
 namespace MVC.Controllers
 {
@@ -37,12 +38,23 @@ namespace MVC.Controllers
             ViewBag.Generos = servicioPeliculas.TraerGeneros();
             return View();
         }
-        
-        [HttpPost]
-        public ActionResult NuevaPelicula(Peliculas p)
-        {
 
+        [HttpPost]
+        public ActionResult NuevaPelicula(Peliculas p, HttpPostedFileBase Imagen)
+        {
+            ViewBag.filename = Imagen.FileName;
+
+            var filename = DateTime.Now.Second + "-" + DateTime.Now.Hour + "-" + DateTime.Now.Minute + "-" + Path.GetFileName(Imagen.FileName);
+
+            var path = Path.Combine(Server.MapPath("~/Content/Upload"), filename);
+            Imagen.SaveAs(path);
+
+            // Le asigno el nombre a la imagen de la pelicula
+            p.Imagen = filename;
+
+            // Le asigno una fecha de carga
             p.FechaCarga = DateTime.Now;
+
             servicioPeliculas.AgregarPelicula(p);
             return RedirectToAction("Peliculas", "Administracion");
         }
