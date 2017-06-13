@@ -6,7 +6,7 @@
 
 <h2>Editar Pelicula</h2>
 
-@using(Html.BeginForm())
+@using (Html.BeginForm("EditarPelicula", "Administracion", FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {
                     @Html.Label("Nombre")
                     @Html.TextBox("Nombre", null, new { @class = "form-control", Value = Model.Nombre})
@@ -16,9 +16,14 @@
                     <br />
                     @Html.Label("Imagen")
                     <br />
-                    <img src="~/Content/Upload/@Model.Imagen" width="200px" />
-                    @Html.TextBox("Imagen", null, new { @class = "form-control", Value = Model.Imagen })
-                    <br />
+                    <div class="col-md-12">
+                        <div class="col-md-2"><img src="~/Content/Upload/@Model.Imagen" width="150px" /></div><br /><br /><br /><br />
+                        <div class="col-md-10">
+                            <span>Selecciona una imagen para modificar la actual</span>
+                            @Html.TextBox("Imagen", null, new { @class = "form-control", type = "file" , Value = Model.Imagen})
+                        </div>              
+                    </div>
+                    <br />    
                     @Html.Label("Calificacion")
                     @Html.DropDownList("IdCalificacion",new SelectList(ViewBag.Calificaciones,"IdCalificacion","Nombre"), new { @class = "form-control", Value= Model.IdCalificacion })
                     <br />

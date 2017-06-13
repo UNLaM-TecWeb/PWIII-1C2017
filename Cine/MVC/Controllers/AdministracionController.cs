@@ -42,7 +42,6 @@ namespace MVC.Controllers
         [HttpPost]
         public ActionResult NuevaPelicula(Peliculas p, HttpPostedFileBase Imagen)
         {
-            ViewBag.filename = Imagen.FileName;
 
             var filename = DateTime.Now.Second + "-" + DateTime.Now.Hour + "-" + DateTime.Now.Minute + "-" + Path.GetFileName(Imagen.FileName);
 
@@ -63,12 +62,25 @@ namespace MVC.Controllers
         {
             ViewBag.Generos = servicioPeliculas.TraerGeneros();
             ViewBag.Calificaciones = servicioPeliculas.TraerCalificaciones();
-            return View(servicioPeliculas.TraerPelicula(id));
+            Peliculas pelicula= servicioPeliculas.TraerPelicula(id);
+            TempData["imagen"] = pelicula.Imagen;
+            return View(pelicula);
         }
 
         [HttpPost]
-        public ActionResult EditarPelicula(Peliculas p)
+        public ActionResult EditarPelicula(Peliculas p, HttpPostedFileBase Imagen)
         {
+            var imgVieja = TempData["imagen"];
+            if (p.Imagen != imgVieja && p.Imagen != null)
+            {
+                var filename = DateTime.Now.Second + "-" + DateTime.Now.Hour + "-" + DateTime.Now.Minute + "-" + Path.GetFileName(Imagen.FileName);
+                var path = Path.Combine(Server.MapPath("~/Content/Upload"), filename);
+                Imagen.SaveAs(path);
+                p.Imagen = filename;
+            }
+            else
+            { p.Imagen = Convert.ToString(imgVieja); }
+
             servicioPeliculas.ModificarPelicula(p);
             return RedirectToAction("Peliculas", "Administracion");
         }

@@ -120,10 +120,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Content\Css\bootstrap.css" />
     <Content Include="Content\Css\bootstrap.min.css" />
-    <Content Include="Content\Css\cine.css" />
     <Content Include="Content\Css\Login\Login.css" />
-    <Content Include="Content\Css\popuo-box.css" />
-    <Content Include="Content\Css\style.css" />
     <Content Include="Content\Js\Bootstrap\bootstrap.min.js" />
     <Content Include="Content\Js\globales.js" />
     <Content Include="Content\Js\Jquery\jquery.flexisel.js" />

@@ -50,6 +50,7 @@ namespace Logica
 
         public void ModificarPelicula(Peliculas p)
         {
+            
             pPeliculas.ActualizarPelicula(p);
 
             return;
