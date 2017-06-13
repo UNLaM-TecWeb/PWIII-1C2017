@@ -29,15 +29,15 @@ namespace DAL
        public List<Reservas> ObtenerDias()
        {
            var dias = (from s in ctx.Reservas select s).ToList();
-           List<Reservas> listaversiones = new List<Reservas>();
+           List<Reservas> Listadias = new List<Reservas>();
            foreach (Reservas reserva in dias)
            {
                Reservas re = new Reservas();
                re.IdReserva = reserva.IdVersion;
                re.FechaCarga = reserva.FechaCarga;
-               listaversiones.Add(re);
+               Listadias.Add(re);
            }
-           return listaversiones;
+           return Listadias;
        }
 
        public List<Reservas> ObtenerHorarios()

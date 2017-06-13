@@ -121,7 +121,7 @@
     <Content Include="Content\Css\bootstrap.css" />
     <Content Include="Content\Css\bootstrap.min.css" />
     <Content Include="Content\Css\cine.css" />
-    <Content Include="Content\Css\Login.css" />
+    <Content Include="Content\Css\Login\Login.css" />
     <Content Include="Content\Css\popuo-box.css" />
     <Content Include="Content\Css\style.css" />
     <Content Include="Content\Js\Bootstrap\bootstrap.min.js" />
@@ -129,7 +129,7 @@
     <Content Include="Content\Js\Jquery\jquery.flexisel.js" />
     <Content Include="Content\Js\Jquery\jquery.magnific-popup.js" />
     <Content Include="Content\Js\Jquery\jquery.min.js" />
-    <Content Include="Content\Js\Login.js" />
+    <Content Include="Content\Js\Login\Login.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -152,6 +152,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{ea816620-bc65-4d6a-b1a6-7cdab6748461}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Entidades\Entidades.csproj">
       <Project>{52b0fa9a-3c69-400d-8ef5-18a1c36937c2}</Project>
       <Name>Entidades</Name>
