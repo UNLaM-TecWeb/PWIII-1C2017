@@ -60,6 +60,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModeloCineContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pelicula.cs" />
     <Compile Include="Peliculas.cs">
       <DependentUpon>ModeloCineContext.tt</DependentUpon>
     </Compile>

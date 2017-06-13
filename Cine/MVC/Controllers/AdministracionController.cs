@@ -42,6 +42,10 @@ namespace MVC.Controllers
         [HttpPost]
         public ActionResult NuevaPelicula(Peliculas p, HttpPostedFileBase Imagen)
         {
+            if (!(ModelState.IsValid))
+            {
+                return RedirectToAction("Peliculas", "Administracion");
+            }
 
             var filename = DateTime.Now.Second + "-" + DateTime.Now.Hour + "-" + DateTime.Now.Minute + "-" + Path.GetFileName(Imagen.FileName);
 
@@ -70,6 +74,11 @@ namespace MVC.Controllers
         [HttpPost]
         public ActionResult EditarPelicula(Peliculas p, HttpPostedFileBase Imagen)
         {
+            if (!(ModelState.IsValid))
+            {
+                return RedirectToAction("Peliculas", "Administracion");
+            }
+            
             var imgVieja = TempData["imagen"];
 
             if (p.Imagen != imgVieja && p.Imagen != null)
@@ -129,6 +138,11 @@ namespace MVC.Controllers
         [HttpPost]
         public ActionResult EditarSede(Sedes s)
         {
+            if (!(ModelState.IsValid))
+            {
+                return RedirectToAction("Sedes", "Administracion");
+            }
+
             servicioSedes.ActualizarSede(s);
             return RedirectToAction("Sedes", "Administracion");
         }

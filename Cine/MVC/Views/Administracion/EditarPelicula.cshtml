@@ -10,9 +10,11 @@
                 {
                     @Html.Label("Nombre")
                     @Html.TextBox("Nombre", null, new { @class = "form-control", Value = Model.Nombre})
+                    @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })    
                     <br />
                     @Html.Label("Descripcion")
                     @Html.TextBox("Descripcion", null, new { @class = "form-control", Value = Model.Descripcion })
+                    @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" }) 
                     <br />
                     @Html.Label("Imagen")
                     <br />
@@ -23,6 +25,7 @@
                             @Html.TextBox("Imagen", null, new { @class = "form-control", type = "file" , Value = Model.Imagen})
                         </div>              
                     </div>
+                    @Html.ValidationMessageFor(model => model.Imagen, "", new { @class = "text-danger" }) 
                     <br />    
                     @Html.Label("Calificacion")
                     @Html.DropDownList("IdCalificacion",new SelectList(ViewBag.Calificaciones,"IdCalificacion","Nombre"), new { @class = "form-control", Value= Model.IdCalificacion })
@@ -31,7 +34,8 @@
                     @Html.DropDownList("IdGenero", new SelectList(ViewBag.Generos, "IdGenero", "Nombre"), new { @class = "form-control", Value = Model.IdGenero})
                     <br />
                     @Html.Label("Duracion")
-                    @Html.TextBox("Duracion", null, new { @class = "form-control", Value = Model.Duracion })   
+                    @Html.TextBox("Duracion", null, new { @class = "form-control", Value = Model.Duracion }) 
+                    @Html.ValidationMessageFor(model => model.Duracion, "", new { @class = "text-danger" })   
     
                     @Html.TextBox("IdPelicula",null, new {Value = Model.IdPelicula, @class = "hidden" })
                     <br />

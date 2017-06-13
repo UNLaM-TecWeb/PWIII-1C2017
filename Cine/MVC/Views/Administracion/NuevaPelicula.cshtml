@@ -11,10 +11,11 @@
                 {
                   @Html.Label("Nombre de la Pelicula")
                   @Html.TextBox("Nombre", null, new { @class = "form-control" })
-    
+                  @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })    
                   <br />
                   @Html.Label("Descripcion")
                   @Html.TextArea("Descripcion", new { rows=6, columns=40, @class = "form-control" })
+                  @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" }) 
 
                   <br />
                   @Html.Label("Genero")
@@ -27,10 +28,12 @@
                   <br />
                   @Html.Label("Imagen")
                   @Html.TextBox("Imagen", null, new { @class = "form-control", type = "file" })  
+                  @Html.ValidationMessageFor(model => model.Imagen, "", new { @class = "text-danger" }) 
     
                   <br />
                   @Html.Label("Duracion")
-                  @Html.TextBox("Duracion", null, new { @class = "form-control" })              
+                  @Html.TextBox("Duracion", null, new { @class = "form-control" })    
+                  @Html.ValidationMessageFor(model => model.Duracion, "", new { @class = "text-danger" })           
                   
                   <br />
                   <button type="submit" class="btn btn-success btn-block" >Agregar</button>
