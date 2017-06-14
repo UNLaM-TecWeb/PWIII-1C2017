@@ -35,10 +35,15 @@ namespace MVC.Controllers
         {
             // Aca tendria que estar la validacion para no agregar una cartelera
             // a una sala de una sede en la misma fecha que otra cartelera
-
-            cart.FechaCarga = DateTime.Now;
-
-            servicioCarteleras.GuardarCartelera(cart);
+            if (servicioCarteleras.ValidarCartelera(cart))
+            {
+                cart.FechaCarga = DateTime.Now;
+                servicioCarteleras.GuardarCartelera(cart);
+            }
+            else
+            {
+                TempData["Error"] = "No se puede crear una cartelera en esa fecha";
+            }
 
             return RedirectToAction("Carteleras", "Administracion");
         }

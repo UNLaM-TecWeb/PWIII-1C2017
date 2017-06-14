@@ -7,6 +7,10 @@
 <h2>Carteleras</h2>
 
     <!-- Formulario - Asignar Pelicula a Sala -->
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>
+    }
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading"><h3 class="panel-title text-center">Crear nueva cartelera</h3></div>

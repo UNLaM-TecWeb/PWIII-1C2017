@@ -9,16 +9,19 @@ namespace DAL
 {
     public class PersistenciaCartelera
     {
+        MyContext ctx = new MyContext();
+
         public void AlmacenarCartelera(Carteleras c)
         {
-            // Almaceno una cartelera
+            ctx.Carteleras.Add(c);
+            ctx.SaveChanges();
         }
 
 
-        public Carteleras ObtenerCartelera(int id)
+        public List<Carteleras> ObtenerCarteleraPorSedeYSala(int sede, int sala)
         {
-            // Traigo una cartelera especifica
-            return null;
+            var Query = (from c in ctx.Carteleras where c.IdSede == sede && c.NumeroSala == sala select c).ToList();            
+            return Query;
         }
 
         public List<Carteleras> ObtenerCarteleras()
