@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="ManejoClienteReserva.cs" />
     <Compile Include="ManejoPeliculas.cs" />
+    <Compile Include="ManejoReportes.cs" />
     <Compile Include="ManejoReserva.cs" />
     <Compile Include="ManejoSedes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

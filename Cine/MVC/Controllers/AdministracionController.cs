@@ -110,7 +110,7 @@ namespace MVC.Controllers
             DateTime Desde = new DateTime(inter.DesdeAnno, inter.DesdeMes, inter.DesdeDia);
             DateTime Hasta = new DateTime(inter.HastaAnno, inter.HastaMes, inter.HastaDia);
 
-            return View("ReporteReservas", ServicioReportes.GenerarReporteReservas(Desde, Hasta););
+            return View("ReporteReservas", ServicioReportes.GenerarReporteReservas(Desde, Hasta));
         }
 
         public ActionResult Sedes()

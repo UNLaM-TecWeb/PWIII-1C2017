@@ -11,13 +11,12 @@
         <div class="panel panel-default">
             <div class="panel-heading"><h3 class="panel-title text-center">Crear nueva cartelera</h3></div>
             <div class="panel-body">
-                <form role="form">
+                @using(Html.BeginForm())
+                {
                     
                   <div class="col-md-4">
                     <div class="panel panel-default">
-                      <div class="panel-heading">
-                        <h3 class="panel-title text-center">Sede</h3>
-                      </div>
+                      <div class="panel-heading"><h3 class="panel-title text-center">Sede</h3></div>
                       <div class="panel-body">
                         @Html.DropDownList("IdSede",new SelectList(ViewBag.Sedes,"IdSede","Nombre"), new { @class = "form-control" })
                       </div>
@@ -26,9 +25,7 @@
 
                   <div class="col-md-4">
                     <div class="panel panel-default">
-                      <div class="panel-heading">
-                        <h3 class="panel-title text-center">Peliculas Disponibles</h3>
-                      </div>
+                      <div class="panel-heading"><h3 class="panel-title text-center">Peliculas Disponibles</h3></div>
                       <div class="panel-body">
                          @Html.DropDownList("IdPelicula",new SelectList(ViewBag.Peliculas,"IdPelicula","Nombre"), new { @class = "form-control" })
                       </div>
@@ -37,20 +34,16 @@
 
                   <div class="col-md-4">
                     <div class="panel panel-default">
-                      <div class="panel-heading">
-                        <h3 class="panel-title text-center">Horario de Inicio</h3>
-                      </div>
+                      <div class="panel-heading"><h3 class="panel-title text-center">Horario de Inicio</h3></div>
                       <div class="panel-body">
-                        @Html.TextBox("HoraInicio", null, new { @class = "form-control" })
+                        @Html.TextBox("HoraInicio", null, new { @class = "form-control", type = "time" })
                       </div>
                     </div>
                   </div>
 
                     <div class="col-md-12">
                     <div class="panel panel-default">
-                      <div class="panel-heading">
-                        <h3 class="panel-title text-center">Dias de semana en que sera proyectada</h3>
-                      </div>
+                      <div class="panel-heading"><h3 class="panel-title text-center">Dias de semana en que sera proyectada</h3></div>
                       <div class="panel-body">
                           <div class="col-md-3">Lunes @Html.CheckBox("Lunes", false)</div>
                           <div class="col-md-3">Martes @Html.CheckBox("Martes", false)</div>
@@ -65,25 +58,21 @@
 
                   <div class="col-md-4">
                     <div class="panel panel-default">
-                      <div class="panel-heading">
-                        <h3 class="panel-title text-center">Vigencia de Cartelera</h3>
-                      </div>
+                      <div class="panel-heading"><h3 class="panel-title text-center">Vigencia de Cartelera</h3></div>
                       <div class="panel-body">
 
                         @Html.Label("FechaInicio", "Fecha de Inicio")
-                        @Html.TextBox("FechaInicio", null, new { @class = "form-control" })
+                        @Html.TextBox("FechaInicio", null, new { @class = "form-control", type = "Date" })
                         <br />
                         @Html.Label("FechaFin", "Fecha de Fin")
-                        @Html.TextBox("FechaFin", null, new { @class = "form-control" })
+                        @Html.TextBox("FechaFin", null, new { @class = "form-control", type = "Date"  })
                       </div>
                     </div>
                   </div>
 
                   <div class="col-md-4">
                     <div class="panel panel-default">
-                      <div class="panel-heading">
-                        <h3 class="panel-title text-center">Sala</h3>
-                      </div>
+                      <div class="panel-heading"><h3 class="panel-title text-center">Sala</h3></div>
                       <div class="panel-body">
                         <select class="form-control">
                           <option>????</option>
@@ -96,9 +85,7 @@
 
                  <div class="col-md-4">
                     <div class="panel panel-default">
-                      <div class="panel-heading">
-                        <h3 class="panel-title text-center">Versiones Disponibles</h3>
-                      </div>
+                      <div class="panel-heading"><h3 class="panel-title text-center">Versiones Disponibles</h3></div>
                       <div class="panel-body">
                          @Html.DropDownList("IdVersion",new SelectList(ViewBag.Versiones,"IdVersion","Nombre"), new { @class = "form-control" })
                       </div>
@@ -108,7 +95,7 @@
                   <div class="col-md-12">
                     <button type="submit" class="btn btn-success btn-block">Crear Cartelera</button>
                   </div>
-                </form>
+                }
              </div>
         </div>
     </div>
