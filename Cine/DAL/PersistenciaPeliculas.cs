@@ -92,5 +92,12 @@ namespace DAL
             ctx.SaveChanges();
 
         }
+    
+        public List<Versiones> ObtenerVersiones()
+        {
+            var versiones = (from v in ctx.Versiones select v).ToList();
+
+            return versiones;
+        }
     }
 }

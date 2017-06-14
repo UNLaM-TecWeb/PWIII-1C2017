@@ -57,5 +57,10 @@ namespace Logica
             return;
         }
 
+        public List<Versiones> TraerVersiones()
+        {
+            return pPeliculas.ObtenerVersiones();
+        }
+
     }
 }

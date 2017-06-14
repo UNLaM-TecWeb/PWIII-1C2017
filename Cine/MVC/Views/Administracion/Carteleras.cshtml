@@ -97,10 +97,10 @@
                  <div class="col-md-4">
                     <div class="panel panel-default">
                       <div class="panel-heading">
-                        <h3 class="panel-title text-center">Peliculas Disponibles</h3>
+                        <h3 class="panel-title text-center">Versiones Disponibles</h3>
                       </div>
                       <div class="panel-body">
-                         @Html.DropDownList("IdPelicula",new SelectList(ViewBag.Peliculas,"IdPelicula","Nombre"), new { @class = "form-control" })
+                         @Html.DropDownList("IdVersion",new SelectList(ViewBag.Versiones,"IdVersion","Nombre"), new { @class = "form-control" })
                       </div>
                     </div>
                   </div>

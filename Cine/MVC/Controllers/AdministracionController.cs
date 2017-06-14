@@ -24,6 +24,7 @@ namespace MVC.Controllers
         {
             ViewBag.Sedes = servicioSedes.TraerSedes();
             ViewBag.Peliculas = servicioPeliculas.TraerPeliculas();
+            ViewBag.Versiones = servicioPeliculas.TraerVersiones();
             return View();
         }
 
