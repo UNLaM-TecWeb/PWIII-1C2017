@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Logica;
 using Entidades;
 using System.IO;
+using MVC.Models;
 
 namespace MVC.Controllers
 {
@@ -13,7 +14,7 @@ namespace MVC.Controllers
     {
         ManejoSedes servicioSedes = new ManejoSedes();
         ManejoPeliculas servicioPeliculas = new ManejoPeliculas();
-        ManejoReserva ServicioReservas = new ManejoReserva();
+        ManejoReportes ServicioReportes = new ManejoReportes();
 
         public ActionResult Index()
         {
@@ -104,13 +105,12 @@ namespace MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Reportes(FormCollection f)
+        public ActionResult Reportes(IntervaloDeTiempo inter)
         {
-            DateTime Desde = new DateTime(Convert.ToInt32(f["DesdeAnno"]), Convert.ToInt32(f["DesdeMes"]), Convert.ToInt32(f["DesdeDia"]));
-            DateTime Hasta = new DateTime(Convert.ToInt32(f["HastaAnno"]), Convert.ToInt32(f["HastaMes"]), Convert.ToInt32(f["HastaDia"]));
-            ServicioReservas.TraerReservas(Desde, Hasta);
+            DateTime Desde = new DateTime(inter.DesdeAnno, inter.DesdeMes, inter.DesdeDia);
+            DateTime Hasta = new DateTime(inter.HastaAnno, inter.HastaMes, inter.HastaDia);
 
-            return RedirectToAction("Reportes", "Administracion");
+            return View("ReporteReservas", ServicioReportes.GenerarReporteReservas(Desde, Hasta););
         }
 
         public ActionResult Sedes()
