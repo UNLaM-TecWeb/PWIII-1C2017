@@ -15,6 +15,7 @@ namespace MVC.Controllers
         ManejoSedes servicioSedes = new ManejoSedes();
         ManejoPeliculas servicioPeliculas = new ManejoPeliculas();
         ManejoReportes ServicioReportes = new ManejoReportes();
+        ManejoCarteleras servicioCarteleras = new ManejoCarteleras();
 
         public ActionResult Index()
         {
@@ -27,6 +28,19 @@ namespace MVC.Controllers
             ViewBag.Peliculas = servicioPeliculas.TraerPeliculas();
             ViewBag.Versiones = servicioPeliculas.TraerVersiones();
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Carteleras(Carteleras cart)
+        {
+            // Aca tendria que estar la validacion para no agregar una cartelera
+            // a una sala de una sede en la misma fecha que otra cartelera
+
+            cart.FechaCarga = DateTime.Now;
+
+            servicioCarteleras.GuardarCartelera(cart);
+
+            return RedirectToAction("Carteleras", "Administracion");
         }
 
         public ActionResult Peliculas()

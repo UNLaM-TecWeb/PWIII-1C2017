@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ManejoCarteleras.cs" />
     <Compile Include="ManejoClienteReserva.cs" />
     <Compile Include="ManejoPeliculas.cs" />
     <Compile Include="ManejoReportes.cs" />

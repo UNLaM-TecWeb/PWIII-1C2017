@@ -58,6 +58,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelDatosCine.edmx</DependentUpon>
     </Compile>
+    <Compile Include="PersistenciaCartelera.cs" />
     <Compile Include="PersistenciaPeliculas.cs" />
     <Compile Include="PersistenciaReserva.cs" />
     <Compile Include="PersistenciaSedes.cs" />
