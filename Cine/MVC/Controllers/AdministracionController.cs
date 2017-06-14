@@ -33,8 +33,7 @@ namespace MVC.Controllers
         [HttpPost]
         public ActionResult Carteleras(Carteleras cart)
         {
-            // Aca tendria que estar la validacion para no agregar una cartelera
-            // a una sala de una sede en la misma fecha que otra cartelera
+            // Valido que la Cartelera no se pise con ninguna otra en esa misma sede y sala
             if (servicioCarteleras.ValidarCartelera(cart))
             {
                 cart.FechaCarga = DateTime.Now;

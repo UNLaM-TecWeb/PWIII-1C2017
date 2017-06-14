@@ -32,12 +32,16 @@ namespace Logica
             // Si tengo una cartelera en la misma Sede y Sala verifico que no se crucen las fechas
             foreach(Carteleras cartelera in carteleras)
             {
-                if(c.FechaInicio < cartelera.FechaInicio || c.FechaInicio > cartelera.FechaFin)
+                // Averiguo si la fecha de inicio se pisa con alguna cartelera
+                if(c.FechaInicio >= cartelera.FechaInicio && c.FechaInicio <= cartelera.FechaFin) 
                 {
-                    if (c.FechaFin < cartelera.FechaInicio || c.FechaFin > cartelera.FechaFin)
-                    {
-                        // Cartelera Valida
-                    }
+                        return false;
+                }
+
+                // Averiguo si la fecha de fin se pisa con alguna cartelera
+                if (c.FechaFin <= cartelera.FechaFin && c.FechaFin >= cartelera.FechaInicio)
+                {
+                    return false;
                 }
             }
 
