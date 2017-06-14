@@ -22,6 +22,8 @@ namespace MVC.Controllers
 
         public ActionResult Carteleras()
         {
+            ViewBag.Sedes = servicioSedes.TraerSedes();
+            ViewBag.Peliculas = servicioPeliculas.TraerPeliculas();
             return View();
         }
 

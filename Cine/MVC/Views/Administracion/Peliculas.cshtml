@@ -18,13 +18,7 @@
                         <h3 class="panel-title text-center">Peliculas Disponibles</h3>
                       </div>
                       <div class="panel-body">
-@*                        <select class="form-control">
-                          <option>Rapidos y Furiosos 8</option>
-                          <option>Un Jefe en Pañales</option>
-                          <option>Dia del Atentado</option>
-                          <option>La Bella y La Bestia</option>
-                          <option>Nunca Digas su nombre</option>
-                        </select>*@
+
                         @Html.DropDownList("IdPelicula",new SelectList(Model,"IdPelicula","Nombre"), new { @class = "form-control" })
 
                       </div>
