@@ -32,15 +32,5 @@ namespace Logica
        {
            return pReserva.ObtenerHorarios();
        }
-
-       public List<Reservas> TraerReservas() // Traigo Todas las Reservas
-       {
-           return pReserva.ObtenerReservas();
-       }
-
-       public List<Reservas> TraerReservas(DateTime desde, DateTime hasta) // Traigo Todas las Reservas dentro de un intervalo de tiempo
-       {
-           return pReserva.ObtenerReservas(desde, hasta);
-       }
     }
 }
