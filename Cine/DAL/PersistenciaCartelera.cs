@@ -17,6 +17,17 @@ namespace DAL
             ctx.SaveChanges();
         }
 
+        public void EliminarCartelera(int id)
+        {
+            var Query = from c in ctx.Carteleras where c.IdCartelera == id select c;            
+
+            foreach(var cartelera in Query)
+            {
+                ctx.Carteleras.Remove(cartelera);
+            }
+            ctx.SaveChanges();
+
+        }
 
         public List<Carteleras> ObtenerCarteleraPorSedeYSala(int sede, int sala)
         {

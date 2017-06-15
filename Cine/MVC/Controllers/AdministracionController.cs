@@ -48,6 +48,12 @@ namespace MVC.Controllers
             return View(infoCarteleras);
         }
 
+        public ActionResult EliminarCartelera(int id)
+        {
+
+            return RedirectToAction("Carteleras", "Adminsitracion");
+        }
+
         [HttpPost]
         public ActionResult Carteleras(Carteleras cart)
         {

@@ -53,5 +53,11 @@ namespace Logica
             return pCartelera.ObtenerCarteleras();
         }
 
+        public void BorrarCartelera(int id)
+        {
+            pCartelera.EliminarCartelera(id);
+
+        }
+
     }
 }
