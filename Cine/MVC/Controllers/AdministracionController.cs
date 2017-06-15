@@ -50,8 +50,8 @@ namespace MVC.Controllers
 
         public ActionResult EliminarCartelera(int id)
         {
-
-            return RedirectToAction("Carteleras", "Adminsitracion");
+            servicioCarteleras.BorrarCartelera(id);
+            return RedirectToAction("Carteleras", "Administracion");
         }
 
         [HttpPost]
