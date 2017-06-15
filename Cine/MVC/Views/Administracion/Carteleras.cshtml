@@ -1,4 +1,4 @@
-﻿@model Entidades.Carteleras
+﻿@model IEnumerable<MVC.Models.InfoCarteleras>
 @{
     ViewBag.Title = "Carteleras";
     Layout = "~/Views/Shared/_MasterLayout.cshtml";
@@ -20,12 +20,24 @@
         <table class="table table-hover text-center">
             <tr>
               <td><strong>Cartelera</strong></td>
+              <td><strong>Sede</strong></td>
+              <td><strong>Sala</strong></td>
+              <td><strong>Pelicula</strong></td>
+              <td><strong>Version</strong></td>
+              <td><strong>Inicio</strong></td>
+              <td><strong>Fin</strong></td>
               <td><strong>Accion</strong></td>
             </tr>
-             @foreach(var cartelera in ViewBag.Sedes)
+             @foreach(var cartelera in Model)
              {
               <tr>
-                  <td>@cartelera.Nombre</td>
+                  <td># @cartelera.IdCartelera</td>
+                  <td>@cartelera.Sede</td>
+                  <td>@cartelera.Sala</td>
+                  <td>@cartelera.Pelicula</td>
+                  <td>@cartelera.Version</td>
+                  <td>@cartelera.FechaInicio</td>
+                  <td>@cartelera.FechaFin</td>
                   <td>
                       @Html.ActionLink("Modificar", "EditarCartelera", "Administracion", new { id = @cartelera.IdCartelera }, new {@class = "btn btn-warning" })
                       @Html.ActionLink("Eliminar", "EliminarCartelera", "Administracion", new { id = @cartelera.IdCartelera }, new {@class = "btn btn-danger" })
@@ -35,7 +47,7 @@
             
 
         </table>
-              <button onclick="mostrar('nuevaPelicula')" class="btn btn-success btn-block">Nueva Sede</button> 
+              
           </div>
         </div>
     </div>

@@ -16,6 +16,7 @@ namespace MVC.Controllers
         ManejoPeliculas servicioPeliculas = new ManejoPeliculas();
         ManejoReportes ServicioReportes = new ManejoReportes();
         ManejoCarteleras servicioCarteleras = new ManejoCarteleras();
+        ManejoReserva servicioReservas = new ManejoReserva();
 
         public ActionResult Index()
         {
@@ -24,10 +25,27 @@ namespace MVC.Controllers
 
         public ActionResult Carteleras()
         {
-            ViewBag.Sedes = servicioSedes.TraerSedes();
-            ViewBag.Peliculas = servicioPeliculas.TraerPeliculas();
-            ViewBag.Versiones = servicioPeliculas.TraerVersiones();
-            return View();
+            ViewBag.Sedes = servicioSedes.TraerSedes(); // Traigo todas las sedes
+            ViewBag.Peliculas = servicioPeliculas.TraerPeliculas(); // Traigo todas las peliculas
+            ViewBag.Versiones = servicioPeliculas.TraerVersiones(); // Traigo todas las versiones
+            List<Carteleras> Carteleras = servicioCarteleras.TraerCarteleras(); // Traigo todas las carteleras
+            
+            List<InfoCarteleras> infoCarteleras = new List<InfoCarteleras>(); // Instancio la clase que utilizo para mostrar las carteleras (y no mostrar ids)
+
+            foreach(Carteleras cartelera in Carteleras)
+            {
+                InfoCarteleras info = new InfoCarteleras();
+                info.IdCartelera = cartelera.IdCartelera;
+                info.Sede = servicioSedes.TraerSede(cartelera.IdSede).Nombre;
+                info.Sala = cartelera.NumeroSala;
+                info.Pelicula = servicioPeliculas.TraerPelicula(cartelera.IdPelicula).Nombre;
+                info.Version = servicioReservas.TraerVersion(cartelera.IdVersion).Nombre;
+                info.FechaInicio = cartelera.FechaInicio;
+                info.FechaFin = cartelera.FechaFin;
+                infoCarteleras.Add(info);
+            }
+
+            return View(infoCarteleras);
         }
 
         [HttpPost]

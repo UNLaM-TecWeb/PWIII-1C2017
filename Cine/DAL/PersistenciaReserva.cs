@@ -65,5 +65,19 @@ namespace DAL
            return Query.ToList();
        }
 
+       public Versiones ObtenerVersion(int id)
+       {
+           var Query = (from v in ctx.Versiones where v.IdVersion == id select v).ToList();
+
+           Versiones version = new Versiones();
+
+           foreach (Versiones ver in Query)
+           {
+               version.IdVersion = ver.IdVersion;
+               version.Nombre = ver.Nombre;
+           }
+           return version;
+       }
+
     }
 }

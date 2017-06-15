@@ -18,6 +18,11 @@ namespace Logica
            return pReserva.ObtenerVersiones();
        }
 
+       public Versiones TraerVersion(int id)
+       {
+           return pReserva.ObtenerVersion(id);
+       }
+
        public List<Sedes> TraerSedes()
        {
            return pSede.ObtenerSedes();

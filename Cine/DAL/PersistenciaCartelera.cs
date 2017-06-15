@@ -26,8 +26,9 @@ namespace DAL
 
         public List<Carteleras> ObtenerCarteleras()
         {
-            // Traigo todas las carteleras de la db
-            return null;
+            var carteleras = (from c in ctx.Carteleras select c).ToList();
+            
+            return carteleras;
         }
 
         public List<Carteleras> OBtenerCartelerasPorFecha(/*aca van los parametros de inicio y fin de fecha */)

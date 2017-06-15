@@ -47,5 +47,11 @@ namespace Logica
 
             return true;
         }
+
+        public List<Carteleras> TraerCarteleras()
+        {
+            return pCartelera.ObtenerCarteleras();
+        }
+
     }
 }

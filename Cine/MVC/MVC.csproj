@@ -112,6 +112,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\InfoCarteleras.cs" />
     <Compile Include="Models\IntervaloDeTiempo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -125,6 +126,8 @@
     <Content Include="Content\Css\Login\Login.css" />
     <Content Include="Content\Images\bg.png" />
     <Content Include="Content\Images\bg2.png" />
+    <Content Include="Content\Images\bg3.png" />
+    <Content Include="Content\Images\bg4.png" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Js\Bootstrap\bootstrap.min.js" />
     <Content Include="Content\Js\globales.js" />
