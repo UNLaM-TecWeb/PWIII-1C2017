@@ -11,16 +11,46 @@
     {
         <div class="alert alert-danger">@TempData["Error"]</div>
     }
+
+    <!-- Listado de Carteleras -->
+    <div class="row" >
+        <div class="panel panel-default">
+          <div class="panel-heading fondoCabeceraAdmin"><h3 class="panel-title text-center letraBlanca">Listado de Carteleras</h3></div>
+          <div class="panel-body">
+        <table class="table table-hover text-center">
+            <tr>
+              <td><strong>Cartelera</strong></td>
+              <td><strong>Accion</strong></td>
+            </tr>
+             @foreach(var cartelera in ViewBag.Sedes)
+             {
+              <tr>
+                  <td>@cartelera.Nombre</td>
+                  <td>
+                      @Html.ActionLink("Modificar", "EditarCartelera", "Administracion", new { id = @cartelera.IdCartelera }, new {@class = "btn btn-warning" })
+                      @Html.ActionLink("Eliminar", "EliminarCartelera", "Administracion", new { id = @cartelera.IdCartelera }, new {@class = "btn btn-danger" })
+                  </td>
+              </tr>
+             }
+            
+
+        </table>
+              <button onclick="mostrar('nuevaPelicula')" class="btn btn-success btn-block">Nueva Sede</button> 
+          </div>
+        </div>
+    </div>
+
+
     <div class="row">
         <div class="panel panel-default">
-            <div class="panel-heading"><h3 class="panel-title text-center">Crear nueva cartelera</h3></div>
+            <div class="panel-heading fondoCabeceraAdmin"><h3 class="panel-title text-center letraBlanca">Crear nueva cartelera</h3></div>
             <div class="panel-body">
                 @using(Html.BeginForm())
                 {
                     
                   <div class="col-md-3">
                     <div class="panel panel-default">
-                      <div class="panel-heading"><h3 class="panel-title text-center">Sede</h3></div>
+                      <div class="panel-heading fondoCabeceraAdmin2"><h3 class="panel-title text-center">Sede</h3></div>
                       <div class="panel-body">
                         @Html.DropDownList("IdSede",new SelectList(ViewBag.Sedes,"IdSede","Nombre"), new { @class = "form-control" })
                       </div>
@@ -29,7 +59,7 @@
                     
                     <div class="col-md-3">
                     <div class="panel panel-default">
-                      <div class="panel-heading"><h3 class="panel-title text-center">Sala</h3></div>
+                      <div class="panel-heading fondoCabeceraAdmin2"><h3 class="panel-title text-center">Sala</h3></div>
                       <div class="panel-body">
                         <select class="form-control" name="NumeroSala" id="NumeroSala">
                           <option value="1">Sala 1</option>
@@ -46,7 +76,7 @@
 
                   <div class="col-md-3">
                     <div class="panel panel-default">
-                      <div class="panel-heading"><h3 class="panel-title text-center">Peliculas Disponibles</h3></div>
+                      <div class="panel-heading fondoCabeceraAdmin2"><h3 class="panel-title text-center">Peliculas Disponibles</h3></div>
                       <div class="panel-body">
                          @Html.DropDownList("IdPelicula",new SelectList(ViewBag.Peliculas,"IdPelicula","Nombre"), new { @class = "form-control" })
                       </div>
@@ -55,7 +85,7 @@
                     
                     <div class="col-md-3">
                     <div class="panel panel-default">
-                      <div class="panel-heading"><h3 class="panel-title text-center">Versiones Disponibles</h3></div>
+                      <div class="panel-heading fondoCabeceraAdmin2"><h3 class="panel-title text-center">Versiones Disponibles</h3></div>
                       <div class="panel-body">
                          @Html.DropDownList("IdVersion",new SelectList(ViewBag.Versiones,"IdVersion","Nombre"), new { @class = "form-control" })
                       </div>
@@ -66,7 +96,7 @@
 
                     <div class="col-md-12">
                     <div class="panel panel-default">
-                      <div class="panel-heading"><h3 class="panel-title text-center">Dias de semana en que sera proyectada</h3></div>
+                      <div class="panel-heading fondoCabeceraAdmin2"><h3 class="panel-title text-center">Dias de semana en que sera proyectada</h3></div>
                       <div class="panel-body text-center">
                           <div class="col-md-3 panel panel-default">Lunes @Html.CheckBox("Lunes", false)</div> 
                           <div class="col-md-3 panel panel-default">Martes @Html.CheckBox("Martes", false)</div>
@@ -81,7 +111,7 @@
 
                   <div class="col-md-8 form-inline text-center">
                     <div class="panel panel-default">
-                      <div class="panel-heading"><h3 class="panel-title text-center">Vigencia de Cartelera</h3></div>
+                      <div class="panel-heading fondoCabeceraAdmin2"><h3 class="panel-title text-center">Vigencia de Cartelera</h3></div>
                       <div class="panel-body">
 
                         @Html.Label("FechaInicio", "Fecha de Inicio")
@@ -95,7 +125,7 @@
 
                   <div class="col-md-4">
                     <div class="panel panel-default">
-                      <div class="panel-heading"><h3 class="panel-title text-center">Horario de Inicio</h3></div>
+                      <div class="panel-heading fondoCabeceraAdmin2"><h3 class="panel-title text-center">Horario de Inicio</h3></div>
                       <div class="panel-body">
                         @Html.TextBox("HoraInicio", null, new { @class = "form-control"})
                       </div>

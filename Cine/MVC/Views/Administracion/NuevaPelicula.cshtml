@@ -3,9 +3,9 @@
     ViewBag.Title = "NuevaPelicula";
     Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
-<div class="col-md-12">
+<div class="col-md-12"><br />
     <div class="panel panel-success">
-        <div class="panel-heading"><h3 class="panel-title text-center">NUEVA PELICULA</h3></div>
+        <div class="panel-heading fondoCabeceraAdmin"><h3 class="panel-title text-center letraBlanca">NUEVA PELICULA</h3></div>
         <div class="panel-body">
             @using (Html.BeginForm("NuevaPelicula", "Administracion", FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {

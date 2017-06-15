@@ -13,3 +13,16 @@ body {
 .derecha {
     text-align: right;
 }
+
+.fondoCabeceraAdmin {
+    background-image: url("../Images/bg2.png");
+}
+
+.letraBlanca {
+    color: white;
+    font-weight: bold;
+}
+
+.fondoCabeceraAdmin2 {
+    background-image: url("../Images/bg4.png");
+}
