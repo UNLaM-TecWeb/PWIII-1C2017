@@ -11,6 +11,9 @@ namespace DAL
     {
         MyContext ctx = new MyContext();
 
+
+       
+
         public void Almacenar(Sedes se) // Guardo la Sede en la DB
         {
             ctx.Sedes.Add(se);
