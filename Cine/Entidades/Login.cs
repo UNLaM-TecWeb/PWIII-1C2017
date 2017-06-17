@@ -10,7 +10,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Entidades
 {
  [MetadataType(typeof(LoginMetadata))]
-    public partial class Login
+    public partial class Usuarios
     {
          public class LoginMetadata
          {

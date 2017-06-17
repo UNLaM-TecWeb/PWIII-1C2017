@@ -135,6 +135,13 @@
     <Content Include="Content\Js\Jquery\jquery.magnific-popup.js" />
     <Content Include="Content\Js\Jquery\jquery.min.js" />
     <Content Include="Content\Js\Login\Login.js" />
+    <Content Include="Content\Upload\atomica.png" />
+    <Content Include="Content\Upload\baywatch.png" />
+    <Content Include="Content\Upload\guardianesgalaxia.png" />
+    <Content Include="Content\Upload\kingsman.png" />
+    <Content Include="Content\Upload\lamomia.png" />
+    <Content Include="Content\Upload\mujermaravilla.png" />
+    <Content Include="Content\Upload\saw8.png" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -149,7 +156,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Upload\" />
     <Folder Include="Service\" />
   </ItemGroup>
   <ItemGroup>
