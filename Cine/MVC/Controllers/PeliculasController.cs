@@ -14,6 +14,7 @@ namespace MVC.Controllers
         // GET: /Peliculas/
         ManejoReserva servicioReserva = new ManejoReserva();
         ManejoSedes serviciosSedes = new ManejoSedes();
+        ManejoTipoDocumento servicioTipoDoc = new ManejoTipoDocumento();
         public ActionResult Reservas()
         {
             ViewBag.Versiones = servicioReserva.TraerVersiones(); // Traigo las reserva de la base de datos
@@ -25,6 +26,7 @@ namespace MVC.Controllers
 
         public ActionResult ClienteReserva()
         {
+            ViewBag.TipoDocumento = servicioTipoDoc.TraerTipodocumentos();
             return View();
         }
 

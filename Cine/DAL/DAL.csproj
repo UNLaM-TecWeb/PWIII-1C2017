@@ -62,6 +62,7 @@
     <Compile Include="PersistenciaPeliculas.cs" />
     <Compile Include="PersistenciaReserva.cs" />
     <Compile Include="PersistenciaSedes.cs" />
+    <Compile Include="PersistenciaTipoDocumento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
