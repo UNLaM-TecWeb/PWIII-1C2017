@@ -10,6 +10,7 @@ namespace Entidades
     [MetadataType(typeof(ReservaMetaData))]
     public partial class Reserva
     {
+
         public class ReservaMetaData
         {
            ///Validar combos

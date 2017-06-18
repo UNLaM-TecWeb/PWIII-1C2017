@@ -10,7 +10,7 @@ namespace DAL
     public class PersistenciaCartelera
     {
         MyContext ctx = new MyContext();
-
+            
         public void AlmacenarCartelera(Carteleras c)
         {
             ctx.Carteleras.Add(c);

@@ -11,7 +11,7 @@ namespace Entidades
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Usuarios
     {
         public int IdUsuario { get; set; }

@@ -1,4 +1,4 @@
-﻿// La generación de código predeterminada está deshabilitada para el modelo 'C:\Users\Juan-PC\Documents\Visual Studio 2012\Projects\PWIII-1C2017\Cine\DAL\ModelDatosCine.edmx'. 
-// Para habilitar la generación de código predeterminada, cambie el valor de la propiedad del diseñador 'Estrategia de generación de código'
-// por otro valor. Esta propiedad está disponible en la ventana Propiedades cuando se abre
-// el modelo en el diseñador.
+﻿// Default code generation is disabled for model 'C:\Desarrollo\PWIII-1C2017\Cine\DAL\ModelDatosCine.edmx'. 
+// To enable default code generation, change the value of the 'Code Generation Strategy' designer
+// property to an alternate value. This property is available in the Properties Window when the model is
+// open in the designer.

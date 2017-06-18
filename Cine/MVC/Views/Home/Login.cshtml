@@ -1,4 +1,5 @@
 ﻿@model Entidades.Usuarios
+
 @{
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_MasterLayout.cshtml";
@@ -12,7 +13,7 @@
 
     <div class="row" style="margin-top: 20px">
         <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-            @using(Html.BeginForm())
+            @using (Html.BeginForm("Login", "Home", FormMethod.Post, new {@class ="form-signin"}))
             {
                 
                    <h2 class="text-center">Login</h2>
@@ -20,7 +21,7 @@
                     <hr class="colorgraph">
                     <div class="form-group">
                         @Html.Label("Email")
-                        @Html.TextBoxFor(m => m.NombreUsuario,null,new {@class ="form-control input-lg"})
+                        @Html.TextBoxFor(m => m.NombreUsuario, new { @class = "form-control input-lg" })
                         @Html.ValidationMessageFor(model => model.NombreUsuario, "", new { @class = "text-danger" }) 
                          
                     </div>
