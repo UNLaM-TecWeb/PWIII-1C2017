@@ -62,7 +62,7 @@ namespace MVC.Controllers
         public ActionResult Logout()
         {
             Session.Clear();
-            return RedirectToAction("Login", "Home");
+            return RedirectToAction("Inicio", "Home");
 
         }
 

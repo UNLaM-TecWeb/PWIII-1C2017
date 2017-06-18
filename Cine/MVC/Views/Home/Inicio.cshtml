@@ -3,6 +3,12 @@
     Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
 
+@if(Session["NombreUsuario"] != null)
+{
+<h4>Bienvenido @Session["NombreUsuario"].ToString()</h4>
+    @Html.ActionLink("Logout", "logout", "Login");
+}
+
 
 <div class="row">
     <br />

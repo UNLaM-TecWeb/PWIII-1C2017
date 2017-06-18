@@ -226,9 +226,6 @@
     <Content Include="Views\Administracion\ReporteReservas.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Conectado.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Home\DespuesDelLogin.cshtml" />
   </ItemGroup>
   <PropertyGroup>
