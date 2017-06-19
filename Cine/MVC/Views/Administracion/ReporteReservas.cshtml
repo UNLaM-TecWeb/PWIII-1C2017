@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Entidades.Reservas>
+﻿@model IEnumerable<Logica.DatosReporte>
 @{
     ViewBag.Title = "ReporteReservas";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -32,6 +32,18 @@
                     <th>Pel&iacute;cula</th>
                     <th>Precio</th>
                 </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.NumeroReserva</td>
+                        <td>@item.Sede</td>
+                        <td>@item.Version</td>
+                        <td>@item.Pelicula</td>
+                        <td>@item.Precio</td>
+                    </tr>                    
+                }
+
             </table>
         </div>
     </div>
