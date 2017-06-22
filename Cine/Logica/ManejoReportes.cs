@@ -35,26 +35,26 @@ namespace Logica
         //{
         //    return pReserva.ObtenerReservas();
         //}
-        MyContext ctx = new MyContext();
+        //MyContext ctx = new MyContext();
 
-        public List<DatosReporte> GenerarReporteReservas(DateTime desde, DateTime hasta) // Traigo Todas las Reservas dentro de un intervalo de tiempo
-        {
-            var Reporte = from reserva in ctx.Reservas
-                          join sede in ctx.Sedes on reserva equals sede.IdSede
-                          join version in ctx.Versiones on reserva equals version.IdVersion
-                          join pelicula in ctx.Peliculas on reserva equals pelicula.IdPelicula
-                          where reserva.FechaCarga >= desde && reserva.FechaCarga <= hasta
-                          select new
-                          {
-                              NumeroReserva = reserva.IdReserva,
-                              Sede = sede.Nombre,
-                              Version = version.Nombre,
-                              Pelicula = pelicula.Nombre,
-                              Precio = (sede.PrecioGeneral * reserva.CantidadEntradas)
-                          };
+        //public List<DatosReporte> GenerarReporteReservas(DateTime desde, DateTime hasta) // Traigo Todas las Reservas dentro de un intervalo de tiempo
+        //{
+        //    var Reporte = from reserva in ctx.Reservas
+        //                  join sede in ctx.Sedes on reserva equals sede.IdSede
+        //                  join version in ctx.Versiones on reserva equals version.IdVersion
+        //                  join pelicula in ctx.Peliculas on reserva equals pelicula.IdPelicula
+        //                  where reserva.FechaCarga >= desde && reserva.FechaCarga <= hasta
+        //                  select new
+        //                  {
+        //                      NumeroReserva = reserva.IdReserva,
+        //                      Sede = sede.Nombre,
+        //                      Version = version.Nombre,
+        //                      Pelicula = pelicula.Nombre,
+        //                      Precio = (sede.PrecioGeneral * reserva.CantidadEntradas)
+        //                  };
 
-            return Reporte.ToList();
-        }
+        //    return Reporte.ToList();
+        //}
 
     }
 }
