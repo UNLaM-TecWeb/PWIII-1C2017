@@ -20,10 +20,10 @@ namespace Logica
 
         public bool ValidarCartelera(Carteleras c)
         {
-            // Traigo todas las carteleras donde la sede y la sala sean iguales
-            List<Carteleras> carteleras = pCartelera.ObtenerCarteleraPorSedeYSala(c.IdSede, c.NumeroSala);
+            // Traigo todas las carteleras donde la sede, la sala y la version sean iguales
+            List<Carteleras> carteleras = pCartelera.ObtenerCarteleraPorSedeYSala(c.IdSede, c.NumeroSala, c.IdVersion);
 
-            // Verifico que no haya llegado vacia
+            // Verifico que no haya llegado vacia, si llego vacia es por que no hay salas con esas caracteristicas asi que es valida
             if (carteleras == null)
             {
                 return true;

@@ -29,9 +29,9 @@ namespace DAL
 
         }
 
-        public List<Carteleras> ObtenerCarteleraPorSedeYSala(int sede, int sala)
+        public List<Carteleras> ObtenerCarteleraPorSedeYSala(int sede, int sala, int version)
         {
-            var Query = (from c in ctx.Carteleras where c.IdSede == sede && c.NumeroSala == sala select c).ToList();            
+            var Query = (from c in ctx.Carteleras where c.IdSede == sede && c.NumeroSala == sala && c.IdVersion == version select c).ToList();            
             return Query;
         }
 
