@@ -73,6 +73,7 @@ namespace DAL
        {
 
 
+
            var query = (from re in ctx.Reservas where re.IdReserva == reserva.IdReserva select re).ToList(); ;
 
            Reservas rese = new Reservas();
