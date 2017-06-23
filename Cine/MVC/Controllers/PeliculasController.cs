@@ -24,11 +24,19 @@ namespace MVC.Controllers
             return View();
         }
 
-        public ActionResult ClienteReserva()
+        public ActionResult ClienteReserva(Reservas r)
         {
             ViewBag.TipoDocumento = servicioTipoDoc.TraerTipodocumentos();
+            servicioReserva.TraerReserva(r);
             return View();
         }
+
+
+
+
+        
+
+
 
     }
 }

@@ -68,5 +68,26 @@ namespace DAL
            return version;
        }
 
+
+       public void GuardarReserva(Reservas reserva)
+       {
+
+
+           var query = (from re in ctx.Reservas where re.IdReserva == reserva.IdReserva select re).ToList(); ;
+
+           Reservas rese = new Reservas();
+
+           foreach(Reservas re in query)
+           {
+           rese.Email = reserva.Email;
+           rese.NumeroDocumento = reserva.NumeroDocumento;
+           rese.CantidadEntradas = reserva.CantidadEntradas;
+           }
+
+           ctx.SaveChanges();
+       }
+
+
+     
     }
 }

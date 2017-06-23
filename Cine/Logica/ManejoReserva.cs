@@ -11,7 +11,9 @@ namespace Logica
    public  class ManejoReserva
     {
        PersistenciaReserva pReserva = new PersistenciaReserva();
+       PersistenciaPeliculas pPelicula = new PersistenciaPeliculas();
        PersistenciaSedes pSede = new PersistenciaSedes();
+
 
        public List<Versiones> TraerVersiones()
        {
@@ -36,6 +38,11 @@ namespace Logica
        public List<Reservas> TraerHorario()
        {
            return pReserva.ObtenerHorarios();
+       }
+
+       public void TraerReserva(Reservas r)
+       {
+           pReserva.GuardarReserva(r);
        }
     }
 }

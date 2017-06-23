@@ -1,4 +1,4 @@
-﻿
+﻿@model Entidades.Reservas
 
 @{
     ViewBag.Title = "ClienteReserva";
@@ -66,18 +66,21 @@
                 @using (Html.BeginForm())
                 {
                     <div class="form-group">
-                        @Html.Label("Nombre", new { @class = "panel-title text-center" })
+                        @Html.Label("Email", new { @class = "panel-title text-center" })
                         @*@Html.TextBox("Nombre", null, new { @class = "form-control", Value = ViewBag.Nombre.Email })*@
-                        @Html.TextBox("Nombre", null, new { @class = "form-control" })
+                        @Html.TextBox("Email", null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+
                     </div>
 
                     <div class="form-group">
                         @Html.Label("Cantidad de Entradas", new { @class = "panel-title text-center" })
                        @* @Html.TextBox("Cantidad de Entradas", null, new { @class = "form-control", Value = ViewBag.clienteReserva.CantidadEntradas })*@
-                       @Html.TextBox("Cantidad de Entradas" , null, new { @class = "form-control" })
+                       @Html.TextBox("CantidadEntradas" , null, new { @class = "form-control" })
+                       @Html.ValidationMessageFor(m => m.CantidadEntradas , "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group">
-                        @Html.Label("Tipo de Documentos", new { @class = "panel-title text-center" })
+                        @Html.Label("TipodeDocumentos", new { @class = "panel-title text-center" })
 
 
                         @Html.DropDownList("IdTipoDocumento",new SelectList(ViewBag.TipoDocumento,"IdTipoDocumento","Descripcion"), new { @class = "form-control" })
@@ -93,7 +96,8 @@
                         <div class="form-group">
                             @Html.Label("Numero de Documentos", new { @class = "panel-title text-center" })
                             @*@Html.TextBox("Numero de Documentos", null, new { @class = "form-control", Value = ViewBag.NumDoc.NumeroDocumento })*@
-                           @Html.TextBox("Numero de Documentos", null, new { @class = "form-control" })
+                           @Html.TextBox("NumeroDocumento", null, new { @class = "form-control" })
+                             @Html.ValidationMessageFor(m => m.NumeroDocumento , "", new { @class = "text-danger" })
                         </div>
 
                     </div>
