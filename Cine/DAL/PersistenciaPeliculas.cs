@@ -27,6 +27,14 @@ namespace DAL
             return listaGeneros;
         }
 
+        public Generos ObtenerGenero(int id)
+        {
+            var genero = (from g in ctx.Generos where g.IdGenero == id select g).First();
+
+
+            return genero;
+        }
+
         public List<Calificaciones> ObtenerCalificaciones()
         {
             var calificaciones = (from c in ctx.Calificaciones select c).ToList();
@@ -41,6 +49,13 @@ namespace DAL
             }
 
             return listaCalificaciones;
+        }
+
+        public Calificaciones ObtenerCalificacion(int id)
+        {
+            var calificacion = (from c in ctx.Calificaciones where c.IdCalificacion == id select c).First();
+
+            return calificacion;
         }
 
         public void AlmacenarPelicula(Peliculas p)

@@ -19,6 +19,12 @@ namespace Logica
             return pPeliculas.ObtenerGeneros();
         }
 
+        public Generos TraerGenero(int id)
+        {
+
+            return pPeliculas.ObtenerGenero(id);
+        }
+
         public List<Peliculas> TraerPeliculas()
         {
             return pPeliculas.ObtenerPeliculas();
@@ -33,6 +39,12 @@ namespace Logica
         {
             
             return pPeliculas.ObtenerCalificaciones();
+        }
+
+        public Calificaciones TraerCalificacion(int id)
+        {
+
+            return pPeliculas.ObtenerCalificacion(id);
         }
 
         public void AgregarPelicula(Peliculas p)

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<MVC.Models.PeliculasInicio>
+@{
     ViewBag.Title = "Inicio";
     Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
@@ -19,53 +20,19 @@
       <div class="panel-body">
           
           <div class="col-md-12">
-
+            @foreach(var cartelera in Model)
+            {
               <div class="col-md-3 text-center">
                   <div class="panel panel-default">
                       <div class="panel-body">
-                          <img src="~/Content/Upload/11-19-34-f4.jpg" class="img-thumbnail" />
-                          <span><b>Los 4 Fantasticos</b></span><br />
-                          <span class="label label-success">Accion</span> <span class="label label-warning">Mayores de 13</span><hr />
-                          @Html.ActionLink("Comprar", "Reserva", "Peliculas", new { id = "nadaPorAhora" }, new {@class = "btn btn-info btn-block" })
+                          <img src="~/Content/Upload/@cartelera.Imagen" class="img-thumbnail" />
+                          <span><b>@cartelera.Nombre</b></span><br />
+                          <span class="label label-success">@cartelera.Genero</span> <span class="label label-warning">@cartelera.Calificacion</span><hr />
+                          @Html.ActionLink("Comprar", "Reserva", "Peliculas", new { id = @cartelera.IdCartelera }, new {@class = "btn btn-info btn-block" })
                       </div>
                     </div>
               </div>
-
-              <div class="col-md-3 text-center">
-                  <div class="panel panel-default">
-                      <div class="panel-body">
-                          <img src="~/Content/Upload/55-18-30-logan_63602.jpg" class="img-thumbnail"/>
-                          <span><b>Logan</b></span><br />
-                          <span class="label label-success">Accion</span> <span class="label label-warning">Mayores de 13</span><hr />
-                          @Html.ActionLink("Comprar", "Reserva", "Peliculas", new { id = "nadaPorAhora" }, new {@class = "btn btn-info btn-block" })
-                      </div>
-                    </div>
-              </div>
-
-              <div class="col-md-3 text-center">
-                  <div class="panel panel-default">
-                      <div class="panel-body">
-                          <img src="~/Content/Upload/ww.jpg" class="img-thumbnail"/>
-                          <span><b>La Mujer Maravilla</b></span><br />
-                          <span class="label label-success">Accion</span> <span class="label label-warning">Mayores de 13</span><hr />
-                          @Html.ActionLink("Comprar", "Reserva", "Peliculas", new { id = "nadaPorAhora" }, new {@class = "btn btn-info btn-block" })
-                      </div>
-                    </div>
-              </div>
-
-              <div class="col-md-3 text-center">
-                  <div class="panel panel-default">
-                      <div class="panel-body">
-                          <img src="~/Content/Upload/40svm.jpg" class="img-thumbnail"/>
-                          <span><b>Batman vs Superman</b></span><br />
-                          <span class="label label-success">Accion</span> <span class="label label-warning">Mayores de 13</span><hr />
-                          @Html.ActionLink("Comprar", "Reserva", "Peliculas", new { id = "nadaPorAhora" }, new {@class = "btn btn-info btn-block" })
-                      </div>
-                    </div>
-              </div>
-
-
-        
+            }
 
         </div>
       </div>

@@ -21,7 +21,7 @@ namespace Logica
         public bool ValidarCartelera(Carteleras c)
         {
             // Traigo todas las carteleras donde la sede, la sala y la version sean iguales
-            List<Carteleras> carteleras = pCartelera.ObtenerCarteleraPorSedeYSala(c.IdSede, c.NumeroSala, c.IdVersion);
+            List<Carteleras> carteleras = pCartelera.ObtenerCarteleraPorSedeSalaVersion(c.IdSede, c.NumeroSala, c.IdVersion);
 
             // Verifico que no haya llegado vacia, si llego vacia es por que no hay salas con esas caracteristicas asi que es valida
             if (carteleras == null)
@@ -29,7 +29,7 @@ namespace Logica
                 return true;
             }
 
-            // Si tengo una cartelera en la misma Sede y Sala verifico que no se crucen las fechas
+            // Si tengo una cartelera en la misma Sede, Sala y Version verifico que no se crucen las fechas
             foreach(Carteleras cartelera in carteleras)
             {
                 // Averiguo si la fecha de inicio se pisa con alguna cartelera
@@ -51,6 +51,11 @@ namespace Logica
         public List<Carteleras> TraerCarteleras()
         {
             return pCartelera.ObtenerCarteleras();
+        }
+
+        public List<Carteleras> TraerCartelerasPorFecha(DateTime fecha)
+        {
+            return pCartelera.OBtenerCartelerasPorFecha(fecha);
         }
 
         public void BorrarCartelera(int id)

@@ -117,6 +117,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\PeliculasInicio.cs" />
     <Compile Include="Models\InfoCarteleras.cs" />
     <Compile Include="Models\IntervaloDeTiempo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
