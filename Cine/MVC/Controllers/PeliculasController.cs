@@ -23,8 +23,8 @@ namespace MVC.Controllers
             ViewBag.Horarios = servicioReserva.TraerHorario();
             return View();
         }
-
-        public ActionResult ClienteReserva(Reservas r)
+        
+        public ActionResult  ClienteReserva (Reservas r)
         {
             ViewBag.TipoDocumento = servicioTipoDoc.TraerTipodocumentos();
             servicioReserva.TraerReserva(r);

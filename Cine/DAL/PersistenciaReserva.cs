@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entidades;
+using System.Data.Entity.Validation;
 
 namespace DAL
 {
@@ -69,26 +70,50 @@ namespace DAL
        }
 
 
-       public void GuardarReserva(Reservas reserva)
+       //public void GuardarReserva(Reservas reserva)
+       //{
+       //    //esta lineas es la q van
+         
+
+       //        ctx.Reservas.Add(reserva);
+       //        ctx.SaveChanges();
+         
+           
+       //    //var query = (from re in ctx.Reservas where re.IdReserva == reserva.IdReserva select re).ToList(); ;
+       //    //Reservas rese = new Reservas();
+       //    //foreach(Reservas re in query)
+       //    //{
+       //    //rese.Email = reserva.Email;
+       //    //rese.NumeroDocumento = reserva.NumeroDocumento;
+       //    //rese.CantidadEntradas = reserva.CantidadEntradas;
+       //    //}
+
+       //    //ctx.SaveChanges();
+       //}
+
+      
+       public void ObtenerReserva(Reservas r)
        {
-
-
-
-           var query = (from re in ctx.Reservas where re.IdReserva == reserva.IdReserva select re).ToList(); ;
-
-           Reservas rese = new Reservas();
-
-           foreach(Reservas re in query)
+           try
            {
-           rese.Email = reserva.Email;
-           rese.NumeroDocumento = reserva.NumeroDocumento;
-           rese.CantidadEntradas = reserva.CantidadEntradas;
+               var query = (from re in ctx.Reservas select re).ToList(); ;
+               Reservas rese = new Reservas();
+               foreach (Reservas re in query)
+               {
+                   rese.Email = r.Email;
+                   rese.NumeroDocumento = r.NumeroDocumento;
+                   rese.CantidadEntradas = r.CantidadEntradas;
+                   
+               }
+                   //ctx.Reservas.Add(r);
+                   //ctx.SaveChanges();
            }
-
-           ctx.SaveChanges();
+           catch (DbEntityValidationException ex)
+           {
+               
+               throw;
+           }
+          
        }
-
-
-     
     }
 }

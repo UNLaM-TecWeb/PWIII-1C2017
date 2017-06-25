@@ -13,15 +13,16 @@ namespace Entidades
     {
        public class ReservaMetadata
        {
-
-           public int IdReserva { get; set; }
-           [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "E-mail is not valid")]
+           [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "El email es invalido")]
+           [Required]
+           [StringLength(20)]
            public string Email { get; set; }
 
            [Required(ErrorMessage = "La cantidad de entrada es requerida")]
            public int CantidadEntradas { get; set; }
 
            [Required(ErrorMessage = "El numero de documento es requerido")]
+           [StringLength(20)]
            public string NumeroDocumento { get; set; }
        }
 

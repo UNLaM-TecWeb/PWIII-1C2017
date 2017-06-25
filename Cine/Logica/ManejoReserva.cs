@@ -42,7 +42,7 @@ namespace Logica
 
        public void TraerReserva(Reservas r)
        {
-           pReserva.GuardarReserva(r);
+           pReserva.ObtenerReserva(r);
        }
     }
 }

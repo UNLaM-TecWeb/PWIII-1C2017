@@ -35,7 +35,7 @@
                             </tr>
                                     <tr>
                                         <td>Soldado Argentino</td>
-                                        <td>drigida por brian</td>
+                                        <td>drigida por juan</td>
                                         <td>Lunes 24 Abril</td>
                                         <td>Acción</td>
                                         <td>Buena</td>
@@ -63,11 +63,15 @@
                 <h3 class="panel-title text-center">Complete los siguientes datos</h3>
             </div>
             <div class="panel-body">
-                @using (Html.BeginForm())
+               @* @using (Html.BeginForm("ClienteReserva", "Peliculas", FormMethod.Post, new { enctype = "multipart/form-data" }))
+               
                 {
+                    *@
+                  @using (Html.BeginForm())
+                  {
                     <div class="form-group">
                         @Html.Label("Email", new { @class = "panel-title text-center" })
-                        @*@Html.TextBox("Nombre", null, new { @class = "form-control", Value = ViewBag.Nombre.Email })*@
+                       
                         @Html.TextBox("Email", null, new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
 
@@ -75,7 +79,7 @@
 
                     <div class="form-group">
                         @Html.Label("Cantidad de Entradas", new { @class = "panel-title text-center" })
-                       @* @Html.TextBox("Cantidad de Entradas", null, new { @class = "form-control", Value = ViewBag.clienteReserva.CantidadEntradas })*@
+                      
                        @Html.TextBox("CantidadEntradas" , null, new { @class = "form-control" })
                        @Html.ValidationMessageFor(m => m.CantidadEntradas , "", new { @class = "text-danger" })
                     </div>
@@ -84,19 +88,11 @@
 
 
                         @Html.DropDownList("IdTipoDocumento",new SelectList(ViewBag.TipoDocumento,"IdTipoDocumento","Descripcion"), new { @class = "form-control" })
-                        @*<select class="form-control">
-                            <option>Seleccione Tipo de documento</option>
-                            <option>L.E / DNI</option>
-                            <option>PASAPORTE</option>
-
-                        </select>*@
-
                         <br />
 
                         <div class="form-group">
                             @Html.Label("Numero de Documentos", new { @class = "panel-title text-center" })
-                            @*@Html.TextBox("Numero de Documentos", null, new { @class = "form-control", Value = ViewBag.NumDoc.NumeroDocumento })*@
-                           @Html.TextBox("NumeroDocumento", null, new { @class = "form-control" })
+                             @Html.TextBox("NumeroDocumento", null, new { @class = "form-control" })
                              @Html.ValidationMessageFor(m => m.NumeroDocumento , "", new { @class = "text-danger" })
                         </div>
 
