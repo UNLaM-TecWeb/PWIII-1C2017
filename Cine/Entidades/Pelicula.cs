@@ -25,8 +25,14 @@ namespace Entidades
             public string Imagen { get; set; }
 
             [Required]
-            [Range(45, 200, ErrorMessage = "La duracion debe estar entre 45 a 200 minutos")]
+            [Range(60, 90, ErrorMessage = "La duracion debe estar entre 60 a 90 minutos")]
             public int Duracion { get; set; }
+
+            [Required]
+            public int IdCalificacion { get; set; }
+
+            [Required]
+            public int IdGenero { get; set; }
         }
     }
 }

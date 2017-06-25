@@ -90,6 +90,7 @@ namespace MVC.Controllers
         {
             if (!(ModelState.IsValid))
             {
+                TempData["Error"] = "No se pudo crear la Sede";
                 return RedirectToAction("Peliculas", "Administracion");
             }
 
@@ -122,6 +123,7 @@ namespace MVC.Controllers
         {
             if (!(ModelState.IsValid))
             {
+                TempData["Error"] = "No se pudo crear la Sede";
                 return RedirectToAction("Peliculas", "Administracion");
             }
             

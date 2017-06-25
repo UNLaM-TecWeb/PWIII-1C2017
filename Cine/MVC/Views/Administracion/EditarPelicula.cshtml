@@ -13,16 +13,16 @@
                     @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })    
                     <br />
                     @Html.Label("Descripcion")
-                    @Html.TextBox("Descripcion", null, new { @class = "form-control", Value = Model.Descripcion })
+                    @Html.TextArea("Descripcion", null, new { @class = "form-control", Value = Model.Descripcion })
                     @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" }) 
                     <br />
                     @Html.Label("Imagen")
                     <br />
                     <div class="col-md-12">
-                        <div class="col-md-2"><img src="~/Content/Upload/@Model.Imagen" /> </div><br /><br /><br /><br />
+                        <div class="col-md-2"><img src="~/Content/Upload/@Model.Imagen" class="img-thumbnail" /> </div><br /><br /><br /><br />
                         <div class="col-md-10">
                             <span>Selecciona una imagen para modificar la actual</span>
-                            @Html.TextBox("Imagen", null, new { @class = "form-control", type = "file" , Value = Model.Imagen})
+                            @Html.TextBox("Imagen", null, new { @class = "form-control ", type = "file" })
                         </div>              
                     </div>
                     @Html.ValidationMessageFor(model => model.Imagen, "", new { @class = "text-danger" }) 
