@@ -13,11 +13,12 @@ namespace Entidades
     {
         public class SedeMetadata
         {
-            [Required]
+            [Required (ErrorMessage = "El nombre de la sede debe tener al menos 3 letras y como maximo 20")]
             [StringLength(20, MinimumLength = 3)]
             public string Nombre { get; set; }
 
-            [Required]
+            [Required (ErrorMessage = "La direccion de la sede es requerida.")]
+            [StringLength(20, MinimumLength = 3)]
             public string Direccion { get; set; }
 
             [Required]

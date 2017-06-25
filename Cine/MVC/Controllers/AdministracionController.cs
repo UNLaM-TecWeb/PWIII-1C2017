@@ -185,6 +185,7 @@ namespace MVC.Controllers
         {
             if (!(ModelState.IsValid))
             {
+                TempData["Error"] = "No se pudo modificar la Sede";
                 return RedirectToAction("Sedes", "Administracion");
             }
 
