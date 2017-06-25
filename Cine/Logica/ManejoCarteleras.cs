@@ -48,6 +48,17 @@ namespace Logica
             return true;
         }
 
+        public bool DiaValidoCartelera(Carteleras c)
+        {
+            // Chequeo si todos los dias estan falsos, es decir, que no fueron seleccionados
+            if(c.Lunes == false && c.Martes == false && c.Miercoles == false && c.Jueves == false && c.Viernes == false && c.Sabado == false && c.Domingo == false)
+            {
+                return false;
+            }
+
+            return true;
+        }
+        
         public List<Carteleras> TraerCarteleras()
         {
             return pCartelera.ObtenerCarteleras();

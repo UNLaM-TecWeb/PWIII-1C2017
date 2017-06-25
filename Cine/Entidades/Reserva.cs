@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Entidades
 {
    [MetadataType(typeof(ReservaMetadata))]
-    public  partial class Reservas
+    public partial class Reservas
     {
        public class ReservaMetadata
        {

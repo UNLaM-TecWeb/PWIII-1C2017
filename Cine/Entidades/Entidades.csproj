@@ -49,6 +49,7 @@
     <Compile Include="Calificaciones.cs">
       <DependentUpon>ModeloCineContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Cartelera.cs" />
     <Compile Include="Carteleras.cs">
       <DependentUpon>ModeloCineContext.tt</DependentUpon>
     </Compile>
