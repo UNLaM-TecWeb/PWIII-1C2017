@@ -21,10 +21,10 @@ namespace Logica
         public bool ValidarCartelera(Carteleras c)
         {
             // Traigo todas las carteleras donde la sede, la sala, Pelicula y la version sean iguales
-            List<Carteleras> carteleras = pCartelera.ObtenerCarteleraPorSedeSalaVersion(c.IdSede, c.NumeroSala, c.IdVersion, c.IdPelicula);
+            List<Carteleras> carteleras = pCartelera.ObtenerCarteleraPorSedeSalaVersion(c.IdSede, c.NumeroSala, c.IdVersion, c.IdPelicula, c.IdCartelera);
 
             // Traigo todas las carteleras en donde coincida Sede, Sala y Rango de Fechas
-            List<Carteleras> cartelerasSedeSalaFecha = pCartelera.ObtenerCartelerasSedeSalaFecha(c.IdSede, c.NumeroSala, c.FechaInicio, c.FechaFin);
+            List<Carteleras> cartelerasSedeSalaFecha = pCartelera.ObtenerCartelerasSedeSalaFecha(c.IdSede, c.NumeroSala, c.FechaInicio, c.FechaFin, c.IdCartelera);
 
             // Verifico que no haya llegado vacia, si llego vacia es por que no hay salas con esas caracteristicas asi que es valida
             if (carteleras.Count() == 0 && cartelerasSedeSalaFecha.Count() == 0)
@@ -111,9 +111,14 @@ namespace Logica
             return pCartelera.ObtenerCartelera(id);
         }
 
-        public void ActualizarCartelera(Carteleras c)
+        public bool ActualizarCartelera(Carteleras c)
         {
-            pCartelera.ActualizarCartelera(c);
+            if (ValidarCartelera(c))
+            {
+                pCartelera.ActualizarCartelera(c);
+                return true;
+            }
+            return false;
         }
 
     }

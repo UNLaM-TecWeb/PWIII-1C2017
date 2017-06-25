@@ -98,7 +98,10 @@ namespace MVC.Controllers
         [HttpPost]
         public ActionResult EditarCartelera(Carteleras c)
         {
-            servicioCarteleras.ActualizarCartelera(c);
+            if (!((servicioCarteleras.ActualizarCartelera(c))))
+            {
+                TempData["Error"] = "No se ha podido actualizar la cartelera. Conflicto con otra Cartelera existente";
+            }
             return RedirectToAction("Carteleras", "Administracion");
         }
 
