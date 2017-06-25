@@ -65,6 +65,7 @@ namespace MVC.Controllers
             // Valido que la Cartelera no se pise con ninguna otra en esa misma sede y sala
             if (servicioCarteleras.ValidarCartelera(cart))
             {
+                // En caso de que la cartelera sea totalmente valida le asigno una fecha de carga y la guardo
                 cart.FechaCarga = DateTime.Now;
                 servicioCarteleras.GuardarCartelera(cart);
             }

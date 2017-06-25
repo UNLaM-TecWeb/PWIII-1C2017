@@ -18,33 +18,39 @@ namespace Logica
             pCartelera.AlmacenarCartelera(c);
         }
 
+        //public bool ValidarCartelera(Carteleras c)
+        //{
+        //    // Traigo todas las carteleras donde la sede, la sala y la version sean iguales
+        //    List<Carteleras> carteleras = pCartelera.ObtenerCarteleraPorSedeSalaVersion(c.IdSede, c.NumeroSala, c.IdVersion);
+
+        //    // Verifico que no haya llegado vacia, si llego vacia es por que no hay salas con esas caracteristicas asi que es valida
+        //    if (carteleras == null)
+        //    {
+        //        return true;
+        //    }
+
+        //    // Si tengo una cartelera en la misma Sede, Sala y Version verifico que no se crucen las fechas
+        //    foreach(Carteleras cartelera in carteleras)
+        //    {
+        //        // Averiguo si la fecha de inicio se pisa con alguna cartelera
+        //        if(c.FechaInicio >= cartelera.FechaInicio && c.FechaInicio <= cartelera.FechaFin) 
+        //        {
+        //                return false;
+        //        }
+
+        //        // Averiguo si la fecha de fin se pisa con alguna cartelera
+        //        if (c.FechaFin <= cartelera.FechaFin && c.FechaFin >= cartelera.FechaInicio)
+        //        {
+        //            return false;
+        //        }
+        //    }
+
+        //    return true;
+        //}
+
         public bool ValidarCartelera(Carteleras c)
         {
-            // Traigo todas las carteleras donde la sede, la sala y la version sean iguales
-            List<Carteleras> carteleras = pCartelera.ObtenerCarteleraPorSedeSalaVersion(c.IdSede, c.NumeroSala, c.IdVersion);
-
-            // Verifico que no haya llegado vacia, si llego vacia es por que no hay salas con esas caracteristicas asi que es valida
-            if (carteleras == null)
-            {
-                return true;
-            }
-
-            // Si tengo una cartelera en la misma Sede, Sala y Version verifico que no se crucen las fechas
-            foreach(Carteleras cartelera in carteleras)
-            {
-                // Averiguo si la fecha de inicio se pisa con alguna cartelera
-                if(c.FechaInicio >= cartelera.FechaInicio && c.FechaInicio <= cartelera.FechaFin) 
-                {
-                        return false;
-                }
-
-                // Averiguo si la fecha de fin se pisa con alguna cartelera
-                if (c.FechaFin <= cartelera.FechaFin && c.FechaFin >= cartelera.FechaInicio)
-                {
-                    return false;
-                }
-            }
-
+            // Traigo todas las carteleras 
             return true;
         }
 
