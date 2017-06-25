@@ -29,9 +29,9 @@ namespace DAL
 
         }
 
-        public List<Carteleras> ObtenerCarteleraPorSedeSalaVersion(int sede, int sala, int version)
+        public List<Carteleras> ObtenerCarteleraPorSedeSalaVersion(int sede, int sala, int version, int pelicula)
         {
-            var Query = (from c in ctx.Carteleras where c.IdSede == sede && c.NumeroSala == sala && c.IdVersion == version select c).ToList();            
+            var Query = (from c in ctx.Carteleras where c.IdSede == sede && c.NumeroSala == sala && c.IdPelicula == pelicula && c.IdVersion == version select c).ToList();            
             return Query;
         }
 
@@ -40,6 +40,16 @@ namespace DAL
             var carteleras = (from c in ctx.Carteleras select c).ToList();
             
             return carteleras;
+        }
+
+        public List<Carteleras> ObtenerCartelerasSedeSalaFecha(int sede, int sala, DateTime inicio, DateTime fin)
+        {
+            var Query = (from c in ctx.Carteleras 
+                         where c.IdSede == sede && 
+                               c.NumeroSala == sala && (
+                               (c.FechaInicio >= inicio && c.FechaInicio <= fin) || (c.FechaFin <= fin && c.FechaFin >= inicio) )
+                         select c).ToList();
+           return Query;
         }
 
         public List<Carteleras> OBtenerCartelerasPorFecha(DateTime fecha)
