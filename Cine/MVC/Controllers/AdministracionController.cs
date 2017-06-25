@@ -25,9 +25,6 @@ namespace MVC.Controllers
 
         public ActionResult Carteleras()
         {
-            ViewBag.Sedes = servicioSedes.TraerSedes(); // Traigo todas las sedes
-            ViewBag.Peliculas = servicioPeliculas.TraerPeliculas(); // Traigo todas las peliculas
-            ViewBag.Versiones = servicioPeliculas.TraerVersiones(); // Traigo todas las versiones
             List<Carteleras> Carteleras = servicioCarteleras.TraerCarteleras(); // Traigo todas las carteleras
             
             List<InfoCarteleras> infoCarteleras = new List<InfoCarteleras>(); // Instancio la clase que utilizo para mostrar las carteleras (y no mostrar ids)
@@ -55,11 +52,20 @@ namespace MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Carteleras(Carteleras cart)
+        public ActionResult NuevaCartelera(Carteleras cart)
         {
+            // Valido que se haya marcado al menos un dia de la semana
+            if (!(servicioCarteleras.DiaValidoCartelera(cart)))
+            {
+                // Si entra es por que no fue marcado ningun dia
+                TempData["Error"] = "Debes seleccionar al menos un dia de la semana";
+                return RedirectToAction("Carteleras", "Administracion");
+            }
+            
             // Valido que la Cartelera no se pise con ninguna otra en esa misma sede y sala
             if (servicioCarteleras.ValidarCartelera(cart))
             {
+                // En caso de que la cartelera sea totalmente valida le asigno una fecha de carga y la guardo
                 cart.FechaCarga = DateTime.Now;
                 servicioCarteleras.GuardarCartelera(cart);
             }
@@ -69,6 +75,15 @@ namespace MVC.Controllers
             }
 
             return RedirectToAction("Carteleras", "Administracion");
+        }
+
+        public ActionResult NuevaCartelera()
+        {
+            ViewBag.Sedes = servicioSedes.TraerSedes(); // Traigo todas las sedes
+            ViewBag.Peliculas = servicioPeliculas.TraerPeliculas(); // Traigo todas las peliculas
+            ViewBag.Versiones = servicioPeliculas.TraerVersiones(); // Traigo todas las versiones
+
+            return View();
         }
 
         public ActionResult Peliculas()
@@ -90,6 +105,7 @@ namespace MVC.Controllers
         {
             if (!(ModelState.IsValid))
             {
+                TempData["Error"] = "No se pudo crear la Sede";
                 return RedirectToAction("Peliculas", "Administracion");
             }
 
@@ -122,6 +138,7 @@ namespace MVC.Controllers
         {
             if (!(ModelState.IsValid))
             {
+                TempData["Error"] = "No se pudo crear la Sede";
                 return RedirectToAction("Peliculas", "Administracion");
             }
             
@@ -166,6 +183,7 @@ namespace MVC.Controllers
         {
             if (!(ModelState.IsValid))
             {
+                TempData["Error"] = "No se pudo crear la Sede";
                 return RedirectToAction("Sedes", "Administracion");
             }
             
@@ -185,6 +203,7 @@ namespace MVC.Controllers
         {
             if (!(ModelState.IsValid))
             {
+                TempData["Error"] = "No se pudo modificar la Sede";
                 return RedirectToAction("Sedes", "Administracion");
             }
 
