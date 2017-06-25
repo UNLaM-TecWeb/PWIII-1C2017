@@ -18,7 +18,7 @@ namespace MVC.Controllers
         ManejoCarteleras servicioCarteleras = new ManejoCarteleras();
         ManejoReserva servicioReservas = new ManejoReserva();
 
-        public ActionResult Index()
+        public ActionResult Inicio()
         {
             return View();
         }

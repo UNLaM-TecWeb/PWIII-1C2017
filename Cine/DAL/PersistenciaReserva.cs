@@ -8,14 +8,16 @@ using System.Data.Entity.Validation;
 
 namespace DAL
 {
-   public  class PersistenciaReserva
+   public  class PersistenciaReserva 
     {
        MyContext ctx = new MyContext();
+       
        public List<Versiones> ObtenerVersiones()
        {
+          
            var versiones = (from v in ctx.Versiones select v).ToList();
            List<Versiones> listaversiones = new List<Versiones>();
-
+          
            foreach (Versiones version  in versiones)
            {
                Versiones ver =  new Versiones();

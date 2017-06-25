@@ -3,4 +3,9 @@
     Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
 
-<h2>Inicio</h2>
+
+@if(Session["NombreUsuario"] != null)
+{
+<h4>Bienvenido @Session["NombreUsuario"].ToString()</h4>
+}
+

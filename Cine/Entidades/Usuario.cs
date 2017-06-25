@@ -11,8 +11,8 @@ namespace Entidades
     {
     public class LoginMetadata
     {
-        [Required]
-        [StringLength(5, MinimumLength = 5)]
+       [Required(ErrorMessage = "El usuario es invalido")]
+        [StringLength(10, MinimumLength = 5)]
         public string NombreUsuario { get; set; }
     }
 

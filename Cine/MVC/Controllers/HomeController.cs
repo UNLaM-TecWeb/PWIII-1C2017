@@ -26,7 +26,7 @@ namespace MVC.Controllers
 
             // Descarto las carteleras que tienen peliculas repetidas
             List<Carteleras> cartelerasUnicas = servicioInicio.PeliculasSinRepetir(listaCarteleras);
-            
+
             // Instancio mi clase de manejo interno para poder tipar la vista
             List<PeliculasInicio> carteleraInicio = new List<PeliculasInicio>();
 
@@ -47,25 +47,37 @@ namespace MVC.Controllers
         {
             return View();
         }
-       
+
         [HttpPost]
-        public ActionResult Login(Usuarios user)
+        public ActionResult Login(Usuarios usuario)
         {
             if (ModelState.IsValid)
             {
                 using (MyContext ctx = new MyContext())
                 {
-                    var log = ctx.Usuarios.Where(a => a.NombreUsuario.Equals(user.NombreUsuario) && a.Password.Equals(user.Password)).FirstOrDefault();
+                    var query = (from re in ctx.Usuarios select re).ToList();
+
+                    foreach (Usuarios user in query)
+                    {
+                        user.NombreUsuario = usuario.NombreUsuario;
+                        user.Password = usuario.Password;
+                    }
+                    var log = ctx.Usuarios.Where(a => a.NombreUsuario.Equals(usuario.NombreUsuario) && a.Password.Equals(usuario.Password)).FirstOrDefault();
                     if (log != null)
                     {
                         Session["IdUsuario"] = log.IdUsuario.ToString();
                         Session["NombreUsuario"] = log.NombreUsuario;
-                        return RedirectToAction("DespuesdelLogin");
+                        return RedirectToAction("Inicio", "Administracion");
+                    }
+                    else
+                    {
+                        TempData["Error"] = "Usuario o contraseña incorrecta";
                     }
                 }
 
             }
-            return View();
+
+            return RedirectToAction("Login", "Home");
         }
 
         public ActionResult DespuesDelLogin()
