@@ -166,6 +166,7 @@ namespace MVC.Controllers
         {
             if (!(ModelState.IsValid))
             {
+                TempData["Error"] = "No se pudo crear la Sede";
                 return RedirectToAction("Sedes", "Administracion");
             }
             
