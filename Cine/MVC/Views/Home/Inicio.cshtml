@@ -14,7 +14,7 @@
 <div class="row">
     <br />
     <div class="panel panel-default">
-      <div class="panel-heading fondoCabecera"><div class="derecha">@Html.ActionLink("Administracion", "Reserva", "Peliculas", new {@class = "btn btn-default btn-xs" })</div>
+      <div class="panel-heading fondoCabecera"><div class="derecha">@Html.ActionLink("Administracion", "Login", "Peliculas", new {@class = "btn btn-default btn-xs" })</div>
         <h3 class="panel-title text-center"><img src="~/Content/Images/logo.png" alt="Logo de Cinelam" /></h3>
       </div>
       <div class="panel-body">
@@ -28,7 +28,7 @@
                           <img src="~/Content/Upload/@cartelera.Imagen" class="img-thumbnail" />
                           <span><b>@cartelera.Nombre</b></span><br />
                           <span class="label label-success">@cartelera.Genero</span> <span class="label label-warning">@cartelera.Calificacion</span><hr />
-                          @Html.ActionLink("Comprar", "Reserva", "Peliculas", new { id = @cartelera.IdCartelera }, new {@class = "btn btn-info btn-block" })
+                          @Html.ActionLink("Comprar", "Reservas", "Peliculas", new { id = @cartelera.IdCartelera }, new {@class = "btn btn-info btn-block" })
                       </div>
                     </div>
               </div>
