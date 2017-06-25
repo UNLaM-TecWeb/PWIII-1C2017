@@ -1,9 +1,8 @@
 ﻿@model IEnumerable<Entidades.Peliculas>
 @{
     ViewBag.Title = "Peliculas";
-    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-<h3 class="text-center">Administracion - Peliculas</h3>
 <div class="container">
      
     @if (TempData["Error"] != null)

@@ -26,3 +26,8 @@ body {
 .fondoCabeceraAdmin2 {
     background-image: url("../Images/bg4.png");
 }
+
+.tamanoLogo {
+
+    width: 100px;
+}
