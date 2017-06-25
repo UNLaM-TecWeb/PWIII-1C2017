@@ -106,5 +106,15 @@ namespace Logica
 
         }
 
+        public Carteleras TraerCartelera(int id)
+        {
+            return pCartelera.ObtenerCartelera(id);
+        }
+
+        public void ActualizarCartelera(Carteleras c)
+        {
+            pCartelera.ActualizarCartelera(c);
+        }
+
     }
 }

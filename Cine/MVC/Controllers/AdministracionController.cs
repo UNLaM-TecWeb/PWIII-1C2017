@@ -86,6 +86,22 @@ namespace MVC.Controllers
             return View();
         }
 
+        public ActionResult EditarCartelera(int id)
+        {
+            ViewBag.Sedes = servicioSedes.TraerSedes(); // Traigo todas las sedes
+            ViewBag.Peliculas = servicioPeliculas.TraerPeliculas(); // Traigo todas las peliculas
+            ViewBag.Versiones = servicioPeliculas.TraerVersiones(); // Traigo todas las versiones
+
+            return View(servicioCarteleras.TraerCartelera(id));
+        }
+
+        [HttpPost]
+        public ActionResult EditarCartelera(Carteleras c)
+        {
+            servicioCarteleras.ActualizarCartelera(c);
+            return RedirectToAction("Carteleras", "Administracion");
+        }
+
         public ActionResult Peliculas()
         {
             ViewBag.Sedes = servicioSedes.TraerSedes();

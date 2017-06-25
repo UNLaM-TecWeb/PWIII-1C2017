@@ -29,6 +29,29 @@ namespace DAL
 
         }
 
+        public void ActualizarCartelera(Carteleras cart)
+        {
+            // Realizo la consulta para la sede especifica
+            var query = (from c in ctx.Carteleras where c.IdCartelera == cart.IdCartelera select c).First();
+
+                query.Domingo = cart.Domingo;
+                query.FechaFin = cart.FechaFin;
+                query.FechaInicio = cart.FechaInicio;
+                query.HoraInicio = cart.HoraInicio;
+                query.IdPelicula = cart.IdPelicula;
+                query.IdSede = cart.IdSede;
+                query.IdVersion = cart.IdVersion;
+                query.Jueves = cart.Jueves;
+                query.Lunes = cart.Lunes;
+                query.Martes = cart.Martes;
+                query.Miercoles = cart.Miercoles;
+                query.NumeroSala = cart.NumeroSala;
+                query.Sabado = cart.Sabado;
+
+            ctx.SaveChanges();
+
+        }
+
         public List<Carteleras> ObtenerCarteleraPorSedeSalaVersion(int sede, int sala, int version, int pelicula)
         {
             var Query = (from c in ctx.Carteleras where c.IdSede == sede && c.NumeroSala == sala && c.IdPelicula == pelicula && c.IdVersion == version select c).ToList();            
@@ -59,6 +82,13 @@ namespace DAL
                          where c.FechaInicio <= fechaTope 
                          where c.FechaFin > fecha
                          select c).ToList();
+            return Query;
+        }
+
+        public Carteleras ObtenerCartelera(int id)
+        {
+            var Query = (from c in ctx.Carteleras where c.IdCartelera == id select c).First();
+
             return Query;
         }
 

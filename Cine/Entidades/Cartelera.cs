@@ -19,7 +19,7 @@ namespace Entidades
             public int IdPelicula { get; set; }
 
             [Required(ErrorMessage = "Indicar hora de inicio de cartelera")]
-            [Range(8, 14, ErrorMessage = "Hora de Inicio entre las 8A M y las 14 PM")]
+            [Range(8, 14, ErrorMessage = "Hora de Inicio entre las 8 AM y las 14 PM")]
             public int HoraInicio { get; set; }
 
             [Required(ErrorMessage = "Indicar Fecha de Inicio de cartelera")]
