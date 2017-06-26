@@ -28,6 +28,7 @@ namespace MVC.Controllers
             return View();
         }
 
+        /* CARTELERAS */
         public ActionResult Carteleras()
         {
             if (Session["IdUsuario"] == null)
@@ -115,6 +116,8 @@ namespace MVC.Controllers
             return RedirectToAction("Carteleras", "Administracion");
         }
 
+        /* PELICULAS */
+        
         public ActionResult Peliculas()
         {
             if (Session["IdUsuario"] == null)
@@ -142,14 +145,20 @@ namespace MVC.Controllers
                 return RedirectToAction("Peliculas", "Administracion");
             }
 
-            var filename = DateTime.Now.Second + "-" + DateTime.Now.Hour + "-" + DateTime.Now.Minute + "-" + Path.GetFileName(Imagen.FileName);
+            if (Imagen != null)
+            {
+                var filename = DateTime.Now.Second + "-" + DateTime.Now.Hour + "-" + DateTime.Now.Minute + "-" + Path.GetFileName(Imagen.FileName);
 
-            var path = Path.Combine(Server.MapPath("~/Content/Upload"), filename);
-            Imagen.SaveAs(path);
+                var path = Path.Combine(Server.MapPath("~/Content/Upload"), filename);
+                Imagen.SaveAs(path);
 
-            // Le asigno el nombre a la imagen de la pelicula
-            p.Imagen = filename;
-
+                // Le asigno el nombre a la imagen de la pelicula
+                p.Imagen = filename;
+            }
+                else
+                {
+                    p.Imagen = "sinTapa.png"; 
+                }
             // Le asigno una fecha de carga
             p.FechaCarga = DateTime.Now;
 
@@ -191,6 +200,8 @@ namespace MVC.Controllers
             return RedirectToAction("Peliculas", "Administracion");
         }
 
+        /* REPORTES */
+        
         public ActionResult Reportes()
         {
             if (Session["IdUsuario"] == null)
@@ -240,6 +251,7 @@ namespace MVC.Controllers
             return View(listaInfoReserva);
         }
 
+        /* SEDES */
         public ActionResult Sedes()
         {
             if (Session["IdUsuario"] == null)

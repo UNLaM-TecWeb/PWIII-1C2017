@@ -25,7 +25,6 @@
                             @Html.TextBox("Imagen", null, new { @class = "form-control ", type = "file" })
                         </div>              
                     </div>
-                    @Html.ValidationMessageFor(model => model.Imagen, "", new { @class = "text-danger" }) 
                     <br />    
                     @Html.Label("Calificacion")
                     @Html.DropDownList("IdCalificacion",new SelectList(ViewBag.Calificaciones,"IdCalificacion","Nombre"), new { @class = "form-control", Value= Model.IdCalificacion })

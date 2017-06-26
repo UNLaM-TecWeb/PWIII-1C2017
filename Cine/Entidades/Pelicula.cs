@@ -22,9 +22,6 @@ namespace Entidades
             public string Descripcion { get; set; }
 
             [Required]
-            public string Imagen { get; set; }
-
-            [Required]
             [Range(60, 90, ErrorMessage = "La duracion debe estar entre 60 a 90 minutos")]
             public int Duracion { get; set; }
 
