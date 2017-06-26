@@ -18,6 +18,7 @@ namespace MVC.Controllers
         ManejoCarteleras servicioCarteleras = new ManejoCarteleras();
         ManejoReserva servicioReservas = new ManejoReserva();
 
+        
         public ActionResult Home()
         {
             if (Session["IdUsuario"] == null)
@@ -29,6 +30,11 @@ namespace MVC.Controllers
 
         public ActionResult Carteleras()
         {
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
+            
             List<Carteleras> Carteleras = servicioCarteleras.TraerCarteleras(); // Traigo todas las carteleras
             
             List<InfoCarteleras> infoCarteleras = new List<InfoCarteleras>(); // Instancio la clase que utilizo para mostrar las carteleras (y no mostrar ids)
@@ -111,6 +117,10 @@ namespace MVC.Controllers
 
         public ActionResult Peliculas()
         {
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             ViewBag.Sedes = servicioSedes.TraerSedes();
             return View(servicioPeliculas.TraerPeliculas());
         }
@@ -183,6 +193,11 @@ namespace MVC.Controllers
 
         public ActionResult Reportes()
         {
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
+            
             ViewBag.Peliculas = servicioPeliculas.TraerPeliculas(); // Traigo todas las peliculas
             
             return View();
@@ -227,6 +242,10 @@ namespace MVC.Controllers
 
         public ActionResult Sedes()
         {
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             ViewBag.Sedes = servicioSedes.TraerSedes(); // Traigo las Sedes de la Base de Datos
             return View();
         }
