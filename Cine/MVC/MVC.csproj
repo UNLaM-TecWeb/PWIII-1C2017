@@ -189,7 +189,7 @@
     <Content Include="Views\Administracion\Carteleras.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Administracion\Inicio.cshtml" />
+    <Content Include="Views\Administracion\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Administracion\Peliculas.cshtml" />
