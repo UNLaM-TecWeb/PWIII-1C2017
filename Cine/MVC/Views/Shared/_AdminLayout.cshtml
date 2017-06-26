@@ -1,92 +1,47 @@
-﻿<!--
-5.4 Home Administrativa (/administracion/inicio) (*)
-La vista Home tendrá el ​menú ​​completo de las opciones que los usuarios podrán utilizar. Este
-menú deberá ser visible en todas las vistas (​utilizar Layout​​). El menú estará conformado por
-las siguientes opciones:
-    
-    - Gestión de Películas
-    - Gestión de Carteleras.
-    - Gestión de Sedes.
-    - Reporte de Reservas
-
-(*) En caso de no estar logueado, debe redirigirse a ​/home/login y luego de que el usuario
-ingrese se lo debe auto-redirigir a la página que deseaba ingresar.
--->
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
-
+﻿<!DOCTYPE html>
+<html>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title> </title>
-   
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>@ViewBag.Title</title>
+    
+    
+    <!-- Metas Tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="cine, cinema, cartelera, estrenos, pelicula, peliculas, reserva, entradas, online" />
 
-    <!-- Estilos -->
-    <link href="@Url.Content("~/Content/Css/bootstrap.min.css")" rel="stylesheet" type="text/css" media="all" />
+    <!-- Hojas de Estilo -->
+    <link href="@Url.Content("~/Content/Css/bootstrap.css")" rel="stylesheet" type="text/css" media="all" />
+    <link href="@Url.Content("~/Content/Css/cine.css")" rel="stylesheet" type="text/css" media="all" />
 </head>
-
 <body>
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">WebSiteName</a>
-            </div>
+
+    <nav class="navbar navbar-inverse fondoCabeceraAdmin" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <span class="sr-only">Desplegar navegación</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="@Url.Action("Inicio", "Home")"><img src="~/Content/Images/logo.png" class="tamanoLogo" alt="Logo de Cinelam" /></a>
+        </div>
+ 
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                
-                <!-- Botón para regresar al inicio -->
-                <li class="active"><a href="#">Home</a></li>
-
-                <!-- Menú de Peliculas -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Pel&iacute;culas <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Alta</a></li>
-                        <li><a href="#">Baja</a></li>
-                        <li><a href="#">Modificaci&oacute;n</a></li>
-                    </ul>
-                </li>
-
-                <!-- Menú de Carteleras -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Carteleras <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Alta</a></li>
-                        <li><a href="#">Baja</a></li>
-                        <li><a href="#">Modificaci&oacute;n</a></li>
-                    </ul>
-                </li>
-                
-                <!-- Menú de Sedes -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sedes <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Alta</a></li>
-                        <li><a href="#">Baja</a></li>
-                        <li><a href="#">Modificaci&oacute;n</a></li>
-                    </ul>
-                </li>
-                
-                <!-- Menú de Reporte de reservas -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reporte de reservas <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Opci&oacute;n 1</a></li>
-                        <li><a href="#">Opci&oacute;n 2</a></li>
-                        <li><a href="#">Opci&oacute;n 3</a></li>
-                    </ul>
-                </li>
+              <li>@Html.ActionLink("Gestion de Peliculas", "Peliculas", "Administracion")</li>
+              <li>@Html.ActionLink("Gestion de Carteleras", "Carteleras", "Administracion")</li>
+              <li>@Html.ActionLink("Gestion de Sedes", "Sedes", "Administracion")</li>
+              <li>@Html.ActionLink("Reporte de Reservas", "Reportes", "Administracion")</li>
             </ul>
         </div>
     </nav>
+    <div class="container">@RenderBody()</div>
 
-    @RenderBody()
-
-    <!-- Scripts (JQuery y Bootstrap) -->
     <script src="@Url.Content("~/Content/Js/Jquery/jquery.min.js")"></script>
-    <script src="@Url.Content("~/Content/Js/Bootstrap/bootstrap.min.js")"></script>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+    <script src="@Url.Content("~/Content/Js/globales.js")"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+</body>
 </html>
