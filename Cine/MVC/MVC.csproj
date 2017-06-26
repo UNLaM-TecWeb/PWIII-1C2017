@@ -209,7 +209,7 @@
     <Content Include="Views\Peliculas\ClienteReserva.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Peliculas\Reservas.cshtml" />
+    <Content Include="Views\Peliculas\ReservasVersiones.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Administracion\EditarSede.cshtml" />
@@ -231,6 +231,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Administracion\EditarCartelera.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Peliculas\ReservasSedes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Peliculas\ReservasDias.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Peliculas\ReservasHorarios.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

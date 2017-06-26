@@ -98,7 +98,6 @@ namespace DAL
        {
            ctx.Reservas.Add(r);
            //ctx.SaveChanges();
-          
        }
     }
 }

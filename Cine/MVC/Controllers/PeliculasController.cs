@@ -16,11 +16,29 @@ namespace MVC.Controllers
         ManejoSedes serviciosSedes = new ManejoSedes();
         ManejoTipoDocumento servicioTipoDoc = new ManejoTipoDocumento();
         ManejoPeliculas servicioPelicula = new ManejoPeliculas();
-        public ActionResult Reservas(int id)
+        public ActionResult ReservasVersiones(int id)
         {
             ViewBag.Versiones = servicioReserva.TraerVersiones(); // Traigo las reserva de la base de datos
-            ViewBag.Sedes = serviciosSedes.TraerSedes();
+            //ViewBag.Sedes = serviciosSedes.TraerSedes();
+            //ViewBag.Dias = servicioReserva.TraerDias();
+            //ViewBag.Horarios = servicioReserva.TraerHorario();
+            return View();
+        }
+
+        public ActionResult ReservasDias(int id)
+        {
             ViewBag.Dias = servicioReserva.TraerDias();
+            return View();
+        }
+
+        public ActionResult ReservasSedes(int id)
+        {
+            ViewBag.Sedes = serviciosSedes.TraerSedes();
+            return View();
+        }
+
+        public ActionResult ReservasHorarios(int id)
+        {
             ViewBag.Horarios = servicioReserva.TraerHorario();
             return View();
         }
