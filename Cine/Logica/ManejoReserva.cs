@@ -44,5 +44,10 @@ namespace Logica
        {
            pReserva.ObtenerReserva(r);
        }
+
+       public List<Reservas> TraerReservasPorPeriodo(DateTime i, DateTime f, int p)
+       {
+           return pReserva.ObtenerReservasPorPeriodo(i, f, p);
+       }
     }
 }

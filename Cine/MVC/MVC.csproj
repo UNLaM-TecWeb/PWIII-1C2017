@@ -117,9 +117,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\InfoReserva.cs" />
     <Compile Include="Models\PeliculasInicio.cs" />
     <Compile Include="Models\InfoCarteleras.cs" />
-    <Compile Include="Models\IntervaloDeTiempo.cs" />
+    <Compile Include="Models\InfoReportes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -224,7 +225,7 @@
     <Content Include="Views\Administracion\EditarPelicula.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Administracion\ReporteReservas.cshtml" />
+    <Content Include="Views\Administracion\ReporteReserva.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Administracion\NuevaCartelera.cshtml" />

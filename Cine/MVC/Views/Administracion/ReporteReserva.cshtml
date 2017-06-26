@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MVC.Models.InfoReserva>
+@{
+    ViewBag.Title = "ReporteReserva";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="panel panel-default">
+  <div class="panel-body text-center">
+      
+<h3 class="text-center">Reporte de Reserva</h3>
+
+
+    <table class="table">
+        <tr>
+            <td><strong>Sede</strong></td>
+            <td><strong>Version</strong></td>
+            <td><strong>Pelicula</strong></td>
+            <td><strong>Precio</strong></td>
+        </tr>
+        
+        @foreach (var item in Model)
+            {
+              <tr>
+                 <td>@item.Sede</td>
+                 <td>@item.Version</td>
+                 <td>@item.Pelicula</td>
+                 <td>$ @item.Precio</td>
+              </tr>                    
+             }
+    </table>
+</div>
+
+<table>
+      </div>
+</div>

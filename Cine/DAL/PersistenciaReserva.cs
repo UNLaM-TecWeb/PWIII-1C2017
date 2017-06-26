@@ -99,5 +99,11 @@ namespace DAL
            ctx.Reservas.Add(r);
            //ctx.SaveChanges();
        }
+
+       public List<Reservas> ObtenerReservasPorPeriodo(DateTime inicio, DateTime fin, int p)
+       {
+           var Query = (from r in ctx.Reservas where r.FechaCarga >= inicio && r.FechaCarga <= fin && r.IdPelicula == p select r).ToList();
+           return Query;
+       }
     }
 }

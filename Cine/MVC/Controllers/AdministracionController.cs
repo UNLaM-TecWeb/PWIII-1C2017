@@ -51,6 +51,15 @@ namespace MVC.Controllers
             return RedirectToAction("Carteleras", "Administracion");
         }
 
+        public ActionResult NuevaCartelera()
+        {
+            ViewBag.Sedes = servicioSedes.TraerSedes(); // Traigo todas las sedes
+            ViewBag.Peliculas = servicioPeliculas.TraerPeliculas(); // Traigo todas las peliculas
+            ViewBag.Versiones = servicioPeliculas.TraerVersiones(); // Traigo todas las versiones
+
+            return View();
+        }       
+        
         [HttpPost]
         public ActionResult NuevaCartelera(Carteleras cart)
         {
@@ -75,15 +84,6 @@ namespace MVC.Controllers
             }
 
             return RedirectToAction("Carteleras", "Administracion");
-        }
-
-        public ActionResult NuevaCartelera()
-        {
-            ViewBag.Sedes = servicioSedes.TraerSedes(); // Traigo todas las sedes
-            ViewBag.Peliculas = servicioPeliculas.TraerPeliculas(); // Traigo todas las peliculas
-            ViewBag.Versiones = servicioPeliculas.TraerVersiones(); // Traigo todas las versiones
-
-            return View();
         }
 
         public ActionResult EditarCartelera(int id)
@@ -179,17 +179,47 @@ namespace MVC.Controllers
 
         public ActionResult Reportes()
         {
+            ViewBag.Peliculas = servicioPeliculas.TraerPeliculas(); // Traigo todas las peliculas
+            
             return View();
         }
 
-        //[HttpPost]
-        //public ActionResult Reportes(IntervaloDeTiempo inter)
-        //{
-        //    DateTime Desde = new DateTime(inter.DesdeAnno, inter.DesdeMes, inter.DesdeDia);
-        //    DateTime Hasta = new DateTime(inter.HastaAnno, inter.HastaMes, inter.HastaDia);
+        [HttpPost]
+        public ActionResult ReporteReserva(InfoReportes r)
+        {
+            // Verifico que el lapso de tiempo no supere los 30 dias
+            if (!(ServicioReportes.LapsoValido(r.FechaInicio, r.FechaFin)))
+            {
+                TempData["Error"] = "El lapso de tiempo no debe ser mayor a 30 Dias.";
+                return RedirectToAction("Reportes", "Administracion");
+            }
 
-        //    return View("ReporteReservas", ServicioReportes.GenerarReporteReservas(Desde, Hasta));
-        //}
+            // Si el lapso de tiempo es valido, voy a la tabla de reserva y traigo todas las reservas comprendidas en ese lapso de tiempo
+            // para esa pelicula
+            List<Reservas> listaReservas = servicioReservas.TraerReservasPorPeriodo(r.FechaInicio, r.FechaFin, r.Pelicula);
+            
+            // Consulto si la lista llego vacia, en ese caso muetro un mensaje en pantalla
+            if (listaReservas.Count() == 0)
+            {
+                TempData["Error"] = "No se encontraron reservas para el Rango de Fecha solicitado";
+                return RedirectToAction("Reportes", "Administracion");                
+            }
+
+            // Creo una lista con los datos requeridos
+            List<InfoReserva> listaInfoReserva = new List<InfoReserva>();
+
+            foreach (Reservas reserva in listaReservas)
+            {
+                InfoReserva infoReserva = new InfoReserva();
+                infoReserva.Sede = servicioSedes.TraerSede(reserva.IdSede).Nombre;
+                infoReserva.Precio = servicioSedes.TraerSede(reserva.IdSede).PrecioGeneral;
+                infoReserva.Pelicula = servicioPeliculas.TraerPelicula(reserva.IdPelicula).Nombre;
+                infoReserva.Version = servicioReservas.TraerVersion(reserva.IdVersion).Nombre;
+                listaInfoReserva.Add(infoReserva);
+            }
+
+            return View(listaInfoReserva);
+        }
 
         public ActionResult Sedes()
         {

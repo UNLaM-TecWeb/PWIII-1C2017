@@ -1,33 +1,42 @@
-﻿@model MVC.Models.IntervaloDeTiempo
+﻿@model MVC.Models.InfoReportes
 @{
     ViewBag.Title = "Reportes";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>
+    }
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
         <h3 class="text-center">Reporte de Reservas</h3>
         <div class="panel panel-default">
             <div class="panel-body">
-                <h6 class="text-center">Hola</h6>
-                @using (Html.BeginForm())
+                <h6 class="text-center">Seleccione la Pelicula, Fecha de Inicio y Fin para generar el reporte</h6>
+                @using (Html.BeginForm("ReporteReserva", "Administracion", FormMethod.Post))
                 {
-                        <div class="col-md-6">
+                    <div class="col-md-4">
+                        @Html.Label("Pelicula")
+                        @Html.DropDownList("Pelicula",new SelectList(ViewBag.Peliculas,"IdPelicula","Nombre"), new { @class = "form-control" })
+                        </div>    
+                    
+                    <div class="col-md-4">
                         @Html.Label("Desde")
                         @Html.TextBox("FechaInicio", null, new { @class = "form-control", type = "Date" })
                         </div>
                     
-                        <div class="col-md-6">
+                    <div class="col-md-4">
                         @Html.Label("Hasta")
                         @Html.TextBox("FechaFin", null, new { @class = "form-control", type = "Date" }) <br /> 
                         </div>          
                            
-                        <input type="submit" class="btn btn-success btn-block" value="Ver reporte">
+                        <input type="submit" class="btn btn-success btn-block" value="Generar Reporte">
                 
                 }
             </div>
         </div>
     </div>
-    <div class="col-md-4"></div>
+    <div class="col-md-2"></div>
 </div>
