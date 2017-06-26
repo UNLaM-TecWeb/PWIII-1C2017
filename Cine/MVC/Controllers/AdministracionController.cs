@@ -28,6 +28,7 @@ namespace MVC.Controllers
             return View();
         }
 
+        /* CARTELERAS */
         public ActionResult Carteleras()
         {
             if (Session["IdUsuario"] == null)
@@ -115,6 +116,8 @@ namespace MVC.Controllers
             return RedirectToAction("Carteleras", "Administracion");
         }
 
+        /* PELICULAS */
+        
         public ActionResult Peliculas()
         {
             if (Session["IdUsuario"] == null)
@@ -191,6 +194,8 @@ namespace MVC.Controllers
             return RedirectToAction("Peliculas", "Administracion");
         }
 
+        /* REPORTES */
+        
         public ActionResult Reportes()
         {
             if (Session["IdUsuario"] == null)
@@ -240,6 +245,7 @@ namespace MVC.Controllers
             return View(listaInfoReserva);
         }
 
+        /* SEDES */
         public ActionResult Sedes()
         {
             if (Session["IdUsuario"] == null)
