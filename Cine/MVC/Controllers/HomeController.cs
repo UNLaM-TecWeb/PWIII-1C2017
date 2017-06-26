@@ -67,7 +67,7 @@ namespace MVC.Controllers
                     {
                         Session["IdUsuario"] = log.IdUsuario.ToString();
                         Session["NombreUsuario"] = log.NombreUsuario;
-                        return RedirectToAction("Inicio", "Administracion");
+                        return RedirectToAction("Home", "Administracion");
                     }
                     else
                     {
@@ -76,6 +76,7 @@ namespace MVC.Controllers
                 }
 
             }
+
 
             return RedirectToAction("Login", "Home");
         }

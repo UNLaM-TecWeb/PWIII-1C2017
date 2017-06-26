@@ -16,6 +16,7 @@ namespace MVC.Controllers
         ManejoSedes serviciosSedes = new ManejoSedes();
         ManejoTipoDocumento servicioTipoDoc = new ManejoTipoDocumento();
         ManejoPeliculas servicioPelicula = new ManejoPeliculas();
+
         public ActionResult ReservasVersiones(int id)
         {
             ViewBag.Versiones = servicioReserva.TraerVersiones(); // Traigo las reserva de la base de datos

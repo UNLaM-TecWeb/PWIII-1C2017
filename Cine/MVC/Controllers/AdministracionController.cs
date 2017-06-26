@@ -18,8 +18,12 @@ namespace MVC.Controllers
         ManejoCarteleras servicioCarteleras = new ManejoCarteleras();
         ManejoReserva servicioReservas = new ManejoReserva();
 
-        public ActionResult Inicio()
+        public ActionResult Home()
         {
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             return View();
         }
 

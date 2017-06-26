@@ -32,8 +32,10 @@
               <li>@Html.ActionLink("Gestion de Carteleras", "Carteleras", "Administracion")</li>
               <li>@Html.ActionLink("Gestion de Sedes", "Sedes", "Administracion")</li>
               <li>@Html.ActionLink("Reporte de Reservas", "Reportes", "Administracion")</li>
+              <li><a href="@Url.Action("Logout", "Home")">Cerrar Sesion</a></li>
             </ul>
         </div>
+
     </nav>
     <div class="container">@RenderBody()</div>
 
