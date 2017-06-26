@@ -145,14 +145,20 @@ namespace MVC.Controllers
                 return RedirectToAction("Peliculas", "Administracion");
             }
 
-            var filename = DateTime.Now.Second + "-" + DateTime.Now.Hour + "-" + DateTime.Now.Minute + "-" + Path.GetFileName(Imagen.FileName);
+            if (Imagen != null)
+            {
+                var filename = DateTime.Now.Second + "-" + DateTime.Now.Hour + "-" + DateTime.Now.Minute + "-" + Path.GetFileName(Imagen.FileName);
 
-            var path = Path.Combine(Server.MapPath("~/Content/Upload"), filename);
-            Imagen.SaveAs(path);
+                var path = Path.Combine(Server.MapPath("~/Content/Upload"), filename);
+                Imagen.SaveAs(path);
 
-            // Le asigno el nombre a la imagen de la pelicula
-            p.Imagen = filename;
-
+                // Le asigno el nombre a la imagen de la pelicula
+                p.Imagen = filename;
+            }
+                else
+                {
+                    p.Imagen = "sinTapa.png"; 
+                }
             // Le asigno una fecha de carga
             p.FechaCarga = DateTime.Now;
 
