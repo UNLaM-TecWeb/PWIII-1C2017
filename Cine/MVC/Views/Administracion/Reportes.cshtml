@@ -3,65 +3,31 @@
     ViewBag.Title = "Reportes";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-       <div class="container">
-            <div class="row">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-4"><h1>Reporte de reservas</h1></div>
-                <div class="col-sm-4"></div>
-            </div>
-        </div>
 
-        <!-- Éste bloque no es más que un pedazo de código para insertar algo de "espacio" entre el bloque de arriba y el de abajo. -->
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <label class="">&nbsp;</label>
-                </div>
-            </div>
-        </div>
-        <!-- Fin del "bloque espaciador" -->
-
-        <div class="container">
-            <div class="row">
-                @using(Html.BeginForm()) 
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <h3 class="text-center">Reporte de Reservas</h3>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h6 class="text-center">Hola</h6>
+                @using (Html.BeginForm())
                 {
-                    <div class="col-sm-1">@Html.Label("Desde")</div>
-                    <div class="col-sm-1">@Html.TextBox("DesdeDia", null, new { @class = "form-control", @placeholder = "dd", @name = "DesdeDia", @id = "DesdeDia", @onload = "DarFoco('DesdeDia')" })</div>
-                    <div class="col-sm-1">@Html.TextBox("DesdeMes", null, new { @class = "form-control", @placeholder = "mm", @name = "DesdeMes" })</div>
-                    <div class="col-sm-1">@Html.TextBox("DesdeAnno", null, new { @class = "form-control", @placeholder = "aaaa", @name = "DesdeAnno" })</div>
+                        <div class="col-md-6">
+                        @Html.Label("Desde")
+                        @Html.TextBox("FechaInicio", null, new { @class = "form-control", type = "Date" })
+                        </div>
                     
-                    <div class="col-sm-1">@Html.Label("Hasta")</div>
-                    <div class="col-sm-1">@Html.TextBox("HastaDia", null, new { @class = "form-control", @placeholder = "dd", @id = "HastaDia" })</div>
-                    <div class="col-sm-1">@Html.TextBox("HastaMes", null, new { @class = "form-control", @placeholder = "mm" })</div>
-                    <div class="col-sm-1">@Html.TextBox("HastaAnno", null, new { @class = "form-control", @placeholder = "aaaa" })</div>
-                    
-                    <div class="col-sm-1"><input type="submit" class="btn btn-default" value="Ver reporte"></div>
+                        <div class="col-md-6">
+                        @Html.Label("Hasta")
+                        @Html.TextBox("FechaFin", null, new { @class = "form-control", type = "Date" }) <br /> 
+                        </div>          
+                           
+                        <input type="submit" class="btn btn-success btn-block" value="Ver reporte">
+                
                 }
             </div>
         </div>
-
-        <!-- Éste bloque no es más que un pedazo de código para insertar algo de "espacio" entre el bloque de arriba y el de abajo. -->
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <label class="">&nbsp;</label>
-                </div>
-            </div>
-        </div>
-        <!-- Fin del "bloque espaciador" -->
-
-        <!--<div class="container">
-            <div class="row">
-                <table class="table table-hover">
-                    <tr>
-                        <th>#</th>
-                        <th>Sede</th>
-                        <th>Versi&oacute;n</th>
-                        <th>Pel&iacute;cula</th>
-                        <th>Precio</th>
-                    </tr>
-                </table>
-            </div>
-        </div>-->
-
-        <script src="@Url.Content("~/Content/Js/globales.js")"></script>
+    </div>
+    <div class="col-md-4"></div>
+</div>
