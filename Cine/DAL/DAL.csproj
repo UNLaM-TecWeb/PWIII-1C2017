@@ -64,7 +64,6 @@
     <Compile Include="PersistenciaReserva.cs" />
     <Compile Include="PersistenciaSedes.cs" />
     <Compile Include="PersistenciaTipoDocumento.cs" />
-    <Compile Include="PersistenciaUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

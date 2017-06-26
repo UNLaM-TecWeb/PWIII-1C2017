@@ -115,6 +115,24 @@ namespace DAL
             return versiones;
         }
 
-       
+
+
+        //public Peliculas ObtenerPeliculas(Peliculas pe)
+        //{
+        //    var query = (from p in ctx.Peliculas where p.IdPelicula == pe.IdPelicula select p).ToList();
+
+        //    Peliculas pel = new Peliculas();
+        //    foreach (Peliculas p in query)
+        //    {
+        //        pel.IdPelicula = pe.IdPelicula;
+        //        pel.Nombre = pe.Nombre;
+        //        pel.Descripcion = pe.Descripcion;
+        //        pel.Imagen = pe.Imagen;
+        //        pel.IdCalificacion = p.IdCalificacion;
+        //        pel.IdGenero = pe.IdGenero;
+        //        pel.Duracion = pe.Duracion;
+        //    }
+        //    return pel;
+        //}
     }
 }

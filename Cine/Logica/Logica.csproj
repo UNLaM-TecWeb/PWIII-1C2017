@@ -48,7 +48,6 @@
     <Compile Include="ManejoReserva.cs" />
     <Compile Include="ManejoSedes.cs" />
     <Compile Include="ManejoTipoDocumento.cs" />
-    <Compile Include="ManejoUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

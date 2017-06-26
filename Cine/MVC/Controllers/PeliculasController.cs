@@ -15,6 +15,7 @@ namespace MVC.Controllers
         ManejoReserva servicioReserva = new ManejoReserva();
         ManejoSedes serviciosSedes = new ManejoSedes();
         ManejoTipoDocumento servicioTipoDoc = new ManejoTipoDocumento();
+        ManejoPeliculas servicioPelicula = new ManejoPeliculas();
         public ActionResult Reservas(int id)
         {
             ViewBag.Versiones = servicioReserva.TraerVersiones(); // Traigo las reserva de la base de datos
@@ -23,20 +24,13 @@ namespace MVC.Controllers
             ViewBag.Horarios = servicioReserva.TraerHorario();
             return View();
         }
-        
-        public ActionResult  ClienteReserva (Reservas r)
+
+        public ActionResult ClienteReserva(Reservas r)
         {
             ViewBag.TipoDocumento = servicioTipoDoc.TraerTipodocumentos();
             servicioReserva.TraerReserva(r);
+            //ViewBag.Peliculas = servicioPelicula.TraerPelicula();   
             return View();
         }
-
-
-
-
-        
-
-
-
     }
 }

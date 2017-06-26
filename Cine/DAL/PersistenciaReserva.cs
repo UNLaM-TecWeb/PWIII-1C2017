@@ -96,25 +96,8 @@ namespace DAL
       
        public void ObtenerReserva(Reservas r)
        {
-           try
-           {
-               var query = (from re in ctx.Reservas select re).ToList(); ;
-               Reservas rese = new Reservas();
-               foreach (Reservas re in query)
-               {
-                   rese.Email = r.Email;
-                   rese.NumeroDocumento = r.NumeroDocumento;
-                   rese.CantidadEntradas = r.CantidadEntradas;
-                   
-               }
-                   //ctx.Reservas.Add(r);
-                   //ctx.SaveChanges();
-           }
-           catch (DbEntityValidationException ex)
-           {
-               
-               throw;
-           }
+           ctx.Reservas.Add(r);
+           //ctx.SaveChanges();
           
        }
     }

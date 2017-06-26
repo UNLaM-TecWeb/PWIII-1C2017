@@ -73,6 +73,5 @@ namespace Logica
         {
             return pPeliculas.ObtenerVersiones();
         }
-
     }
 }
