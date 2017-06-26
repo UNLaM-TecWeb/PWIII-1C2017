@@ -113,12 +113,20 @@ namespace Logica
 
         public bool ActualizarCartelera(Carteleras c)
         {
+            
+            
             if (ValidarCartelera(c))
             {
                 pCartelera.ActualizarCartelera(c);
                 return true;
             }
             return false;
+        }
+
+        public int? TransformarHora(int h)
+        {
+
+            return null;
         }
 
     }

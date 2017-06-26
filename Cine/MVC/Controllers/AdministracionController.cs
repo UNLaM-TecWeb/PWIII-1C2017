@@ -103,6 +103,8 @@ namespace MVC.Controllers
             ViewBag.Peliculas = servicioPeliculas.TraerPeliculas(); // Traigo todas las peliculas
             ViewBag.Versiones = servicioPeliculas.TraerVersiones(); // Traigo todas las versiones
 
+
+
             return View(servicioCarteleras.TraerCartelera(id));
         }
 
@@ -279,12 +281,15 @@ namespace MVC.Controllers
         public ActionResult EditarSede(int id)
         {
             ViewBag.sede = servicioSedes.TraerSede(id);
+            ViewBag.sede.PrecioGeneral = Convert.ToInt32(ViewBag.sede.PrecioGeneral);
             return View();
         }
 
         [HttpPost]
         public ActionResult EditarSede(Sedes s)
         {
+
+            
             if (!(ModelState.IsValid))
             {
                 TempData["Error"] = "No se pudo modificar la Sede";
