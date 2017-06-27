@@ -23,6 +23,8 @@ namespace MVC.Controllers
         {
             if (Session["IdUsuario"] == null)
             {
+                TempData["urlController"] = Request.RequestContext.RouteData.Values["controller"].ToString();
+                TempData["urlAction"] = Request.RequestContext.RouteData.Values["action"].ToString();
                 return RedirectToAction("Login", "Home");
             }
             return View();
@@ -33,6 +35,8 @@ namespace MVC.Controllers
         {
             if (Session["IdUsuario"] == null)
             {
+                TempData["urlController"] = Request.RequestContext.RouteData.Values["controller"].ToString();
+                TempData["urlAction"] = Request.RequestContext.RouteData.Values["action"].ToString();
                 return RedirectToAction("Login", "Home");
             }
             
@@ -131,6 +135,8 @@ namespace MVC.Controllers
         {
             if (Session["IdUsuario"] == null)
             {
+                TempData["urlController"] = Request.RequestContext.RouteData.Values["controller"].ToString();
+                TempData["urlAction"] = Request.RequestContext.RouteData.Values["action"].ToString();
                 return RedirectToAction("Login", "Home");
             }
             ViewBag.Sedes = servicioSedes.TraerSedes();
@@ -215,6 +221,8 @@ namespace MVC.Controllers
         {
             if (Session["IdUsuario"] == null)
             {
+                TempData["urlController"] = Request.RequestContext.RouteData.Values["controller"].ToString();
+                TempData["urlAction"] = Request.RequestContext.RouteData.Values["action"].ToString();
                 return RedirectToAction("Login", "Home");
             }
             
@@ -265,6 +273,8 @@ namespace MVC.Controllers
         {
             if (Session["IdUsuario"] == null)
             {
+                TempData["urlController"] = Request.RequestContext.RouteData.Values["controller"].ToString();
+                TempData["urlAction"] = Request.RequestContext.RouteData.Values["action"].ToString();
                 return RedirectToAction("Login", "Home");
             }
             ViewBag.Sedes = servicioSedes.TraerSedes(); // Traigo las Sedes de la Base de Datos

@@ -67,7 +67,12 @@ namespace MVC.Controllers
                     {
                         Session["IdUsuario"] = log.IdUsuario.ToString();
                         Session["NombreUsuario"] = log.NombreUsuario;
-                        return RedirectToAction("Home", "Administracion");
+
+                        // Verifico de que vista viene, en caso de que sea null significa que esta ingresando desde el index
+                        if (TempData["urlAction"] == null)
+                        { return RedirectToAction("Home", "Administracion"); }
+
+                        return RedirectToAction(TempData["urlAction"].ToString(), TempData["urlController"].ToString());
                     }
                     else
                     {
