@@ -92,5 +92,20 @@ namespace DAL
             return Query;
         }
 
+        public List<Carteleras> ObtenerCartelerasPorPeliculaFecha(int id, DateTime limite, DateTime hoy)
+        {
+            var Query = (from c in ctx.Carteleras where c.IdPelicula == id && c.FechaInicio <= limite && c.FechaInicio >= hoy select c).ToList();
+
+            return Query;
+        }
+
+        public List<Carteleras> ObtenerCartelerasVersionPelicula(int version, int pelicula)
+        {
+            
+            var Query = (from c in ctx.Carteleras where c.IdVersion == version && c.IdPelicula == pelicula select c).ToList();
+            
+            return Query;
+        }
+
     }
 }

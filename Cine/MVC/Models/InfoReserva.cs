@@ -16,5 +16,6 @@ namespace MVC.Models
         public int IdSede { set; get; }
         public int Horarios { get; set; }
 
+
     }
 }

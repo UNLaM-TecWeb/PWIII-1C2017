@@ -17,20 +17,39 @@ namespace MVC.Controllers
         ManejoSedes serviciosSedes = new ManejoSedes();
         ManejoTipoDocumento servicioTipoDoc = new ManejoTipoDocumento();
         ManejoPeliculas servicioPelicula = new ManejoPeliculas();
+        ManejoCarteleras servicioCarteleras = new ManejoCarteleras();
        
 
-        public ActionResult ReservasVersiones(int id)
+        public ActionResult ReservasVersiones(int id) // Recibo el IdPelicula
         {
-            if (Session["IdUsuario"] == null)
-            {
-                //TempData["urlController"] = Request.RequestContext.RouteData.Values["controller"].ToString();
-                //TempData["urlAction"] = Request.RequestContext.RouteData.Values["action"].ToString();
-                return RedirectToAction("Login", "Home");
-            }
+            DateTime fecha = DateTime.Now.AddDays(30);
 
-            ViewBag.Versiones = servicioReserva.TraerVersiones(); // Traigo las reserva de la base de datos
+            // Traigo las carteleras en donde figure esa pelicula y este dentro del rango de fecha valido (De hoy a maximo 30 dias de inicio)
+            List<Carteleras> listaCarteleras = servicioCarteleras.TraerCarteleraPorPeliculaYFecha(id, fecha, DateTime.Now);
+
+            // Traigo las versiones sin repetir
+            List<Versiones> listaVersiones = servicioReserva.ListarVersiones(listaCarteleras);
+
+            ViewBag.Versiones = listaVersiones;
+            ViewBag.Pelicula = id;
            
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult ReservasVersiones(Reservas r) // Recibo IdPelicula, IdVersion
+        {
+            // En base al Id Pelicula y Id Version, Obtengo las Sedes que la pasan
+            List<Carteleras> listaCarteleras = servicioCarteleras.TraerCartelerasPorVersionYPelicula(r.IdVersion, r.IdPelicula);
+
+            // Traigo las Sedes sin repetirlas
+            List<Sedes> listaSedes = servicioReserva.ListarSedes(listaCarteleras);
+
+            ViewBag.Version = r.IdVersion;
+            ViewBag.Pelicula = r.IdPelicula;
+            ViewBag.Sedes = listaSedes;
+
+            return View("ReservasSedes");
         }
 
         public ActionResult ReservasDias(int id)
@@ -50,11 +69,6 @@ namespace MVC.Controllers
         /// <returns></returns>
         public ActionResult ReservasSedes(int id)
         {
-            if (Session["IdUsuario"] == null)
-            {
-                return RedirectToAction("Login", "Home");
-            }
-
             List<Reservas> listaReservas = servicioReserva.TraerReservaTotal();
             List<InfoReserva> listaInfoReserva = new List<InfoReserva>();
 
@@ -72,26 +86,12 @@ namespace MVC.Controllers
         public ActionResult ReservasHorarios(int id)
         {
 
-            if (Session["IdUsuario"] == null)
-            {
-                //TempData["urlController"] = Request.RequestContext.RouteData.Values["controller"].ToString();
-                //TempData["urlAction"] = Request.RequestContext.RouteData.Values["action"].ToString();
-                return RedirectToAction("Login", "Home");
-            }
-
             ViewBag.Horarios = servicioReserva.TraerHorario();
             return View();
         }
 
         public ActionResult ClienteReserva(Reservas r)
         {
-
-            if (Session["IdUsuario"] == null)
-            {
-                //TempData["urlController"] = Request.RequestContext.RouteData.Values["controller"].ToString();
-                //TempData["urlAction"] = Request.RequestContext.RouteData.Values["action"].ToString();
-                return RedirectToAction("Login", "Home");
-            }
 
             ViewBag.TipoDocumento = servicioTipoDoc.TraerTipodocumentos();
             servicioReserva.TraerReserva(r);

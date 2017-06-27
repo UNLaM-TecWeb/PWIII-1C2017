@@ -123,11 +123,6 @@ namespace Logica
             return false;
         }
 
-        public int? TransformarHora(int h)
-        {
-
-            return null;
-        }
 
         public string FormatoDia(DateTime fecha)
         {
@@ -143,6 +138,17 @@ namespace Logica
                 return fecha.Month.ToString("D2");
 
             return fecha.Month.ToString();
+        }
+
+        public List<Carteleras> TraerCarteleraPorPeliculaYFecha(int id, DateTime limite, DateTime hoy)
+        {
+
+            return pCartelera.ObtenerCartelerasPorPeliculaFecha(id, limite, hoy);
+        }
+
+        public List<Carteleras> TraerCartelerasPorVersionYPelicula(int version, int pelicula)
+        {
+            return pCartelera.ObtenerCartelerasVersionPelicula(version, pelicula);
         }
 
     }
