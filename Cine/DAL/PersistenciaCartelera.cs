@@ -94,8 +94,12 @@ namespace DAL
 
         public List<Carteleras> ObtenerCartelerasPorPeliculaFecha(int id, DateTime limite, DateTime hoy)
         {
-            var Query = (from c in ctx.Carteleras where c.IdPelicula == id && c.FechaInicio <= limite && c.FechaInicio >= hoy select c).ToList();
-
+            var Query = (from c in ctx.Carteleras 
+                                                where 
+                                                c.IdPelicula == id &&
+                                                (c.FechaInicio >= hoy && c.FechaInicio <= limite) ||
+                                                (c.FechaFin <= limite && c.FechaFin >= hoy)
+                                                select c).ToList();
             return Query;
         }
 

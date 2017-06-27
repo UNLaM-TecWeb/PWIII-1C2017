@@ -8,6 +8,7 @@ namespace MVC.Models
     public class PeliculasInicio
     {
         public int IdCartelera { get; set; }
+        public int IdPelicula { get; set; }
         public string Imagen { get; set; }
         public string Nombre { get; set; }
         public string Genero { get; set; }

@@ -34,6 +34,7 @@ namespace MVC.Controllers
             {
                 PeliculasInicio info = new PeliculasInicio();
                 info.IdCartelera = cartelera.IdCartelera;
+                info.IdPelicula = cartelera.IdPelicula;
                 info.Imagen = servicioPeliculas.TraerPelicula(cartelera.IdPelicula).Imagen;
                 info.Nombre = servicioPeliculas.TraerPelicula(cartelera.IdPelicula).Nombre;
                 info.Genero = servicioPeliculas.TraerGenero(servicioPeliculas.TraerPelicula(cartelera.IdPelicula).IdGenero).Nombre;

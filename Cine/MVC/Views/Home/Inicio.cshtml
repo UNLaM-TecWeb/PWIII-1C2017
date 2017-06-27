@@ -35,7 +35,7 @@
                           <img src="~/Content/Upload/@cartelera.Imagen" class="img-thumbnail" />
                           <span><b>@cartelera.Nombre</b></span><br />
                           <span class="label label-success">@cartelera.Genero</span> <span class="label label-warning">@cartelera.Calificacion</span><hr />
-                          @Html.ActionLink("Comprar", "ReservasVersiones", "Peliculas", new { id = @cartelera.IdCartelera }, new {@class = "btn btn-info btn-block" })
+                          @Html.ActionLink("Comprar", "ReservasVersiones", "Peliculas", new { id = @cartelera.IdPelicula }, new {@class = "btn btn-info btn-block" })
                       </div>
                     </div>
               </div>
