@@ -22,6 +22,7 @@ namespace Entidades
             public string Direccion { get; set; }
 
             [Required]
+            [Range(1, 300, ErrorMessage = "El Precio de la entrada debe estar entre 1 y 300 pesos")]
             public decimal PrecioGeneral { get; set; }
         }
     }

@@ -84,11 +84,11 @@
                       <div class="panel-body">
 
                         @Html.Label("FechaInicio", "Fecha de Inicio")
-                        @Html.TextBox("FechaInicio", null, new { @class = "form-control", type = "Date", Value = Model.FechaInicio })
+                        @Html.TextBox("FechaInicio", null, new { @class = "form-control", type = "Date", Value = ViewBag.fechaInicio })
                         @Html.ValidationMessageFor(model => model.FechaInicio, "", new { @class = "text-danger" })
                         
                         @Html.Label("FechaFin", "Fecha de Fin")
-                        @Html.TextBox("FechaFin", null, new { @class = "form-control", type = "Date", Value = Model.FechaFin })
+                        @Html.TextBox("FechaFin", null, new { @class = "form-control", type = "Date", Value = ViewBag.fechaFin })
                         @Html.ValidationMessageFor(model => model.FechaFin, "", new { @class = "text-danger" })
                       </div>
                     </div>
@@ -117,3 +117,4 @@
              </div>
         </div>
     </div>
+
