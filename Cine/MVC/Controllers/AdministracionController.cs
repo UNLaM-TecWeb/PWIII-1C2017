@@ -103,7 +103,14 @@ namespace MVC.Controllers
             ViewBag.Peliculas = servicioPeliculas.TraerPeliculas(); // Traigo todas las peliculas
             ViewBag.Versiones = servicioPeliculas.TraerVersiones(); // Traigo todas las versiones
 
+            DateTime fechaInicio = servicioCarteleras.TraerCartelera(id).FechaInicio;
+            DateTime fechaFin = servicioCarteleras.TraerCartelera(id).FechaFin;
 
+            string fechaInicioString = fechaInicio.Year.ToString() + "-" + servicioCarteleras.FormadoMes(fechaInicio) + "-" + servicioCarteleras.FormatoDia(fechaInicio);
+            string fechaFinString = fechaFin.Year.ToString() + "-" + servicioCarteleras.FormadoMes(fechaFin) + "-" + servicioCarteleras.FormatoDia(fechaFin);
+
+            ViewBag.fechaInicio = fechaInicioString;
+            ViewBag.fechaFin = fechaFinString;
 
             return View(servicioCarteleras.TraerCartelera(id));
         }
@@ -282,6 +289,7 @@ namespace MVC.Controllers
         {
             ViewBag.sede = servicioSedes.TraerSede(id);
             ViewBag.sede.PrecioGeneral = Convert.ToInt32(ViewBag.sede.PrecioGeneral);
+            
             return View();
         }
 

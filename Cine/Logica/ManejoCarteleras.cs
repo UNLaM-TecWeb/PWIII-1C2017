@@ -129,5 +129,21 @@ namespace Logica
             return null;
         }
 
+        public string FormatoDia(DateTime fecha)
+        {
+            if (fecha.Day.ToString().Length == 1)
+                return fecha.Day.ToString("D2");
+
+            return fecha.Day.ToString();
+        }
+
+        public string FormadoMes(DateTime fecha)
+        {
+            if(fecha.Month.ToString().Length == 1)
+                return fecha.Month.ToString("D2");
+
+            return fecha.Month.ToString();
+        }
+
     }
 }
