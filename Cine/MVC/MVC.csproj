@@ -117,10 +117,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\FormatoDia.cs" />
+    <Compile Include="Models\InfoHoraInicio.cs" />
     <Compile Include="Models\InfoReserva.cs" />
     <Compile Include="Models\PeliculasInicio.cs" />
     <Compile Include="Models\InfoCarteleras.cs" />
     <Compile Include="Models\InfoReportes.cs" />
+    <Compile Include="Models\ReservaFechaFuncion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

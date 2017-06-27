@@ -13,6 +13,7 @@ namespace Logica
        PersistenciaReserva pReserva = new PersistenciaReserva();
        PersistenciaPeliculas pPelicula = new PersistenciaPeliculas();
        PersistenciaSedes pSede = new PersistenciaSedes();
+       PersistenciaCartelera pCartelera = new PersistenciaCartelera();
 
 
        public List<Versiones> TraerVersiones()
@@ -123,5 +124,25 @@ namespace Logica
        {
            return pReserva.ObtenerReservasPorPeriodo(i, f, p);
        }
+
+       public Carteleras TraerCarteleraSedePeliculaVersion(int sede, int pelicula, int version)
+       {
+
+           return pCartelera.ObtenerCarteleraSedePeliculaVersion(sede, pelicula, version);
+       }
+
+       public int ArmarHora(int hora, int duracion)
+       {
+           int HoraMinutos = hora * 60;
+
+           int Hora = (HoraMinutos + 30 + duracion) / 60;
+
+           if (Hora > 24)
+           {
+               Hora = Hora - 24;
+           }
+           return Hora;
+       }
+
     }
 }

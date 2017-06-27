@@ -52,51 +52,138 @@ namespace MVC.Controllers
             return View("ReservasSedes");
         }
 
-        public ActionResult ReservasDias(int id)
+        [HttpPost]
+        public ActionResult ReservasSedes(Reservas r) 
         {
-            if (Session["IdUsuario"] == null)
-            {
-               
-                return RedirectToAction("Login", "Home");
-            }
-            ViewBag.Dias = servicioReserva.TraerDias();
-            return View();
-        }
-        /// <summary>
-        /// lleno el combo sede segun el tipo de 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public ActionResult ReservasSedes(int id)
-        {
-            List<Reservas> listaReservas = servicioReserva.TraerReservaTotal();
-            List<InfoReserva> listaInfoReserva = new List<InfoReserva>();
+            // Traigo la Fecha de Inicio y la Fecha de fin de la cartelera
+            DateTime FechaInicio = servicioReserva.TraerCarteleraSedePeliculaVersion(r.IdSede, r.IdPelicula, r.IdVersion).FechaInicio;
+            DateTime FechaFin = servicioReserva.TraerCarteleraSedePeliculaVersion(r.IdSede, r.IdPelicula, r.IdVersion).FechaFin;
 
-            foreach (Reservas reserva in listaReservas)
+            // Almaceno en una variable las fechas
+            List<FormatoDia> listaDias = new List<FormatoDia>();
+
+            // Genero las funciones
+            for (var i = FechaInicio; i <= FechaFin; i = i.AddDays(1))
             {
-                InfoReserva infoReserva = new InfoReserva();
-                infoReserva.Sede = serviciosSedes.TraerSede(reserva.IdSede).Nombre;
-                listaInfoReserva.Add(infoReserva);
+                FormatoDia dia = new FormatoDia();
+                dia.id = i.Day.ToString("D2") + i.Month.ToString("D2") + i.Year.ToString();
+                dia.fecha = i.ToString("dd/MM/yyyy");
+                listaDias.Add(dia);
             }
 
-            ViewBag.Sedes = serviciosSedes.TraerSedes();
+            ViewBag.Version = r.IdVersion;
+            ViewBag.Pelicula = r.IdPelicula;
+            ViewBag.Sede = r.IdSede;
+            ViewBag.Dias = listaDias;
+
+            return View("ReservasDias");
+
+        }
+
+        [HttpPost]
+        public ActionResult ReservasDias(Reservas r)
+        {
+            // Traigo el horario de inicio de la cartelera
+            int HoraInicio = servicioReserva.TraerCarteleraSedePeliculaVersion(r.IdSede, r.IdPelicula, r.IdVersion).HoraInicio;
+
+            // Guardo la duracion de la pelicula
+            int DuracionPelicula = servicioPelicula.TraerPelicula(r.IdPelicula).Duracion;
+
+            List<InfoHoraInicio> listaFunciones = new List<InfoHoraInicio>();
+
+            // Genero las funciones
+            for (var i = 0; i < 8; i++)
+            {
+                InfoHoraInicio info = new InfoHoraInicio();
+
+                info.Hora = HoraInicio;
+                if (i == 0)
+                {
+                    info.funcion = "Funcion " + (i + 1) + ": " + HoraInicio + "Hs.";
+                }
+                else
+                {
+                    info.funcion = "Funcion " + (i + 1) + ": " + servicioReserva.ArmarHora(HoraInicio, DuracionPelicula) + "Hs.";
+                }
+
+
+                HoraInicio = servicioReserva.ArmarHora(HoraInicio, DuracionPelicula);
+                listaFunciones.Add(info);
+            }
+
+            ViewBag.Version = r.IdVersion;
+            ViewBag.Pelicula = r.IdPelicula;
+            ViewBag.Sede = r.IdSede;
+            ViewBag.Funciones = listaFunciones;
             return View();
         }
 
-        public ActionResult ReservasHorarios(int id)
+        [HttpPost]
+        public ActionResult ReservaHorarios(FormatoDia f)
         {
+            // Traigo el horario de inicio de la cartelera
+            int HoraInicio = servicioReserva.TraerCarteleraSedePeliculaVersion(f.IdSede, f.IdPelicula, f.IdVersion).HoraInicio;
 
-            ViewBag.Horarios = servicioReserva.TraerHorario();
-            return View();
+            // Guardo la duracion de la pelicula
+            int DuracionPelicula = servicioPelicula.TraerPelicula(f.IdPelicula).Duracion;
+
+            List<InfoHoraInicio> listaFunciones = new List<InfoHoraInicio>();
+
+            // Genero las funciones
+            for (var i = 0; i < 7; i++)
+            {
+                InfoHoraInicio info = new InfoHoraInicio();
+
+                info.Hora = HoraInicio;
+                if (i == 0)
+                {
+                    info.funcion = "Funcion " + (i + 1) + ": " + HoraInicio + "Hs.";
+                }
+                else
+                {
+                    info.funcion = "Funcion " + (i + 1) + ": " + servicioReserva.ArmarHora(HoraInicio, DuracionPelicula).ToString("D2") + "Hs.";
+                }
+
+                HoraInicio = servicioReserva.ArmarHora(HoraInicio, DuracionPelicula);
+
+                
+                listaFunciones.Add(info);
+            }
+
+          
+
+            ViewBag.Horarios = listaFunciones;
+            ViewBag.Fecha = f.id;
+            ViewBag.Version = f.IdVersion;
+            ViewBag.Pelicula = f.IdPelicula;
+            ViewBag.Sede = f.IdSede;
+
+            return View("ReservasHorarios");
+
         }
 
-        public ActionResult ClienteReserva(Reservas r)
+        [HttpPost]
+        public ActionResult ClienteReserva(FormatoDia f)
         {
+            // Convierto el id numerico que representaba la fecha en string
+            string fechaString = Convert.ToString(f.Hora);
 
-            ViewBag.TipoDocumento = servicioTipoDoc.TraerTipodocumentos();
-            servicioReserva.TraerReserva(r);
-            //ViewBag.Peliculas = servicioPelicula.TraerPelicula();   
+            // Separo la fecha
+            string dia = fechaString.Substring(0, 2);
+            string mes = fechaString.Substring(2, 2);
+            string anio = fechaString.Substring(4, 4);
+
+            // Las agrupo con separadores
+            string fechaStringArmada = dia + "/" + mes + "/" + anio;
+
+            // La convierto a Datetime
+            DateTime fechaFinal = Convert.ToDateTime(fechaStringArmada);
+
+            // Le agrego la hora
+            //fechaFinal.AddHours();
+            
             return View();
         }
     }
+
 }

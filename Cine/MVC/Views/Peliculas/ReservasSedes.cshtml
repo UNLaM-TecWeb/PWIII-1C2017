@@ -1,44 +1,33 @@
 ﻿@model Entidades.Reservas
 @{
-    ViewBag.Title = "ReservasSedes";
+    ViewBag.Title = "ReservasVersiones";
     Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
 
-<link href="~/Content/Css/StyleLogin.css" rel="stylesheet" />
-<script src="~/Content/Js/ValidacionLogin.js"></script>
-<script src="~/Content/Js/Reserva.js"></script>
-
-<h3 class="text-center">Reserva - Entrada</h3>
 <div class="container">
-
-
-    <div class="container">
-        <!-- Formulario - Nueva Pelicula -->
-
-        <!-- Formulario - Asignar Pelicula a Sala -->
-        <div class="row">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title text-center">Reserva de Entrada</h3>
-                </div>
-                <div class="panel-body">
-                    @using (Html.BeginForm())
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading fondoCabecera">
+                <h3 class="panel-title text-center"><img src="~/Content/Images/logo.png" alt="Logo de Cinelam" /></h3>
+            </div>
+        <div class="panel-body text-center">
+            <h5 class="text-center">Sigue lo siguientes pasos para realizar tu reserva.</h5>
+            <img src="~/Content/Images/paso1OFF.png" /> <img src="~/Content/Images/paso2.png" /> <img src="~/Content/Images/paso3OFF.png" /> <img src="~/Content/Images/paso4OFF.png" /> <br /><br />
+                    @using (Html.BeginForm("ReservasSedes", "Peliculas", FormMethod.Post))
                     {
-                        <div class="col-md-3">
+                        <div class="col-md-12">
                             <div class="panel panel-default">
-                                <div class="panel-heading text-center">
-                                    @Html.Label("Sedes", new { @class = "panel-title text-center" })
+                                <div class="panel-heading fondoCabeceraAdmin2">
+                                    @Html.Label("Seleccionar una Sede", new { @class = "panel-title " })
                                 </div>
                                 <div class="panel-body">
-
                                     @Html.DropDownListFor(model => model.IdSede, new SelectList(ViewBag.Sedes, "IdSede", "Nombre"), new { @class = "form-control" })
-
                                 </div>
                             </div>
-                            <div id="Version" class="text-center">
-                                <a href="/Peliculas/ClienteReserva?id=SoldadoArgentino" class="btn btn-success">Comprar Entrada</a>
-                                <a href="/Peliculas/ReservasDias?id=1" class="btn btn-success">Elegir Dias</a>
-                            </div>
+                                @Html.TextBox("IdPelicula", null, new{@class = "hidden", Value = ViewBag.Pelicula})
+                                @Html.TextBox("IdVersion", null, new{@class = "hidden", Value = ViewBag.Version})
+                                                
+                                <button type="submit" class="btn btn-danger btn-block" >Ir al Paso 3</button>
                         </div>
                     }
                 </div>

@@ -24,7 +24,8 @@
                                     @Html.DropDownListFor(model => model.IdVersion, new SelectList(ViewBag.Versiones, "IdVersion", "Nombre"), new { @class = "form-control" })
                                 </div>
                             </div>
-                                @Html.TextBox("IdPelicula", new{type = "hidden", Value = ViewBag.Pelicula})
+                                @Html.TextBox("IdPelicula", null, new{@class = "hidden", Value = ViewBag.Pelicula})
+
                                 <button type="submit" class="btn btn-danger btn-block" >Ir al Paso 2</button>
                         </div>
                     }

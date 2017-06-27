@@ -107,5 +107,10 @@ namespace DAL
             return Query;
         }
 
+        public Carteleras ObtenerCarteleraSedePeliculaVersion(int sede, int pelicula, int version)
+        {
+            var Query = (from c in ctx.Carteleras where c.IdPelicula == pelicula && c.IdSede == sede && c.IdVersion == version select c).First();
+            return Query;
+        }
     }
 }
