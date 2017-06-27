@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Entidades;
+using MVC.Models;
 
 namespace MVC.Controllers
 {
@@ -16,9 +17,16 @@ namespace MVC.Controllers
         ManejoSedes serviciosSedes = new ManejoSedes();
         ManejoTipoDocumento servicioTipoDoc = new ManejoTipoDocumento();
         ManejoPeliculas servicioPelicula = new ManejoPeliculas();
+       
 
         public ActionResult ReservasVersiones(int id)
         {
+
+
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             ViewBag.Versiones = servicioReserva.TraerVersiones(); // Traigo las reserva de la base de datos
             //ViewBag.Sedes = serviciosSedes.TraerSedes();
             //ViewBag.Dias = servicioReserva.TraerDias();
@@ -28,24 +36,57 @@ namespace MVC.Controllers
 
         public ActionResult ReservasDias(int id)
         {
+
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
+
             ViewBag.Dias = servicioReserva.TraerDias();
             return View();
         }
 
         public ActionResult ReservasSedes(int id)
         {
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
+
+            List<Reservas> listaReservas = servicioReserva.TraerReservaTotal();
+            List<InfoReserva> listaInfoReserva = new List<InfoReserva>();
+
+            foreach (Reservas reserva in listaReservas)
+            {
+                InfoReserva infoReserva = new InfoReserva();
+                infoReserva.Sede = serviciosSedes.TraerSede(reserva.IdSede).Nombre;
+                listaInfoReserva.Add(infoReserva);
+            }
+
             ViewBag.Sedes = serviciosSedes.TraerSedes();
             return View();
         }
 
         public ActionResult ReservasHorarios(int id)
         {
+
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
+
             ViewBag.Horarios = servicioReserva.TraerHorario();
             return View();
         }
 
         public ActionResult ClienteReserva(Reservas r)
         {
+
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
+
             ViewBag.TipoDocumento = servicioTipoDoc.TraerTipodocumentos();
             servicioReserva.TraerReserva(r);
             //ViewBag.Peliculas = servicioPelicula.TraerPelicula();   

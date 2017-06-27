@@ -12,7 +12,7 @@ namespace DAL
         MyContext ctx = new MyContext();
 
 
-       
+        PersistenciaCartelera pCarteleras = new PersistenciaCartelera();
 
         public void Almacenar(Sedes se) // Guardo la Sede en la DB
         {
@@ -22,6 +22,7 @@ namespace DAL
 
         public List<Sedes> ObtenerSedes() // Obtengo todas las sedes de la DB
         {
+           
             var sedes = (from s in ctx.Sedes select s).ToList();
             return sedes;
         }
@@ -59,5 +60,30 @@ namespace DAL
             ctx.SaveChanges();
 
         }
+
+        //public List<Sedes> ObtenerSegunVersionPelicula(int id)
+        //{
+        //    Carteleras car =  new Carteleras();
+        //    Versiones versi = new Versiones();
+        //    Sedes sede = new Sedes();
+        //    var query = from s in ctx.Sedes where s.IdSede == car.IdSede select s;
+
+        //    return query;
+            
+        //}
+
+        //public List<Sedes> ObtenerSedeSegunVersionPelicula(int idversion)
+        //{
+
+
+        //    //var Query = (from c in ctx.Carteleras where c.IdVersion == idversion select c).ToList();
+
+        //    //var sede = (from se in ctx.Sedes where se.IdSede = Query.IdSede) select se).ToList();
+        //    //return sede;
+
+        
+        //}
+
+
     }
 }

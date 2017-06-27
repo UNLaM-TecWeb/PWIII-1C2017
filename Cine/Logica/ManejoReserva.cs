@@ -49,5 +49,10 @@ namespace Logica
        {
            return pReserva.ObtenerReservasPorPeriodo(i, f, p);
        }
+
+       public List<Reservas> TraerReservaTotal()
+       {
+           return pReserva.ObtenerReserva();
+       }
     }
 }

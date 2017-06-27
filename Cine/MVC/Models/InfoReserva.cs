@@ -11,5 +11,9 @@ namespace MVC.Models
         public string Version { set; get; }
         public string Pelicula { set; get; }
         public decimal Precio { set; get; }
+        public int IdVersion { set; get; }
+        public int IdCartelera { set; get; }
+        public int IdSede { set; get; }
+
     }
 }

@@ -105,5 +105,11 @@ namespace DAL
            var Query = (from r in ctx.Reservas where r.FechaCarga >= inicio && r.FechaCarga <= fin && r.IdPelicula == p select r).ToList();
            return Query;
        }
+
+       public List<Reservas> ObtenerReserva()
+       {
+           var Query = (from r in ctx.Reservas select r).ToList();
+           return Query;
+       }
     }
 }
