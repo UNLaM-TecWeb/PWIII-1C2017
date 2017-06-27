@@ -37,11 +37,9 @@ namespace MVC.Controllers
         {
             if (Session["IdUsuario"] == null)
             {
-                //TempData["urlController"] = Request.RequestContext.RouteData.Values["controller"].ToString();
-                //TempData["urlAction"] = Request.RequestContext.RouteData.Values["action"].ToString();
+               
                 return RedirectToAction("Login", "Home");
             }
-
             ViewBag.Dias = servicioReserva.TraerDias();
             return View();
         }
