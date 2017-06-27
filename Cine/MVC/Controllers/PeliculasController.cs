@@ -21,24 +21,24 @@ namespace MVC.Controllers
 
         public ActionResult ReservasVersiones(int id)
         {
-
-
             if (Session["IdUsuario"] == null)
             {
+                TempData["urlController"] = Request.RequestContext.RouteData.Values["controller"].ToString();
+                TempData["urlAction"] = Request.RequestContext.RouteData.Values["action"].ToString();
                 return RedirectToAction("Login", "Home");
             }
+
             ViewBag.Versiones = servicioReserva.TraerVersiones(); // Traigo las reserva de la base de datos
-            //ViewBag.Sedes = serviciosSedes.TraerSedes();
-            //ViewBag.Dias = servicioReserva.TraerDias();
-            //ViewBag.Horarios = servicioReserva.TraerHorario();
+           
             return View();
         }
 
         public ActionResult ReservasDias(int id)
         {
-
             if (Session["IdUsuario"] == null)
             {
+                //TempData["urlController"] = Request.RequestContext.RouteData.Values["controller"].ToString();
+                //TempData["urlAction"] = Request.RequestContext.RouteData.Values["action"].ToString();
                 return RedirectToAction("Login", "Home");
             }
 
@@ -50,6 +50,8 @@ namespace MVC.Controllers
         {
             if (Session["IdUsuario"] == null)
             {
+                //TempData["urlController"] = Request.RequestContext.RouteData.Values["controller"].ToString();
+                //TempData["urlAction"] = Request.RequestContext.RouteData.Values["action"].ToString();
                 return RedirectToAction("Login", "Home");
             }
 
@@ -72,6 +74,8 @@ namespace MVC.Controllers
 
             if (Session["IdUsuario"] == null)
             {
+                //TempData["urlController"] = Request.RequestContext.RouteData.Values["controller"].ToString();
+                //TempData["urlAction"] = Request.RequestContext.RouteData.Values["action"].ToString();
                 return RedirectToAction("Login", "Home");
             }
 
@@ -84,6 +88,8 @@ namespace MVC.Controllers
 
             if (Session["IdUsuario"] == null)
             {
+                //TempData["urlController"] = Request.RequestContext.RouteData.Values["controller"].ToString();
+                //TempData["urlAction"] = Request.RequestContext.RouteData.Values["action"].ToString();
                 return RedirectToAction("Login", "Home");
             }
 

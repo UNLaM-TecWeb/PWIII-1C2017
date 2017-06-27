@@ -22,9 +22,9 @@
                 
                    <h2 class="text-center">Login</h2>
 
-                    <hr class="colorgraph">
+                    
                     <div class="form-group">
-                        @Html.Label("Email")
+                        @Html.Label("Nombre")
                         @Html.TextBoxFor(m => m.NombreUsuario, new { @class = "form-control input-lg" })
                         @Html.ValidationMessageFor(model => model.NombreUsuario, "", new { @class = "text-danger" }) 
                          
@@ -35,7 +35,7 @@
                         @Html.ValidationMessageFor(model => model.Password)
                     </div>
 
-                    <hr class="colorgraph">
+               
                     <div class="row">
                         <div class="center">
                             <input type="submit" class="btn btn-lg btn-success btn-block" value="Login">

@@ -31,10 +31,7 @@
                                     @Html.Label("Versión de la pelicula", new { @class = "panel-title text-center" })
                                 </div>
                                 <div class="panel-body">
-
-
                                     @Html.DropDownListFor(model => model.IdVersion, new SelectList(ViewBag.Versiones, "IdVersion", "Nombre"), new { @class = "form-control" })
-
 
                                 </div>
                             </div>
