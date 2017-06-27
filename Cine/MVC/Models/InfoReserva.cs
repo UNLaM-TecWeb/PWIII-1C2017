@@ -14,6 +14,7 @@ namespace MVC.Models
         public int IdVersion { set; get; }
         public int IdCartelera { set; get; }
         public int IdSede { set; get; }
+        public int Horarios { get; set; }
 
     }
 }

@@ -23,8 +23,8 @@ namespace MVC.Controllers
         {
             if (Session["IdUsuario"] == null)
             {
-                TempData["urlController"] = Request.RequestContext.RouteData.Values["controller"].ToString();
-                TempData["urlAction"] = Request.RequestContext.RouteData.Values["action"].ToString();
+                //TempData["urlController"] = Request.RequestContext.RouteData.Values["controller"].ToString();
+                //TempData["urlAction"] = Request.RequestContext.RouteData.Values["action"].ToString();
                 return RedirectToAction("Login", "Home");
             }
 
@@ -45,13 +45,15 @@ namespace MVC.Controllers
             ViewBag.Dias = servicioReserva.TraerDias();
             return View();
         }
-
+        /// <summary>
+        /// lleno el combo sede segun el tipo de 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult ReservasSedes(int id)
         {
             if (Session["IdUsuario"] == null)
             {
-                //TempData["urlController"] = Request.RequestContext.RouteData.Values["controller"].ToString();
-                //TempData["urlAction"] = Request.RequestContext.RouteData.Values["action"].ToString();
                 return RedirectToAction("Login", "Home");
             }
 
