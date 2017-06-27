@@ -72,26 +72,11 @@ namespace DAL
        }
 
 
-       //public void GuardarReserva(Reservas reserva)
-       //{
-       //    //esta lineas es la q van
-         
-
-       //        ctx.Reservas.Add(reserva);
-       //        ctx.SaveChanges();
-         
-           
-       //    //var query = (from re in ctx.Reservas where re.IdReserva == reserva.IdReserva select re).ToList(); ;
-       //    //Reservas rese = new Reservas();
-       //    //foreach(Reservas re in query)
-       //    //{
-       //    //rese.Email = reserva.Email;
-       //    //rese.NumeroDocumento = reserva.NumeroDocumento;
-       //    //rese.CantidadEntradas = reserva.CantidadEntradas;
-       //    //}
-
-       //    //ctx.SaveChanges();
-       //}
+       public void GuardarReserva(Reservas reserva)
+       {
+           ctx.Reservas.Add(reserva);
+           ctx.SaveChanges();
+       }
 
       
        public void ObtenerReserva(Reservas r)

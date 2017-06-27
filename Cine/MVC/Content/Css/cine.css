@@ -32,6 +32,11 @@ body {
     width: 100px;
 }
 
+.tamanoTapa {
+
+    width: 300px;
+}
+
 .espacio {
     padding: 10px 0;
 }

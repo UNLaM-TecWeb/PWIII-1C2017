@@ -166,23 +166,49 @@ namespace MVC.Controllers
         public ActionResult ClienteReserva(FormatoDia f)
         {
             // Convierto el id numerico que representaba la fecha en string
-            string fechaString = Convert.ToString(f.Hora);
+            string fechaString = Convert.ToString(f.fecha);
 
             // Separo la fecha
             string dia = fechaString.Substring(0, 2);
             string mes = fechaString.Substring(2, 2);
             string anio = fechaString.Substring(4, 4);
 
+
             // Las agrupo con separadores
             string fechaStringArmada = dia + "/" + mes + "/" + anio;
-
             // La convierto a Datetime
             DateTime fechaFinal = Convert.ToDateTime(fechaStringArmada);
 
             // Le agrego la hora
-            //fechaFinal.AddHours();
+            TimeSpan ts = new TimeSpan(f.Hora, 00, 0);
+            fechaFinal = fechaFinal.Date + ts;
+
+            // Instancio una reserva
+            Reservas reserva = new Reservas();
+            reserva.IdPelicula = f.IdPelicula;
+            reserva.IdSede = f.IdSede;
+            reserva.IdVersion = f.IdVersion;
+            reserva.FechaHoraInicio = fechaFinal;
+            TempData["f"] = reserva.FechaHoraInicio;
+
+            ViewBag.Pelicula = servicioPelicula.TraerPelicula(f.IdPelicula);
+            ViewBag.Version = servicioReserva.TraerVersion(f.IdVersion).Nombre;
+            ViewBag.Sede = serviciosSedes.TraerSede(f.IdSede).Nombre;
+            ViewBag.Entrada = serviciosSedes.TraerSede(f.IdSede).PrecioGeneral;
+            ViewBag.Genero = servicioPelicula.TraerGenero(servicioPelicula.TraerPelicula(f.IdPelicula).IdGenero).Nombre;
+            ViewBag.Calificacion = servicioPelicula.TraerCalificacion(servicioPelicula.TraerPelicula(f.IdPelicula).IdCalificacion).Nombre;
+            ViewBag.TipoDocumento = servicioReserva.TraerTiposDocumento();
             
-            return View();
+            return View(reserva);
+        }
+
+        [HttpPost]
+        public ActionResult TerminarReserva(Reservas r)
+        {
+            r.FechaCarga = DateTime.Now;
+            r.FechaHoraInicio = Convert.ToDateTime(TempData["f"]);
+            servicioReserva.GuardarReserva(r);
+            return RedirectToAction("Inicio", "Home");
         }
     }
 

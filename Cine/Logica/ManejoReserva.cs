@@ -14,6 +14,7 @@ namespace Logica
        PersistenciaPeliculas pPelicula = new PersistenciaPeliculas();
        PersistenciaSedes pSede = new PersistenciaSedes();
        PersistenciaCartelera pCartelera = new PersistenciaCartelera();
+       PersistenciaTipoDocumento pDoc = new PersistenciaTipoDocumento();
 
 
        public List<Versiones> TraerVersiones()
@@ -142,6 +143,16 @@ namespace Logica
                Hora = Hora - 24;
            }
            return Hora;
+       }
+
+       public List<TiposDocumentos> TraerTiposDocumento()
+       {
+           return pDoc.ObtenerTipoDocumentos();
+       }
+
+       public void GuardarReserva(Reservas r)
+       {
+           pReserva.GuardarReserva(r);
        }
 
     }

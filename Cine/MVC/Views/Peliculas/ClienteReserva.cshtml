@@ -11,18 +11,16 @@
                 <h3 class="panel-title text-center"><img src="~/Content/Images/logo.png" alt="Logo de Cinelam" /></h3>
             </div>
         <div class="panel-body text-center">
-                    @using (Html.BeginForm())
-                    {
                         <div class="col-md-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading fondoCabeceraAdmin2">
                                     @Html.Label("Informacion sobre la reserva", new { @class = "panel-title " })
                                 </div>
                                 <div class="panel-body">
-                                    <div class="col-md-3"><strong>Pelicula:</strong> Logan</div>
-                                    <div class="col-md-3"><strong>Version:</strong> Subtitulada</div>
-                                    <div class="col-md-3"><strong>Sede:</strong> Cinema Devoto</div>
-                                    <div class="col-md-3"><strong>Dia:</strong> 15/05/2017 (Funcion 1: 10Hs)</div>
+                                    <div class="col-md-3"><strong>Pelicula:</strong> @ViewBag.Pelicula.Nombre</div>
+                                    <div class="col-md-3"><strong>Version:</strong> @ViewBag.Version</div>
+                                    <div class="col-md-3"><strong>Sede:</strong> @ViewBag.Sede</div>
+                                    <div class="col-md-3"><strong>Dia:</strong> @Model.FechaHoraInicio Hs</div>
                                 </div>
                             </div>
 
@@ -31,16 +29,59 @@
                                     @Html.Label("Detalles de la Pelicula", new { @class = "panel-title " })
                                 </div>
                                 <div class="panel-body">
-                                    <div class="col-md-3"><strong>Pelicula:</strong> Logan</div>
-                                    <div class="col-md-3"><strong>Version:</strong> Subtitulada</div>
-                                    <div class="col-md-3"><strong>Sede:</strong> Cinema Devoto</div>
-                                    <div class="col-md-3"><strong>Dia:</strong> 15/05/2017 (Funcion 1: 10Hs)</div>
+                                    <div class="col-md-6">
+                                        <img src="~/Content/Upload/@ViewBag.Pelicula.Imagen" class="img-thumbnail tamanoTapa" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="col-md-6"><strong>Pelicula:</strong> @ViewBag.Pelicula.Nombre</div>
+                                        <div class="col-md-6"><strong>Genero:</strong> @ViewBag.Genero</div>
+                                        <div class="col-md-6"><strong>Calificacion:</strong> @ViewBag.Calificacion</div>
+                                        <div class="col-md-6"><strong>Precio de la Entrada: $</strong>@ViewBag.Entrada</div>
+                                        <div class="col-md-12"><strong>Descripcion:</strong><br /> @ViewBag.Pelicula.Descripcion</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading fondoCabeceraAdmin2">
+                                    @Html.Label("Datos del Cliente", new { @class = "panel-title " })
+                                </div>
+                                <div class="panel-body">
+                                    @using (Html.BeginForm("TerminarReserva", "Peliculas", FormMethod.Post))
+                                        {
+                                            @Html.Label("Email", "Correo Electronico")
+                                            @Html.TextBox("Email", null, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                            
+                                            <br />
+                                            @Html.Label("Calificacion")     
+                                            @Html.DropDownListFor(model => model.IdTipoDocumento, new SelectList(ViewBag.TipoDocumento, "IdTipoDocumento", "Descripcion"), new { @class = "form-control" })
+                                                   
+                                    
+                                            <br />
+                                            @Html.Label("NumeroDocumento","Numero de Documento")
+                                            @Html.TextBox("NumeroDocumento", null, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.NumeroDocumento, "", new { @class = "text-danger" })
+                                            <br />
+                                            @Html.Label("CantidadEntradas", "Cantidad de Entradas")
+                                            @Html.TextBox("CantidadEntradas", null, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.CantidadEntradas, "", new { @class = "text-danger" })
+
+                                            @Html.TextBox("IdPelicula", null, new{@class = "hidden", Value = Model.IdPelicula})
+                                            @Html.TextBox("IdVersion", null, new{@class = "hidden", Value = Model.IdVersion})
+                                            @Html.TextBox("IdSede", null, new{@class = "hidden", Value = Model.IdSede})
+                                            @Html.TextBox("FechaHoraInicio", null, new{@class = "hidden", type="date", Value = Model.FechaHoraInicio})
+                  
+                                            <br />
+                                            <button type="submit" class="btn btn-success btn-block" >Finalizar Reserva</button>
+                                        }
                                 </div>
                             </div>
                                                 
-                                <button type="submit" class="btn btn-danger btn-block" >Ir al Paso 4</button>
+                                
                         </div>
-                    }
+                    
                 </div>
             </div>
         </div>

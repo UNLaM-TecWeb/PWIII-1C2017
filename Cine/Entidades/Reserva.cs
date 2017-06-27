@@ -19,6 +19,7 @@ namespace Entidades
            public string Email { get; set; }
 
            [Required(ErrorMessage = "La cantidad de entrada es requerida")]
+           [Range(1, 10, ErrorMessage = "La cantidad maxima de entradas a comprar es 10")]
            public int CantidadEntradas { get; set; }
 
            [Required(ErrorMessage = "El numero de documento es requerido")]
